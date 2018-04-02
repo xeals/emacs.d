@@ -48,6 +48,7 @@
 (require 'lang-ess)
 (require 'lang-go)
 (require 'lang-haskell)
+(require 'lang-markdown)
 (require 'lang-markup)
 (require 'lang-org)
 (require 'lang-rust)
