@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: rp-character
+# key: rpchar
+# --
+*** ${1:Name}
+*${2:Sex} ${3:Race} ${4:Class}*: ${5:Alignment}, Level ${6:x} (CR ${7:x})
+| Str | Dex | Con | Int | Wis | Cha |
+|-----+-----+-----+-----+-----+-----|
+| ${8:a} | ${9:b} | ${10:c} | ${11:d} | ${12:e} | ${13:f} |
+
+${14:Description}

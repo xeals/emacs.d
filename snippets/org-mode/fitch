@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: fitch
+# key: fitch
+# --
+#+BEGIN_LATEX latex
+\begin{fitch}
+\fj ${1:first hypothesis} \\\\
+\fa $0
+($1) \rightarrow (${2:proof}) & $\rightarrow$-I, 1, X
+\end{fitch}
+#+END_LATEX

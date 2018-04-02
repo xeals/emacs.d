@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: ifelse
+# key: ifelse
+# --
+if ${1:Condition} then
+  ${2:Statements}
+else
+  ${3:Statements}
+end if;

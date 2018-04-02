@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: array
+# key: array
+# --
+type ${1:Type} is array (${2:Types}) of ${3:Element};

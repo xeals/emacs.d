@@ -1,0 +1,5 @@
+(:name pencil-theme
+       :description "Theme inspired by iA Writer"
+       :type github
+       :pkgname "xeals/emacs-pencil-theme"
+       :features pencil-theme)

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: procedure is
+# key: procis
+# --
+procedure ${1:Procedure} (${2:Value} : ${3:Type}) is
+  ${4:Variables}
+begin
+    $0
+end $1;

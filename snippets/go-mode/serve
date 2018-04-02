@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: serve
+# key: serve
+# --
+// ServeHTTP fulfils the net/http.Handler interface.
+func (${1:$(s-lower-camel-case (s-word-initials yas-text))} *${1:Struct}) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+
+}

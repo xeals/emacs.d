@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import-local
+# key: im..
+# --
+"${1:`(+go/local-import-dir)`}$0"

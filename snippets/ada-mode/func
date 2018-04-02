@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: function
+# key: func
+# --
+function ${1:Function} (${2:Value} : ${3:Type}) return $4;$0

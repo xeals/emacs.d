@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: record
+# key: record
+# --
+type ${1:Type} is record
+     ${2:Name} : ${3:Type} := ${4:Value};$0
+end record;

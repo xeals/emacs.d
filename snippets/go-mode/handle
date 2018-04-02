@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: handle
+# key: handle
+# --
+// Handler produces a net/http.Handler function.
+func (${1:$(s-lower-camel-case (s-word-initials yas-text))} *${1:Struct})
+Handler(${2:params}) http.Handler {
+	return http.HandlerFunc(w http.ResponseWriter, r *http.Request) {
+
+	}
+}

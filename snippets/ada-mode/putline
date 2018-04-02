@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: putline
+# key: pl
+# --
+Ada.Text_IO.Put_Line("${1:str}");$0

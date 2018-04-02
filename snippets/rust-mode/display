@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: display
+# key: display
+# --
+impl ::std::fmt::Display for ${1:Struct} {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        write!(f, "$2", $3)
+    }
+}

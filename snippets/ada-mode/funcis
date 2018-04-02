@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: function is
+# key: funcis
+# --
+function ${1:Function} (${2:Value} : ${3:Type}) return $4 is
+    $0
+end $1;

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: begin
+# key: begin
+# --
+#+BEGIN_${1:BLOCK$(upcase yas-text)}
+$0
+#+END_$1

@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+;;; `(buffer-name)` --- ${1:description} -*- lexical-binding: t -*-
+
+;;; Commentary:
+;; ${2:Comments}
+
+;;; Code:
+
+$0
+
+(provide '`(file-name-sans-extension (buffer-name))`)
+;;; `(buffer-name)` ends here

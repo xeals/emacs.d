@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: procedure
+# key: proc
+# --
+procedure ${1:Procedure} (${2:Value} : ${3:Type});$0

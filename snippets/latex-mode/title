@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: title
+# key: title
+# --
+
+\begin{titlepage}
+  \centering
+  {\scshape\LARGE Australian National University\par}
+  {\scshape\Large College of Engineering and Computer Science\par}
+  \vspace{1cm}
+  {\scshape\Large Internet of Things Research Report\par}
+  \vspace{1.5cm}
+  {\huge\bfseries The Use of the Internet of Things in Agricultural Water
+  Delivery and Monitoring\par}
+  \vspace{2cm}
+  {\Large\itshape Alex Smith\par}
+  \vfill
+    {\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage

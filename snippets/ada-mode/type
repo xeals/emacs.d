@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: type is
+# key: typeis
+# --
+type $1 is $2;$0

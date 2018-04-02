@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: exception when
+# key: exwhen
+# --
+exception
+  when ${1:Name} => ${2:Result};$0

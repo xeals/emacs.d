@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Class constructor
+# key: clc
+# --
+public class $1 {
+    public $1($2) {
+        $0
+    }
+}

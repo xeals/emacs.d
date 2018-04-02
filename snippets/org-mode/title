@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: title
+# key: title
+# --
+
+\begin{titlepage}
+  \centering
+  {\scshape\LARGE Australian National University\par}
+  {\scshape\Large College of Engineering and Computer Science\par}
+  \vspace{1cm}
+  {\scshape\Large ${1:Course Name}\par}
+  \vspace{1.5cm}
+  {\huge\bfseries ${2:Assignment Title}\par}
+  \vspace{2cm}
+  {\Large\itshape Alex Smith\par}
+  {\Large\itshape u5838800\par}
+  \vfill
+    {\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
