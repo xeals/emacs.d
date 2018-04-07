@@ -27,14 +27,23 @@
   (load-theme 'pencil-dark t))
 
 (req-package apropospriate-theme
-  :demand t
+  ;; :demand t
   :force t)
 
 (req-package panda-theme
   :demand t
   :force t)
 
-(load-theme 'apropospriate-dark t)
+;; (load-theme 'apropospriate-dark t)
+
+(req-package circadian
+  :demand t :force t
+  :config
+  (setq calendar-latitude -35.3
+        calendar-longitude 149.1
+        circadian-themes '((:sunrise . apropospriate-light)
+                           (:sunset  . apropospriate-dark)))
+  (circadian-setup))
 
 ;; (load-theme xeal-theme t)
 
