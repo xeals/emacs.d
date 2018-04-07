@@ -55,7 +55,8 @@
 
 ;; Move custom out of init.el
 (setq-default custom-file (concat xeal-data-dir "custom.el"))
-(load custom-file nil t)
+(when (file-exists-p custom-file)
+  (load custom-file nil t))
 
 ;; Quiet startup
 (advice-add #'display-startup-echo-area-message :override #'ignore)
