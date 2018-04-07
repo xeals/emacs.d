@@ -149,7 +149,8 @@ Uses `+godoc-gogetdoc' to look up documentation."
             "m" #'go-goto-method-receiver)
   :init
   (setq flycheck-go-build-install-deps nil
-        godoc-at-point-function #'+godoc-and-godef)
+        godoc-at-point-function #'+godoc-and-godef
+        gofmt-command "goimports")
   ;; Initialise paths
   (unless (getenv "GOPATH")
     (let* ((gopath (expand-file-name "go"  xdg-data-home))
