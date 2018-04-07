@@ -17,5 +17,7 @@
 
 (require 'doom-modeline)
 
+(setq +doom-modeline-height 30)
+
 (provide 'base-modeline)
 ;;; base-modeline.el ends here
