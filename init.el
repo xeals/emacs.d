@@ -39,6 +39,7 @@
 (require 'tool-dired)
 (require 'tool-quick-find)
 (require 'tool-tramp)
+(require 'tool-pairing)
 
 ;;;
 ;; Language support
