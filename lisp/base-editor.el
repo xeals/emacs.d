@@ -35,7 +35,7 @@
 
 (let ((xdg-bin-home (or (getenv "XDG_BIN_HOME")
                         (expand-file-name "~/.local/bin"))))
-  (unless (member exec-path xdg-bin-home)
+  (unless (member-ignore-case xdg-bin-home exec-path)
     (setq exec-path (append exec-path `(,xdg-bin-home)))))
 
 ;;;
