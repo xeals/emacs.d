@@ -168,8 +168,10 @@ search is followed (not cancelled)."
   "" '(:ignore t :wk "toggles/theme")
   "l" #'+line-numbers-toggle
   "r" #'rainbow-mode
+  "s" #'flyspell-mode
   "t" #'counsel-load-theme
-  "v" #'visual-line-mode)
+  "v" #'visual-line-mode
+  "W" #'writegood-mode)
 
 (general-leader
   :infix "w"
@@ -179,7 +181,7 @@ search is followed (not cancelled)."
   "s" '(split-window-below           :wk "split horizontal")
   "S" '(split-window-below-and-focus :wk "split horizontal")
   "=" '(balance-windows-area         :wk "balance windows area")
-  "c" '(centered-buffer-mode         :wk "center buffer")
+  ;; "c" '(centered-buffer-mode         :wk "center buffer")
   "d" '(delete-window                :wk "delete window")
   "h" '(evil-window-left             :wk "select left")
   "l" '(evil-window-right            :wk "select right")
