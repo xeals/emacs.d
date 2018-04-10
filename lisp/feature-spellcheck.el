@@ -35,5 +35,10 @@
   :init
   (setq flyspell-popup-correct-delay 0.5))
 
+(req-package writegood-mode
+  :commands (writegood-mode
+             writegood-grade-level
+             writegood-reading-ease))
+
 (provide 'feature-spellcheck)
 ;;; feature-spellcheck.el ends here
