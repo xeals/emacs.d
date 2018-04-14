@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: serialize
+# key: serialize
+# --
+impl Serialize for ${1:Struct} {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        $0
+    }
+}

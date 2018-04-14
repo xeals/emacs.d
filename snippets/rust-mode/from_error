@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: from_error
+# key: fromerror
+# --
+impl From<${1:err}> for Error {
+    fn from(err: $1) -> Error {
+        self::Error::${2:MyError}(err)
+    }
+}
