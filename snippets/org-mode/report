@@ -4,6 +4,7 @@
 # --
 #+TITLE: ${1:Course} Assignment ${2:X}
 #+AUTHOR: Alex Smith (u5838800)
+#+EMAIL: alex.smith1@anu.edu.au
 #+DATE: ${3:\today}
 #+OPTIONS: toc:${4:nil} title:nil
 #+LATEX_CLASS: assignment
