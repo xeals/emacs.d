@@ -328,10 +328,18 @@ If on a:
 
 (req-package org-variable-pitch
   :el-get t :ensure nil
-  :hook (org-mode . org-variable-pitch-minor-mode))
+  :hook (org-mode . org-variable-pitch-minor-mode)
+  :general
+  (:keymaps 'org-mode-map
+            :prefix xeal-localleader-key
+            :infix "T"
+            :v #'org-variable-pitch-minor-mode))
 
 (req-package org-ref
-  :requires helm
+  :preface
+  (defun +org/load-org-ref ()
+    (require 'org-ref))
+  :hook (org-mode . +org/load-org-ref)
   :general
   (:keymaps 'org-mode-map
             :prefix xeal-localleader-key
@@ -339,6 +347,10 @@ If on a:
             "c" #'org-ref-helm-insert-cite-link)
   :init
   (setq reftex-default-bibliography `(,(expand-file-name "references.bib" xeal-uni-dir))))
+
+(req-package org-kanban
+  :el-get t :ensure nil
+  :disabled t)
 
 (req-package ox-dnd
   :el-get t :ensure nil)
