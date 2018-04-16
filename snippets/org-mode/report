@@ -28,11 +28,27 @@
     {\large \today\par}
 \end{titlepage}
 
-\tableofcontents
 \newpage
 #+END_EXPORT
 
+label:abstract
+#+LATEX: \begin{abstract}
+#+LATEX: \end{abstract}
+
+label:toc
+#+BEGIN_EXPORT LaTeX
+\newpage
+\tableofcontents
+#+END_EXPORT
+
+* Introduction
+
 $0
 
-${5:bibliography:report.bib
-bibliographystyle:unsrt}
+* {{Body}}
+
+* Conclusion
+
+* COMMENT Housekeeping
+bibliography:report.bib
+bibliographystyle:unsrt
