@@ -158,6 +158,7 @@ If on a:
             "," #'org-ctrl-c-ctrl-c
             "-" #'org-ctrl-c-minus
             "e" '(org-export-dispatch :wk "export")
+            "P" `(,(lambda () (interactive) (shell-command (concat "evince " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf"))
             "w" '(org-wc-display :wk "count words")
             "v" '(+org/nav-hydra/body :wk "navigate"))
   (:keymaps 'org-mode-map :major-modes t
