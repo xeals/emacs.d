@@ -158,7 +158,7 @@ If on a:
             "," #'org-ctrl-c-ctrl-c
             "-" #'org-ctrl-c-minus
             "e" '(org-export-dispatch :wk "export")
-            "P" `(,(lambda () (interactive) (shell-command (concat "evince " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf"))
+            "P" `(,(lambda () (interactive) (shell-command (concat "evince " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
             "w" '(org-wc-display :wk "count words")
             "v" '(+org/nav-hydra/body :wk "navigate"))
   (:keymaps 'org-mode-map :major-modes t
@@ -167,6 +167,7 @@ If on a:
             :infix "d"
             "" '(:ignore t :wk "clocks")
             "d" #'org-deadline
+            "s" #'org-schedule
             "t" #'org-time-stamp
             "T" #'org-time-stamp-inactive)
   (:keymaps 'org-mode-map :major-modes t
@@ -335,19 +336,6 @@ If on a:
             :prefix xeal-localleader-key
             :infix "T"
             :v #'org-variable-pitch-minor-mode))
-
-(req-package org-ref
-  :preface
-  (defun +org/load-org-ref ()
-    (require 'org-ref))
-  :hook (org-mode . +org/load-org-ref)
-  :general
-  (:keymaps 'org-mode-map
-            :prefix xeal-localleader-key
-            :infix "i"
-            "c" #'org-ref-helm-insert-cite-link)
-  :init
-  (setq reftex-default-bibliography `(,(expand-file-name "references.bib" xeal-uni-dir))))
 
 (req-package org-kanban
   :el-get t :ensure nil
