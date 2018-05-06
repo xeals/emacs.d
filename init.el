@@ -26,6 +26,7 @@
 (require 'feature-syntax-checker)
 (require 'feature-version-control)
 (require 'feature-preview)
+(require 'feature-reference)
 
 ;;;
 ;; Completion
