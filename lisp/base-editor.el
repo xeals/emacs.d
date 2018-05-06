@@ -20,7 +20,7 @@
  bookmark-save-flag 0                   ; save whenever I add a bookmark
  delete-by-moving-to-trash t            ; send to trash instead of deleting
  ;; Fill and wrap
- fill-column 80                         ; 80 column master race
+ fill-column 100                        ; 80 column not so master race
  word-wrap t                            ; wrap words
  truncate-lines t                       ; please wrap words
  ;; Tabs and whitespace
@@ -100,6 +100,10 @@
   :config
   (save-place-mode t))
 
+;; Code folding
+(req-package hideshow
+  :hook (prog-mode . hs-minor-mode))
+
 ;;;
 ;; Packages
 
@@ -147,7 +151,7 @@
   :commands writeroom-mode
   :init
   (setq writeroom-mode-line nil
-        writeroom-width 80))
+        writeroom-width 100))
 
 ;; TODO Look into undo-tree
 
