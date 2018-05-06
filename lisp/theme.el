@@ -14,9 +14,8 @@
 
 (req-package pencil-theme
   :el-get t :ensure t
-  :force t
-  :demand t
-  :disabled
+  :force t :demand t
+  :disabled t
   :init
   (setq pencil/higher-contrast-ui t
         pencil/italics t
@@ -26,26 +25,27 @@
   :config
   (load-theme 'pencil-dark t))
 
-(req-package apropospriate-theme
-  ;; :demand t
-  :force t)
+(req-package doneburn-theme
+  :el-get t :ensure t
+  :disabled t)
 
-(req-package panda-theme
-  :demand t
-  :force t)
+;; (req-package apropospriate-theme)
+(req-package panda-theme)
+(req-package challenger-deep-theme)
 
-;; (load-theme 'apropospriate-dark t)
+;; (require 'slate-theme)
 
-(req-package circadian
-  :demand t :force t
-  :config
-  (setq calendar-latitude -35.3
-        calendar-longitude 149.1
-        circadian-themes '((:sunrise . apropospriate-light)
-                           (:sunset  . apropospriate-dark)))
-  (circadian-setup))
+(load-theme xeal-theme t)
 
-;; (load-theme xeal-theme t)
+;; (req-package circadian
+;;   :demand t :force t
+;;   :disabled t
+;;   :config
+;;   (setq calendar-latitude -35.3
+;;         calendar-longitude 149.1
+;;         circadian-themes '((:sunrise . apropospriate-light)
+;;                            (:sunset  . apropospriate-dark)))
+;;   (circadian-setup))
 
 ;;;
 ;; Typography
