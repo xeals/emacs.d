@@ -49,6 +49,5 @@ $0
 
 * Conclusion
 
-* COMMENT Housekeeping
 bibliography:report.bib
-bibliographystyle:unsrt
+bibliographystyle:abbrvnat
