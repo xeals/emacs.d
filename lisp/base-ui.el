@@ -115,29 +115,32 @@
             "[t" #'hl-todo-previous)
   :init
   ;; pencil-theme
-  (let ((hl-y "#f3e430")                ; yellow
-        (hl-o "#d75f5f")                ; orange
-        (hl-r "#e32791")                ; light-red
-        (hl-g "#5fd7a7")                ; light-green
-        (hl-b "#c30071")                ; dark-red
-        (hl-p "#6855de"))               ; dark-purple
-    (setq hl-todo-keyword-faces
-          `(("HOLD"   . ,hl-y)
-            ("HACK"   . ,hl-y)
-            ("KLUDGE" . ,hl-y)
-            ("NOTE"   . ,hl-y)
-            ("TODO"   . ,hl-o)
-            ("FIXME"  . ,hl-o)
-            ("XXX"    . ,hl-o)
-            ("XXXX"   . ,hl-o)
-            ("???"    . ,hl-o)
-            ("NEXT"   . ,hl-o)
-            ("PROG"   . ,hl-g)
-            ("OKAY"   . ,hl-g)
-            ("DONE"   . ,hl-g)
-            ("DONT"   . ,hl-p)
-            ("THEM"   . ,hl-r)
-            ("FAIL"   . ,hl-b)))))
+  (when (or
+         (eq xeal-theme 'pencil)
+         (eq xeal-theme 'pencil-dark))
+    (let ((hl-y "#f3e430")                ; yellow
+          (hl-o "#d75f5f")                ; orange
+          (hl-r "#e32791")                ; light-red
+          (hl-g "#5fd7a7")                ; light-green
+          (hl-b "#c30071")                ; dark-red
+          (hl-p "#6855de"))               ; dark-purple
+      (setq hl-todo-keyword-faces
+            `(("HOLD"   . ,hl-y)
+              ("HACK"   . ,hl-y)
+              ("KLUDGE" . ,hl-y)
+              ("NOTE"   . ,hl-y)
+              ("TODO"   . ,hl-o)
+              ("FIXME"  . ,hl-o)
+              ("XXX"    . ,hl-o)
+              ("XXXX"   . ,hl-o)
+              ("???"    . ,hl-o)
+              ("NEXT"   . ,hl-o)
+              ("PROG"   . ,hl-g)
+              ("OKAY"   . ,hl-g)
+              ("DONE"   . ,hl-g)
+              ("DONT"   . ,hl-p)
+              ("THEM"   . ,hl-r)
+              ("FAIL"   . ,hl-b))))))
 
 ;; Colour matching delimiters
 (req-package rainbow-delimiters
