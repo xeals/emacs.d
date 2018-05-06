@@ -40,7 +40,8 @@
             "f" #'bibtex-make-field
             "h" #'org-ref-bibtex-hydra/body
             "n" #'bibtex-entry
-            "s" #'bibtex-sort-buffer
+            "s" #'org-ref-sort-bibtex-entry
+            "S" #'bibtex-sort-buffer
             "u" #'bibtex-entry-update
             "w" #'+bibtex/toggle-narrow))
 
