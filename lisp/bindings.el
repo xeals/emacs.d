@@ -229,13 +229,16 @@ search is followed (not cancelled)."
   (general-define-key
    :unbind t
    :keymaps 'normal
-   "S")
+   "n" "N" "S")
 
   ;; Normal state
   (general-define-key
    :keymaps 'normal
    "-" #'dired-jump
    "S" #'save-buffer
+
+   "n" (λ! (evil-ex-search-next) (evil-scroll-line-to-center nil))
+   "N" (λ! (evil-ex-search-previous) (evil-scroll-line-to-center nil))
 
    ;; Numbers
    "C-a" #'increment-number-at-point
