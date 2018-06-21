@@ -168,10 +168,15 @@
                           ("<=" . ?≤)))
   (global-prettify-symbols-mode 1))
 
+(req-package highlight-indent-guides
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :init
+  (setq highlight-indent-guides-method 'character))
+
 ;;;
 ;; Autoloads
 
-(defvar-local +line-numbers-toggle t
+(defvar-local +line-numbers-toggle nil
   "Whether or not line numbers are enabled.
 
 Toggle using `+line-numbers-toggle'.")
