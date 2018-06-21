@@ -33,10 +33,7 @@
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
-(let ((xdg-bin-home (or (getenv "XDG_BIN_HOME")
-                        (expand-file-name "~/.local/bin"))))
-  (unless (member-ignore-case xdg-bin-home exec-path)
-    (setq exec-path (append exec-path `(,xdg-bin-home)))))
+(maybe-push-exec-path (or (getenv "XDG_BIN_HOME") (expand-file-name "~/.local/bin")))
 
 ;;;
 ;; Builtins

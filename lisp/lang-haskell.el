@@ -7,7 +7,8 @@
 
 (eval-when-compile
   (require 'base-keybinds)
-  (require 'base-package))
+  (require 'base-package)
+  (require 'base-lib))
 
 ;;;
 ;; Packages
@@ -58,9 +59,7 @@
             "P"  #'haskell-cabal-previous-section
             "f"  #'haskell-cabal-find-or-create-source-file)
   :init
-  (let ((cabal-bin (expand-file-name "~/.local/share/cabal/bin")))
-    (unless (member-ignore-case cabal-bin exec-path)
-      (setq exec-path (append exec-path `(,cabal-bin)))))
+  (maybe-push-exec-path (expand-file-name "~/.local/share/cabal/bin"))
   (autoload 'haskell-completions-completion-at-point "haskell-completions")
   (autoload 'haskell-doc-current-info "haskell-doc")
   (setq

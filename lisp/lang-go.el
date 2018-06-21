@@ -152,13 +152,9 @@ Uses `+godoc-gogetdoc' to look up documentation."
         godoc-at-point-function #'+godoc-and-godef
         gofmt-command "goimports")
   ;; Initialise paths
-  (unless (getenv "GOPATH")
-    (let* ((gopath (expand-file-name "go"  xdg-data-home))
-           (gobin  (expand-file-name "bin" gopath)))
-      (setenv "GOPATH" gopath)
-      (setenv "GOBIN"  gobin)
-      (unless (member-ignore-case gobin exec-path)
-        (setq exec-path (append exec-path `(,gobin))))))
+  (set-env-unless "GOPATH" '(("GOPATH" . ,`("go" ,xdg-data-home))
+                             ("GOBIN"  . ,`("bin" ,(getenv "GOPATH")))
+                             (#'path   . ,`(getenv "GOBIN"))))
   :config
   (set-doc-fn 'go-mode #'+godoc-at-point)
   (set-prettify-symbols 'go-mode
