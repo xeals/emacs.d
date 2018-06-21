@@ -33,6 +33,7 @@
 
 (require 'completion-ivy)
 (require 'completion-company)
+(require 'completion-lsp)
 
 ;;;
 ;; Tools
@@ -41,6 +42,7 @@
 (require 'tool-quick-find)
 (require 'tool-tramp)
 (require 'tool-pairing)
+(require 'tool-ledger)
 
 ;;;
 ;; Language support
@@ -54,6 +56,8 @@
 (require 'lang-markup)
 (require 'lang-org)
 (require 'lang-rust)
+(require 'lang-crystal)
+(require 'lang-nim)
 
 (unless noninteractive
   (require 'bindings)
