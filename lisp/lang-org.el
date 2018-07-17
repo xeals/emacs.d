@@ -133,12 +133,48 @@ If on a:
     (set-window-start nil scroll-pt)))
 
 ;;;
+;; Hydras
+
+(defhydra +org/nav-hydra
+  (:color red :hint nil)
+  "
+      ^Navigation^          ^Subtrees^
+      ----------------------------------
+      _H_: up a level       ^        ^
+      _j_: prev heading     _<_: demote
+      _k_: next heading     _>_: promote
+      _h_: prev same level
+      _l_: next same level
+      "
+  ("H" outline-up-heading)
+  ("h" org-backward-heading-same-level)
+  ("j" org-next-visible-heading)
+  ("k" org-previous-visible-heading)
+  ("l" org-forward-heading-same-level)
+  (">" org-promote-subtree)
+  ("<" org-demote-subtree)
+  ("<tab>" +org/toggle-fold "toggle-fold")
+  ("q" nil "quit" :color blue))
+
+(defun open-course (file)
+  (interactive)
+  (find-file (concat xeal-uni-dir "/notes/" file ".org")))
+(defhydra +org/open-notes (:color blue)
+  "Notes"
+  ("a" (open-course "3600") "Algorithms")
+  ("c" (open-course "2310") "Concurrent Systems")
+  ("o" (open-course "3300") "OSI")
+  ("s" (open-course "3530") "Systems Engineering")
+  ("t" (open-course "3500") "TechLauncher"))
+
+;;;
 ;; Packages
 
 (req-package org :pin org
   :ensure org-plus-contrib
   :hook
   (org-mode . auto-fill-mode)
+  (org-mode . org-indent-mode)
   (org-mode . +org-setup-babel)
   (org-mode . +org-setup-templates)
   (org-mode . +line-numbers-disable)
@@ -330,6 +366,7 @@ If on a:
 
 (req-package org-variable-pitch
   :el-get t :ensure nil
+  :disabled t
   :hook (org-mode . org-variable-pitch-minor-mode)
   :general
   (:keymaps 'org-mode-map
