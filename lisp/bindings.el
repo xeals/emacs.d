@@ -170,7 +170,7 @@ search is followed (not cancelled)."
   :infix "ou"
   "" '(:ignore t :wk "university")
   "a" `(,(λ! (xeal/open-uni "assignments")) :wk "assignments")
-  "n" `(,(λ! (xeal/open-uni "notes")) :wk "notes")
+  "n" '(+org/open-notes/body :wk "notes")
   "l" `(,(λ! (xeal/open-uni "labs")) :wk "labs")
   "t" `(,(λ! (xeal/open-uni "tutoring")) :wk "tutoring"))
 
