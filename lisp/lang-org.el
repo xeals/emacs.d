@@ -135,6 +135,9 @@ If on a:
 ;;;
 ;; Hydras
 
+(req-package hydra :demand t)
+(autoload 'defhydra "hydra")
+
 (defhydra +org/nav-hydra
   (:color red :hint nil)
   "
@@ -194,9 +197,22 @@ If on a:
             "," #'org-ctrl-c-ctrl-c
             "-" #'org-ctrl-c-minus
             "e" '(org-export-dispatch :wk "export")
-            "P" `(,(lambda () (interactive) (shell-command (concat "evince " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
+            "P" `(,(lambda () (interactive) (shell-command (concat "okular " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
             "w" '(org-wc-display :wk "count words")
-            "v" '(+org/nav-hydra/body :wk "navigate"))
+            "v" '(+org/nav-hydra/body :wk "navigate")
+            "=" #'org-align-all-tags)
+  (:keymaps 'org-mode-map :major-modes t
+            :states '(normal visual operator)
+            :prefix xeal-localleader-key
+            :infix "c"
+            "" '(:ignore t :wk "timekeeping")
+            "c" #'org-clock-in
+            "C" #'org-clock-cancel
+            "d" #'org-clock-display
+            "g" #'org-clock-goto
+            "i" #'org-clock-in
+            "o" #'org-clock-out
+            "R" #'org-clock-report)
   (:keymaps 'org-mode-map :major-modes t
             :states '(normal visual operator)
             :prefix xeal-localleader-key
@@ -268,11 +284,15 @@ If on a:
   (defun +org-setup-babel ()
     (org-babel-do-load-languages
      'org-babel-load-languages
-     '((emacs-lisp . t)
+     '(
+       ;; (ada        . t)
+       (C          . t)
+       (emacs-lisp . t)
        (go         . t)
-       (rust       . t)
        (python     . t)
-       (shell      . t))))
+       (rust       . t)
+       (shell      . t)
+       )))
   (defun +org-is-agenda-file (filename)
     (cl-find (file-truename filename) org-agenda-files
              :key #'file-truename
