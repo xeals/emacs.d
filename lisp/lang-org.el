@@ -133,12 +133,51 @@ If on a:
     (set-window-start nil scroll-pt)))
 
 ;;;
+;; Hydras
+
+(req-package hydra :demand t)
+(autoload 'defhydra "hydra")
+
+(defhydra +org/nav-hydra
+  (:color red :hint nil)
+  "
+      ^Navigation^          ^Subtrees^
+      ----------------------------------
+      _H_: up a level       ^        ^
+      _j_: prev heading     _<_: demote
+      _k_: next heading     _>_: promote
+      _h_: prev same level
+      _l_: next same level
+      "
+  ("H" outline-up-heading)
+  ("h" org-backward-heading-same-level)
+  ("j" org-next-visible-heading)
+  ("k" org-previous-visible-heading)
+  ("l" org-forward-heading-same-level)
+  (">" org-promote-subtree)
+  ("<" org-demote-subtree)
+  ("<tab>" +org/toggle-fold "toggle-fold")
+  ("q" nil "quit" :color blue))
+
+(defun open-course (file)
+  (interactive)
+  (find-file (concat xeal-uni-dir "/notes/" file ".org")))
+(defhydra +org/open-notes (:color blue)
+  "Notes"
+  ("a" (open-course "3600") "Algorithms")
+  ("c" (open-course "2310") "Concurrent Systems")
+  ("o" (open-course "3300") "OSI")
+  ("s" (open-course "3530") "Systems Engineering")
+  ("t" (open-course "3500") "TechLauncher"))
+
+;;;
 ;; Packages
 
 (req-package org :pin org
   :ensure org-plus-contrib
   :hook
   (org-mode . auto-fill-mode)
+  (org-mode . org-indent-mode)
   (org-mode . +org-setup-babel)
   (org-mode . +org-setup-templates)
   (org-mode . +line-numbers-disable)
@@ -158,64 +197,58 @@ If on a:
             "," #'org-ctrl-c-ctrl-c
             "-" #'org-ctrl-c-minus
             "e" '(org-export-dispatch :wk "export")
-            "P" `(,(lambda () (interactive) (shell-command (concat "evince " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
+            "P" `(,(lambda () (interactive) (shell-command (concat "okular " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
             "w" '(org-wc-display :wk "count words")
-            "v" '(+org/nav-hydra/body :wk "navigate"))
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "d"
-            "" '(:ignore t :wk "clocks")
-            "d" #'org-deadline
-            "s" #'org-schedule
-            "t" #'org-time-stamp
-            "T" #'org-time-stamp-inactive)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "i"
-            "" '(:ignore t :wk "insert")
-            "d" #'org-insert-drawer
-            "f" #'org-footnote-new
-            "h" #'org-insert-heading
-            "H" #'org-insert-heading-after-current
-            "l" #'org-insert-link
-            "p" #'org-set-property
-            "t" #'org-table-create)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "t"
-            "" '(:ignore t :wk "table")
-            "a" #'org-table-align
-            "n" #'org-table-create
-            "r" #'org-table-recalculate
-            "R" #'org-table-recalculate-buffer-tables)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "ti"
-            "" '(:ignore t :wk "insert")
-            "c" #'org-table-insert-column
-            "h" #'org-table-insert-hline
-            "r" #'org-table-insert-row)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "s"
-            "" '(:ignore t :wk "trees")
-            "s" #'org-sort
-            "a" #'org-archive-subtree
-            "r" #'org-refile)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "T"
-            "" '(:ignore t :wk "toggles")
-            "l" #'org-toggle-link-display
-            "x" #'org-toggle-latex-fragment
-            "i" #'org-toggle-inline-images
-            "T" #'org-todo)
+            "v" '(+org/nav-hydra/body :wk "navigate")
+            "=" #'org-align-all-tags
+            "C-t" #'org-babel-tangle
+
+            "c" '(:ignore t :wk "timekeeping")
+            "cc" #'org-clock-in
+            "cC" #'org-clock-cancel
+            "cd" #'org-clock-display
+            "cg" #'org-clock-goto
+            "ci" #'org-clock-in
+            "co" #'org-clock-out
+            "cR" #'org-clock-report
+
+            "d" '(:ignore t :wk "clocks")
+            "dd" #'org-deadline
+            "ds" #'org-schedule
+            "dt" #'org-time-stamp
+            "dT" #'org-time-stamp-inactive
+
+            "i" '(:ignore t :wk "insert")
+            "id" #'org-insert-drawer
+            "if" #'org-footnote-new
+            "ih" #'org-insert-heading
+            "iH" #'org-insert-heading-after-current
+            "il" #'org-insert-link
+            "ip" #'org-set-property
+            "it" #'org-table-create
+
+            "t" '(:ignore t :wk "table")
+            "ta" #'org-table-align
+            "tn" #'org-table-create
+            "tr" #'org-table-recalculate
+            "tR" #'org-table-recalculate-buffer-tables
+
+            "ti" '(:ignore t :wk "insert")
+            "tic" #'org-table-insert-column
+            "tih" #'org-table-insert-hline
+            "tir" #'org-table-insert-row
+
+            "s" '(:ignore t :wk "trees")
+            "ss" #'org-sort
+            "sa" #'org-archive-subtree
+            "sr" #'org-refile
+
+            "T" '(:ignore t :wk "toggles")
+            "Tl" #'org-toggle-link-display
+            "Tx" #'org-toggle-latex-fragment
+            "Ti" #'org-toggle-inline-images
+            "TT" #'org-todo)
+
   ;; org-agenda
   (:keymaps 'org-agenda-mode-map :states 'emacs
             "j" #'org-agenda-next-item
@@ -232,11 +265,15 @@ If on a:
   (defun +org-setup-babel ()
     (org-babel-do-load-languages
      'org-babel-load-languages
-     '((emacs-lisp . t)
+     '(
+       ;; (ada        . t)
+       (C          . t)
+       (emacs-lisp . t)
        (go         . t)
-       (rust       . t)
        (python     . t)
-       (shell      . t))))
+       (rust       . t)
+       (shell      . t)
+       )))
   (defun +org-is-agenda-file (filename)
     (cl-find (file-truename filename) org-agenda-files
              :key #'file-truename
@@ -330,6 +367,7 @@ If on a:
 
 (req-package org-variable-pitch
   :el-get t :ensure nil
+  :disabled t
   :hook (org-mode . org-variable-pitch-minor-mode)
   :general
   (:keymaps 'org-mode-map

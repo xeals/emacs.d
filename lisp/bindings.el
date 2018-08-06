@@ -77,153 +77,125 @@ search is followed (not cancelled)."
   ";"   '(eval-expression       :wk "eval expression")
   "/"   '(counsel-projectile-rg :wk "rg")
   "TAB" '(alternate-buffer      :wk "last buffer")
-  "u"   '(universal-argument    :wk "universal argument"))
+  "u"   '(universal-argument    :wk "universal argument")
 
-(general-leader
-  :infix "a"
-  "" '(:ignore t :wk "agenda")
-  "a" '(org-agenda-list :wk "agenda")
-  "c" '(org-capture     :wk "capture")
-  "s" '(org-search-view :wk "search")
-  "t" '(org-todo-list   :wk "todo")
-  "T" `(,(λ! (org-call-with-arg 'org-todo-list '(4))) :wk "todo tags")
-  "o" '(org-agenda      :wk "menu"))
+  "a" '(:ignore t :wk "agenda")
+  "aa" '(org-agenda-list :wk "agenda")
+  "ac" '(org-capture     :wk "capture")
+  "as" '(org-search-view :wk "search")
+  "at" '(org-todo-list   :wk "todo")
+  "aT" `(,(λ! (org-call-with-arg 'org-todo-list '(4))) :wk "todo tags")
+  "ao" '(org-agenda      :wk "menu")
 
-(general-leader
-  :infix "b"
-  "" '(:ignore t :wk "buffer")
-  "b" '(switch-to-buffer       :wk "list buffers")
-  "d" '(+kill-this-buffer      :wk "kill buffer")
-  "D" `(kill-other-buffers     :wk "kill other buffers")
-  "m" '(switch-messages-buffer :wk "messages buffer")
-  "n" '(evil-buffer-new        :wk "new empty buffer")
-  "s" '(switch-scratch-buffer  :wk "scratch buffer"))
+  "b" '(:ignore t :wk "buffer")
+  "bb" '(switch-to-buffer       :wk "list buffers")
+  "bd" '(+kill-this-buffer      :wk "kill buffer")
+  "bD" `(kill-other-buffers     :wk "kill other buffers")
+  "bm" '(switch-messages-buffer :wk "messages buffer")
+  "bn" '(evil-buffer-new        :wk "new empty buffer")
+  "bs" '(switch-scratch-buffer  :wk "scratch buffer")
 
-(general-leader
-  :infix "k"
-  "" '(:ignore t :wk "bookmarks")
-  "D" '(bookmark-delete     :wk "delete")
-  "j" '(bookmark-jump       :wk "jump")
-  "l" '(bookmark-bmenu-list :wk "list")
-  "r" '(bookmark-rename     :wk "rename")
-  "s" '(bookmark-set        :wk "set"))
+  "B" '(:ignore t :wk "bookmarks")
+  "BD" '(bookmark-delete     :wk "delete")
+  "Bj" '(bookmark-jump       :wk "jump")
+  "Bl" '(bookmark-bmenu-list :wk "list")
+  "Br" '(bookmark-rename     :wk "rename")
+  "Bs" '(bookmark-set        :wk "set")
 
-(general-leader
-  :infix "c"
-  "" '(:ignore t :wk "code")
-  "." '(editorconfig-apply                :wk "apply editorconfig")
-  "c" `(,(λ! (message "not available yet!")) :wk "compile")
-  "l" '(evilnc-comment-or-uncomment-lines :wk "comment lines")
-  "y" '(evilnc-copy-and-comment-lines     :wk "yank and comment lines")
-  "x" '(flycheck-list-errors              :wk "errors"))
+  "c" '(:ignore t :wk "code")
+  "c." '(editorconfig-apply                :wk "apply editorconfig")
+  "cc" `(,(λ! (message "not available yet!")) :wk "compile")
+  "cl" '(evilnc-comment-or-uncomment-lines :wk "comment lines")
+  "cy" '(evilnc-copy-and-comment-lines     :wk "yank and comment lines")
+  "cx" '(flycheck-list-errors              :wk "errors")
 
-(general-leader
-  :infix "f"
-  "" '(:ignore t :wk "file")
-  "b" '(bookmark-jump                  :wk "bookmarks")
-  "c" '(copy-file                      :wk "copy")
-  "D" '(+delete-current-buffer-file    :wk "delete current")
-  "f" '(counsel-find-file              :wk "find file")
-  "e" '(xeal/find-dotfiles             :wk "open dotfiles folder")
-  "g" '(counsel-rg                     :wk "rg")
-  "R" '(+rename-current-buffer-file    :wk "rename current")
-  "r" '(counsel-recentf                :wk "recent")
-  "y" '(+show-and-copy-buffer-filename :wk "show and copy filename"))
+  "f" '(:ignore t :wk "file")
+  "fb" '(bookmark-jump                  :wk "bookmarks")
+  "fc" '(copy-file                      :wk "copy")
+  "fD" '(+delete-current-buffer-file    :wk "delete current")
+  "ff" '(counsel-find-file              :wk "find file")
+  "fe" '(xeal/find-dotfiles             :wk "open dotfiles folder")
+  "fg" '(counsel-rg                     :wk "rg")
+  "fR" '(+rename-current-buffer-file    :wk "rename current")
+  "fr" '(counsel-recentf                :wk "recent")
+  "fy" '(+show-and-copy-buffer-filename :wk "show and copy filename")
 
-(general-leader
-  :infix "g"
-  "" '(:ignore t :wk "git")
-  "s" '(magit-status  :wk "status")
-  "b" '(magit-blame   :wk "blame")
-  "l" '(magit-log-all :wk "log"))
+  "g" '(:ignore t :wk "git")
+  "gs" '(magit-status  :wk "status")
+  "gb" '(magit-blame   :wk "blame")
+  "gl" '(magit-log-all :wk "log")
 
-(general-leader
-  :infix "h"
-  "" '(:ignore t :wk "help")
-  "b" '(describe-bindings :wk "bindings")
-  "c" '(describe-char     :wk "character")
-  "f" '(describe-function :wk "functions")
-  "F" '(describe-face     :wk "faces")
-  "k" '(describe-key      :wk "key")
-  "K" '(describe-keymap   :wk "keymap")
-  "m" '(describe-mode     :wk "mode")
-  "p" '(describe-package  :wk "packages")
-  "v" '(describe-variable :wk "variables"))
+  "h" '(:ignore t :wk "help")
+  "hb" '(describe-bindings :wk "bindings")
+  "hc" '(describe-char     :wk "character")
+  "hf" '(describe-function :wk "functions")
+  "hF" '(describe-face     :wk "faces")
+  "hk" '(describe-key      :wk "key")
+  "hK" '(describe-keymap   :wk "keymap")
+  "hm" '(describe-mode     :wk "mode")
+  "hp" '(describe-package  :wk "packages")
+  "hv" '(describe-variable :wk "variables")
 
-(general-leader
-  :infix "i"
-  "" '(:ignore t :wk "insert")
-  "n" #'rectangle-number-lines)
+  "i" '(:ignore t :wk "insert")
+  "in" #'rectangle-number-lines
 
-(general-leader
-  :infix "o"
-  "" '(:ignore t :wk "open")
-  "d" '(xeal/open-docs :wk "documentation")
-  "i" `(,(λ! (+gtd/open-file "inbox")) :wk "inbox")
-  "n" '(xeal/open-notes :wk "notes")
-  "s" `(,(λ! (+gtd/open-file "someday")) :wk "someday")
-  "t" `(,(λ! (+gtd/open-file "gtd")) :wk "todo")
-  "r" `(,(λ! (counsel-find-file xeal-rp-dir)) :wk "roleplaying")
-  "w" `(,(λ! (counsel-find-file xeal-wb-dir)) :wk "worldbuilding"))
+  "o" '(:ignore t :wk "open")
+  "od" '(xeal/open-docs :wk "documentation")
+  "oi" `(,(λ! (+gtd/open-file "inbox")) :wk "inbox")
+  "on" '(xeal/open-notes :wk "notes")
+  "os" `(,(λ! (+gtd/open-file "someday")) :wk "someday")
+  "ot" `(,(λ! (+gtd/open-file "gtd")) :wk "todo")
+  "or" `(,(λ! (counsel-find-file xeal-rp-dir)) :wk "roleplaying")
+  "ow" `(,(λ! (counsel-find-file xeal-wb-dir)) :wk "worldbuilding")
 
-(general-leader
-  :infix "ou"
-  "" '(:ignore t :wk "university")
-  "a" `(,(λ! (xeal/open-uni "assignments")) :wk "assignments")
-  "n" `(,(λ! (xeal/open-uni "notes")) :wk "notes")
-  "l" `(,(λ! (xeal/open-uni "labs")) :wk "labs")
-  "t" `(,(λ! (xeal/open-uni "tutoring")) :wk "tutoring"))
+  "ou" '(:ignore t :wk "university")
+  "oua" `(,(λ! (xeal/open-uni "assignments")) :wk "assignments")
+  "oun" '(+org/open-notes/body :wk "notes")
+  "oul" `(,(λ! (xeal/open-uni "labs")) :wk "labs")
+  "out" `(,(λ! (xeal/open-uni "tutoring")) :wk "tutoring")
 
-(general-leader
-  :infix "p"
-  "" '(:ignore t :wk "project")
-  "!"   '(projectile-run-shell-command-in-root :wk "run cmd in root")
-  "SPC" '(counsel-projectile-find-file :wk "find file in project")
-  "b"   '(counsel-projectile-bookmark :wk "project bookmarks")
-  "f"   '(counsel-projectile-find-file :wk "find file in project")
-  "I"   '(projectile-invalidate-cache :wk "invalidate cache")
-  "p"   '(counsel-projectile-switch-project :wk "switch project")
-  "r"   '(projectile-recentf :wk "recent projects")
-  "t"   '(+ivy/tasks :wk "find project tasks"))
+  "p" '(:ignore t :wk "project")
+  "p SPC" '(counsel-projectile-find-file :wk "find file in project")
+  "p!"   '(projectile-run-shell-command-in-root :wk "run cmd in root")
+  "pb"   '(counsel-projectile-bookmark :wk "project bookmarks")
+  "pf"   '(counsel-projectile-find-file :wk "find file in project")
+  "pI"   '(projectile-invalidate-cache :wk "invalidate cache")
+  "pp"   '(counsel-projectile-switch-project :wk "switch project")
+  "pr"   '(projectile-recentf :wk "recent projects")
+  "pt"   '(+ivy/tasks :wk "find project tasks")
 
-(general-leader
-  :infix "q"
-  "" '(:ignore t :wk "quit")
-  "q" '(evil-save-and-quit :wk "quit")
-  "r" '(restart-emacs :wk "restart"))
+  "q" '(:ignore t :wk "quit")
+  "qq" '(evil-save-and-quit :wk "quit")
+  "qr" '(restart-emacs :wk "restart")
 
-(general-leader
-  :infix "t"
-  "" '(:ignore t :wk "toggles/theme")
-  "l" #'+line-numbers-toggle
-  "L" #'global-hl-line-mode
-  "r" #'rainbow-mode
-  "s" #'flyspell-mode
-  "t" #'counsel-load-theme
-  "v" #'visual-line-mode
-  "W" #'writegood-mode)
+  "t" '(:ignore t :wk "toggles/theme")
+  "tl" #'+line-numbers-toggle
+  "tL" #'global-hl-line-mode
+  "tr" #'rainbow-mode
+  "ts" #'flyspell-mode
+  "tt" #'counsel-load-theme
+  "tv" #'visual-line-mode
+  "tW" #'writegood-mode
 
-(general-leader
-  :infix "w"
-  "" '(:ignore t :wk "window")
-  "v" '(split-window-right           :wk "split vertical")
-  "V" '(split-window-right-and-focus :wk "split vertical and focus")
-  "s" '(split-window-below           :wk "split horizontal")
-  "S" '(split-window-below-and-focus :wk "split horizontal")
-  "=" '(balance-windows-area         :wk "balance windows area")
+  "v" '(:ignore t :wk "window")
+  "vv" '(split-window-right           :wk "split vertical")
+  "vV" '(split-window-right-and-focus :wk "split vertical and focus")
+  "vs" '(split-window-below           :wk "split horizontal")
+  "vS" '(split-window-below-and-focus :wk "split horizontal")
+  "v=" '(balance-windows-area         :wk "balance windows area")
   ;; "c" '(centered-buffer-mode         :wk "center buffer")
-  "d" '(delete-window                :wk "delete window")
-  "h" '(evil-window-left             :wk "select left")
-  "l" '(evil-window-right            :wk "select right")
-  "k" '(evil-window-up               :wk "select up")
-  "j" '(evil-window-down             :wk "select down")
-  "H" '(evil-move-window-far-left    :wk "move left")
-  "L" '(evil-move-window-far-right   :wk "move right")
-  "K" '(evil-move-window-very-top    :wk "move up")
-  "J" '(evil-move-window-very-bottom :wk "move down")
-  "u" '(winner-undo                  :wk "Winner undo")
-  "U" '(winner-redo                  :wk "Winner redo")
-  "w" '(writeroom-mode               :wk "writeroom"))
+  "vd" '(delete-window                :wk "delete window")
+  "vh" '(evil-window-left             :wk "select left")
+  "vl" '(evil-window-right            :wk "select right")
+  "vk" '(evil-window-up               :wk "select up")
+  "vj" '(evil-window-down             :wk "select down")
+  "vH" '(evil-move-window-far-left    :wk "move left")
+  "vL" '(evil-move-window-far-right   :wk "move right")
+  "vK" '(evil-move-window-very-top    :wk "move up")
+  "vJ" '(evil-move-window-very-bottom :wk "move down")
+  "vu" '(winner-undo                  :wk "Winner undo")
+  "vU" '(winner-redo                  :wk "Winner redo")
+  "vw" '(writeroom-mode               :wk "writeroom"))
 
 (after! evil
   (general-define-key

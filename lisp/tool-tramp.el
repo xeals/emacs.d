@@ -13,6 +13,7 @@
 ;; Packages
 
 (req-package tramp
+  :ensure t
   :init
   (setq tramp-default-method "ssh"))
 
