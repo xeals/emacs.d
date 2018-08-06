@@ -200,74 +200,55 @@ If on a:
             "P" `(,(lambda () (interactive) (shell-command (concat "okular " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
             "w" '(org-wc-display :wk "count words")
             "v" '(+org/nav-hydra/body :wk "navigate")
-            "=" #'org-align-all-tags)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "c"
-            "" '(:ignore t :wk "timekeeping")
-            "c" #'org-clock-in
-            "C" #'org-clock-cancel
-            "d" #'org-clock-display
-            "g" #'org-clock-goto
-            "i" #'org-clock-in
-            "o" #'org-clock-out
-            "R" #'org-clock-report)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "d"
-            "" '(:ignore t :wk "clocks")
-            "d" #'org-deadline
-            "s" #'org-schedule
-            "t" #'org-time-stamp
-            "T" #'org-time-stamp-inactive)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "i"
-            "" '(:ignore t :wk "insert")
-            "d" #'org-insert-drawer
-            "f" #'org-footnote-new
-            "h" #'org-insert-heading
-            "H" #'org-insert-heading-after-current
-            "l" #'org-insert-link
-            "p" #'org-set-property
-            "t" #'org-table-create)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "t"
-            "" '(:ignore t :wk "table")
-            "a" #'org-table-align
-            "n" #'org-table-create
-            "r" #'org-table-recalculate
-            "R" #'org-table-recalculate-buffer-tables)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "ti"
-            "" '(:ignore t :wk "insert")
-            "c" #'org-table-insert-column
-            "h" #'org-table-insert-hline
-            "r" #'org-table-insert-row)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "s"
-            "" '(:ignore t :wk "trees")
-            "s" #'org-sort
-            "a" #'org-archive-subtree
-            "r" #'org-refile)
-  (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "T"
-            "" '(:ignore t :wk "toggles")
-            "l" #'org-toggle-link-display
-            "x" #'org-toggle-latex-fragment
-            "i" #'org-toggle-inline-images
-            "T" #'org-todo)
+            "=" #'org-align-all-tags
+            "C-t" #'org-babel-tangle
+
+            "c" '(:ignore t :wk "timekeeping")
+            "cc" #'org-clock-in
+            "cC" #'org-clock-cancel
+            "cd" #'org-clock-display
+            "cg" #'org-clock-goto
+            "ci" #'org-clock-in
+            "co" #'org-clock-out
+            "cR" #'org-clock-report
+
+            "d" '(:ignore t :wk "clocks")
+            "dd" #'org-deadline
+            "ds" #'org-schedule
+            "dt" #'org-time-stamp
+            "dT" #'org-time-stamp-inactive
+
+            "i" '(:ignore t :wk "insert")
+            "id" #'org-insert-drawer
+            "if" #'org-footnote-new
+            "ih" #'org-insert-heading
+            "iH" #'org-insert-heading-after-current
+            "il" #'org-insert-link
+            "ip" #'org-set-property
+            "it" #'org-table-create
+
+            "t" '(:ignore t :wk "table")
+            "ta" #'org-table-align
+            "tn" #'org-table-create
+            "tr" #'org-table-recalculate
+            "tR" #'org-table-recalculate-buffer-tables
+
+            "ti" '(:ignore t :wk "insert")
+            "tic" #'org-table-insert-column
+            "tih" #'org-table-insert-hline
+            "tir" #'org-table-insert-row
+
+            "s" '(:ignore t :wk "trees")
+            "ss" #'org-sort
+            "sa" #'org-archive-subtree
+            "sr" #'org-refile
+
+            "T" '(:ignore t :wk "toggles")
+            "Tl" #'org-toggle-link-display
+            "Tx" #'org-toggle-latex-fragment
+            "Ti" #'org-toggle-inline-images
+            "TT" #'org-todo)
+
   ;; org-agenda
   (:keymaps 'org-agenda-mode-map :states 'emacs
             "j" #'org-agenda-next-item
