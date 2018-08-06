@@ -20,7 +20,7 @@
 ;; Features
 
 (require 'feature-evil)
-(require 'feature-hydra)
+;(require 'feature-hydra)
 (require 'feature-snippets)
 (require 'feature-spellcheck)
 (require 'feature-syntax-checker)
@@ -41,10 +41,12 @@
 (require 'tool-quick-find)
 (require 'tool-tramp)
 (require 'tool-pairing)
+(require 'tool-ledger)
 
 ;;;
 ;; Language support
 
+(require 'lang-c)
 (require 'lang-clojure)
 (require 'lang-elisp)
 (require 'lang-ess)
