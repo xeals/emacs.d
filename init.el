@@ -33,6 +33,7 @@
 
 (require 'completion-ivy)
 (require 'completion-company)
+(require 'completion-lsp)
 
 ;;;
 ;; Tools
