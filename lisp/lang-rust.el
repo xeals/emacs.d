@@ -51,7 +51,18 @@ If `help-window-select' is non-nil, also select the help window."
   ;; (set-prettify-symbols 'rust-mode '(("fn" . ?ƒ)))
   )
 
+(req-package lsp-rust
+  :require lsp-mode
+  :hook
+  (rust-mode . lsp-rust-enable)
+  :init
+  (setq
+   lsp-rust-rls-command '("rustup" "run" "nightly" "rls"))
+  :config
+  (require 'lsp-flycheck))
+
 (req-package racer
+  :disabled t
   :hook
   (rust-mode . racer-mode)
   (racer-mode . eldoc-mode)
