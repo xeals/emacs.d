@@ -38,7 +38,8 @@
   (interactive)
   (if (commandp documentation-function)
       (call-interactively documentation-function)
-    (call-interactively #'source-peek)))
+    ;; (call-interactively #'source-peek)
+    ))
 
 (defmacro set-company-backends (mode &rest backends)
   "For MODE add BACKENDS to buffer-local version of `company-backends'."
