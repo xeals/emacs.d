@@ -53,6 +53,7 @@ If `help-window-select' is non-nil, also select the help window."
 
 (req-package lsp-rust
   :require lsp-mode
+  :disabled t
   :hook
   (rust-mode . lsp-rust-enable)
   :init
@@ -62,7 +63,7 @@ If `help-window-select' is non-nil, also select the help window."
   (require 'lsp-flycheck))
 
 (req-package racer
-  :disabled t
+  :disabled f
   :hook
   (rust-mode . racer-mode)
   (racer-mode . eldoc-mode)
