@@ -35,12 +35,17 @@ If `help-window-select' is non-nil, also select the help window."
   :mode "\\.rs$"
   :init
   ;; Initialise paths
-  (let ((tc (replace-regexp-in-string "\n" "" (shell-command-to-string "awk '/toolchain/{gsub(\"\\\"\",\"\",$3); print $3}' $RUSTUP_HOME/settings.toml"))))
-    (set-env-unless "CARGO_HOME" '(("CARGO_HOME"     . ,`("cargo" ,xdg-data-home))
-                                   ("RUSTUP_HOME"    . ,`("rustup" ,xdg-data-home))
-                                   ("RUST_TOOLCHAIN" . ,tc)
-                                   ("RUST_SRC_PATH"  . ,,(concat (getenv "RUSTUP_HOME") "/toolchains/" tc))
-                                   (#'path           . ,`("bin" ,(getenv "CARGO_HOME"))))))
+  ;; (let ((tc (replace-regexp-in-string "\n" "" (shell-command-to-string "awk '/toolchain/{gsub(\"\\\"\",\"\",$3); print $3}' $RUSTUP_HOME/settings.toml")))
+  (let ((tc "stable-x86_64-unknown-linux-gnu")
+        (rh (expand-file-name "rustup" xdg-data-home))
+        (ch (expand-file-name "cargo" xdg-data-home)))
+    (set-env-unless
+     "CARGO_HOME" (list
+                   `("CARGO_HOME"     . ,ch)
+                   `("RUSTUP_HOME"    . ,rh)
+                   `("RUST_TOOLCHAIN" . ,tc)
+                   `("RUST_SRC_PATH"  . ,(concat rh "/toolchains/" tc "/lib/rustlib/src/rust/src"))
+                   `("PATH"           . ,(expand-file-name "bin" ch)))))
   ;; :config
   ;; (set-prettify-symbols 'rust-mode '(("fn" . ?ƒ)))
   )
