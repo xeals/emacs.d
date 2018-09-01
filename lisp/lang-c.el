@@ -38,7 +38,7 @@
             :prefix xeal-localleader-key
             "=" #'+c-astyle-gnu-current-buffer)
   (:keymaps 'c-mode-map
-            :states visual
+            :states '(visual)
             :prefix xeal-localleader-key
             "=" #'+c-astyle-gnu-region))
 

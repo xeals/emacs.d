@@ -14,7 +14,12 @@
 ;; Packages
 
 (req-package ledger-mode
-  :demand t)
+  :demand t
+  :mode "\\.ledger$"
+  :general
+  (:keymaps 'ledger-mode-map
+            :states '(insert)
+            "<C-tab>" '(λ! (insert "\\t"))))
 
 (if (version< emacs-version "26.0")
   (req-package flycheck-ledger
