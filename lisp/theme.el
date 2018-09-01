@@ -12,6 +12,10 @@
 ;;;
 ;; Theme
 
+(req-package base16-agila-theme
+  :el-get t :ensure nil
+  :require base16-theme)
+
 (req-package pencil-theme
   :el-get t :ensure t
   :force t :demand t
@@ -29,11 +33,12 @@
   :el-get t :ensure t
   :disabled t)
 
-;; (req-package apropospriate-theme)
-(req-package panda-theme)
-(req-package challenger-deep-theme)
-
-;; (require 'slate-theme)
+(req-package apropospriate-theme
+  :disabled t)
+(req-package panda-theme
+  :disabled t)
+(req-package challenger-deep-theme
+  :disabled t)
 
 (load-theme xeal-theme t)
 

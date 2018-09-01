@@ -69,7 +69,7 @@
 ;;;
 ;; UI
 
-(defvar xeal-theme 'challenger-deep
+(defvar xeal-theme 'base16-agila
   "Colour theme to use.")
 
 (defvar xeal-font "IBM Plex Mono"
