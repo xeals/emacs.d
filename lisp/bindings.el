@@ -29,12 +29,12 @@ search is followed (not cancelled)."
     (counsel-grep-or-swiper)
     (when was-visual (visual-line-mode +1))))
 
-(defun increment-number-at-point ()
-  (interactive)
-  (skip-chars-backward "0-9")
-  (or (looking-at "[0-9]+")
-      (error "no number at point"))
-  (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
+;; (defun increment-number-at-point ()
+;;   (interactive)
+;;   (skip-chars-backward "0-9")
+;;   (or (looking-at "[0-9]+")
+;;       (error "no number at point"))
+;;   (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
 
 (defun change-number-at-point (change)
   (let ((number (number-at-point))
