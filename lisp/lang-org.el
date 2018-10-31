@@ -294,8 +294,11 @@ If on a:
         org-fontify-quote-and-verse-blocks t ; different faces
         org-src-fontify-natively t           ; fancy src blocks
         org-pretty-entities t                ; for latex inserts
-        org-ellipsis "…"                    ; for hidden entries
+        org-ellipsis " ▼ "                    ; for hidden entries
         org-tags-column -80                  ; align to 80 characters
+
+        org-fontify-done-headline t
+        org-fontify-whole-heading-line t
 
         ;;; Getting Things Done
         ;; set file handlers
@@ -327,6 +330,13 @@ If on a:
   (add-to-list 'recentf-exclude #'+org-is-agenda-file)
 
   (set-popup-buffer (rx bos "*Org Agenda*" eos))
+
+  ;; window padding
+  (progn
+    (setq header-line-format " ")
+    (setq left-margin-width 2)
+    (setq right-margin-width 2)
+    (set-window-buffer nil (current-buffer)))
 
   ;; Load LaTeX classes
   (after! ox-latex
@@ -360,15 +370,16 @@ If on a:
                      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))))
 
 (req-package org-bullets
-  :hook (org-mode . org-bullets-mode))
+  :hook (org-mode . org-bullets-mode)
+  :init (setq org-bullets-bullet-list '(" ")))
 
 (req-package org-wc
   :commands (org-word-count org-wc-count-subtrees org-wc-display org-wc-remove-overlays))
 
 (req-package org-variable-pitch
   :el-get t :ensure nil
-  :disabled t
   :hook (org-mode . org-variable-pitch-minor-mode)
+  :config (setq org-variable-pitch-fixed-font xeal-font)
   :general
   (:keymaps 'org-mode-map
             :prefix xeal-localleader-key
