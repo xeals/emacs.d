@@ -28,10 +28,7 @@
             "RET" #'flycheck-error-list-goto-error
             "q"   #'quit-window)
   :init
-  (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled))
-  :config
-  (set-popup-buffer (rx bos "*Flycheck errors*" eos)
-                    (rx bos "*Flycheck checker*" eos)))
+  (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)))
 
 (provide 'feature-syntax-checker)
 ;;; feature-syntax-checker.el ends here

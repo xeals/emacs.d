@@ -68,9 +68,7 @@
    haskell-process-auto-import-loaded-modules t
    haskell-stylish-on-save t
    haskell-font-lock-symbols t
-   haskell-process-type 'cabal-repl)
-  :config
-  (set-popup-buffer (rx bos "*haskell*" eos)))
+   haskell-process-type 'cabal-repl))
 
 (req-package ghc)
 

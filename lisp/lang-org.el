@@ -329,8 +329,6 @@ If on a:
 
   (add-to-list 'recentf-exclude #'+org-is-agenda-file)
 
-  (set-popup-buffer (rx bos "*Org Agenda*" eos))
-
   ;; window padding
   (progn
     (setq header-line-format " ")

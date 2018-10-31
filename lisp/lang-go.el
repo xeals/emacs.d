@@ -166,8 +166,6 @@ Uses `+godoc-gogetdoc' to look up documentation."
                           (":="   . ?←)))
 
   ;; fix up godoc-mode to be consistent with literally every other documentation mode
-  (set-popup-buffer (rx bos "*godoc*" eos))
-  (set-popup-buffer (rx bos "*godoc " (one-or-more anything) "*" eos))
   (add-hook 'godoc-mode-hook 'help-mode))
 
 (req-package go-eldoc
@@ -191,9 +189,7 @@ Uses `+godoc-gogetdoc' to look up documentation."
             "f" #'go-guru-freevars
             "i" #'go-guru-implements
             "p" #'go-guru-pointsto
-            "r" #'go-guru-referrers)
-  :config
-  (set-popup-buffer (rx bos "*go-guru-output*" eos)))
+            "r" #'go-guru-referrers))
 
 (req-package gorepl-mode
   :commands (gorepl-run gorepl-run-load-current-file)
@@ -211,9 +207,7 @@ Uses `+godoc-gogetdoc' to look up documentation."
             "f" #'gorepl-run-load-current-file
             "h" '(gorepl-hydra/body :wk "hydra")
             "l" #'gorepl-eval-line
-            "r" #'gorepl-eval-region)
-  :config
-  (set-popup-buffer (rx bos "*Go REPL*" eos)))
+            "r" #'gorepl-eval-region))
 
 (req-package company-go
   :requires company

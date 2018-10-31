@@ -71,10 +71,7 @@ Requires smartparens because all movement is done using `sp-forward-symbol'."
   :config
   (set-prettify-symbols 'emacs-lisp-mode '(("defun"    . ?ƒ)
                                            ("defmacro" . ?μ)
-                                           ("defvar"   . ?υ)))
-
-  (set-popup-buffer (rx bos "*ielm*" eos)
-                    (rx bos "*Style Warnings*" eos)))
+                                           ("defvar"   . ?υ))))
 
 (req-package ielm :ensure nil
   :hook (ielm-mode . rainbow-delimiters-mode))

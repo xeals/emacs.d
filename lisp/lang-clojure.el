@@ -161,9 +161,7 @@ the REPL buffer."
   :init
   (setq cider-repl-use-clojure-font-lock t)
   :config
-  (set-doc-fn 'cider-mode #'cider-doc)
-  (set-popup-buffer (rx bos "*cider-repl " (one-or-more anything) "*")
-                    (rx bos "*cider-test-report*")))
+  (set-doc-fn 'cider-mode #'cider-doc))
 
 (provide 'lang-clojure)
 ;;; lang-clojure.el ends here

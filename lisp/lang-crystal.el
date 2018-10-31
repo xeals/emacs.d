@@ -25,8 +25,7 @@
             "gp" #'crystal-beginning-of-block)
   :hook (crystal-mode . eglot)
   :config
-  (set-doc-fn 'crystal-mode #'crystal-def-jump)
-  (set-popup-buffer (rx bos "*crystal*" eos)))
+  (set-doc-fn 'crystal-mode #'crystal-def-jump))
 
 (req-package slim-mode
   :mode "\\.slim$"
