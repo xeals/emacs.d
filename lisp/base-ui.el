@@ -29,14 +29,6 @@
  scroll-preserve-screen-position t      ; move cursor on less than full screens only
  )
 
-;; Tooltips in echo area
-(tooltip-mode 0)
-
-(add-graphic-hook
- (tool-bar-mode 0)
- (scroll-bar-mode 0)
- (menu-bar-mode 0))
-
 ;; Visual line wrapping
 (add-hooks-pair '(text-mode
                   prog-mode
