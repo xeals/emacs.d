@@ -1,0 +1,9 @@
+# Cache stuff that shoudn't be in here
+# TODO make it not in here
+session.*
+kkcrc
+tramp
+
+# keys
+# TODO move to data
+elpa
