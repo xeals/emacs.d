@@ -49,20 +49,20 @@
 
 (require 'lang-c)
 (require 'lang-clojure)
+(require 'lang-crystal)
 (require 'lang-elisp)
 (require 'lang-ess)
 (require 'lang-go)
 (require 'lang-haskell)
 (require 'lang-markdown)
 (require 'lang-markup)
-(require 'lang-org)
-(require 'lang-rust)
-(require 'lang-crystal)
 (require 'lang-nim)
+(require 'lang-org)
+(require 'lang-ruby)
+(require 'lang-rust)
 
 (unless noninteractive
   (require 'bindings)
-  ;; (require 'commands)
   (require 'theme))
 
 (req-package-finish)
