@@ -65,6 +65,13 @@
   (setq-default evil-escape-key-sequence "jk"
                 evil-escape-delay 0.1))
 
+;; Visual feedback
+(req-package evil-goggles
+  :commands evil-goggles-mode
+  :config
+  (evil-goggles-mode)
+  (evil-goggles-use-magit-faces))
+
 ;; Align all the things
 (req-package evil-lion
   :commands (evil-lion-left evil-lion-right)
