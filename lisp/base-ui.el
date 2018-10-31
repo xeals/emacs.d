@@ -55,7 +55,8 @@
 ;; Highlight the current line
 (req-package hl-line
   :commands (hl-line-mode global-hl-line-mode)
-  :hook (after-init . global-hl-line-mode))
+  ;;:hook (after-init . global-hl-line-mode)
+  )
 
 ;; Colour the cursor based on the foreground
 (req-package smart-cursor-color
@@ -74,10 +75,10 @@
 ;; Use line numbers
 (req-package linum
   :commands (linum-mode global-linum-mode)
-  ;; :hook
-  ;; (prog-mode . +line-numbers-enable)
-  ;; (text-mode . +line-numbers-enable)
-  ;; (conf-mode . +line-numbers-enable)
+  :hook
+  (prog-mode . +line-numbers-enable)
+  (text-mode . +line-numbers-enable)
+  (conf-mode . +line-numbers-enable)
   )
 
 ;; Highlight hex colours
