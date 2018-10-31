@@ -13,6 +13,11 @@
       (expand-file-name "~/.cache"))
   "The XDG cache base directory.")
 
+(defvar xdg-config-home
+  (or (getenv "XDG_CONFIG_HOME")
+      (expand-file-name "~/.config"))
+  "The XDG config base directory.")
+
 (defvar xdg-data-home
   (or (getenv "XDG_DATA_HOME")
       (expand-file-name "~/.local/share"))
