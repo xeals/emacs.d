@@ -27,6 +27,26 @@
   ("/" (counsel-find-file xdg-config-home) "search")
   ("q" nil "cancel" :color blue))
 
+(defhydra +evil/nav-hydra
+  (:color red :hint nil)
+  "
+^Resizing^     ^Movement^
+---------------------
+   _+_            _k_
+ _<_ _=_ _>_        _h_   _l_
+   _-_            _j_
+"
+  ("<" evil-window-decrease-width)
+  (">" evil-window-increase-width)
+  ("-" evil-window-decrease-height)
+  ("+" evil-window-increase-height)
+  ("=" balance-windows)
+  ("h" evil-window-left)
+  ("j" evil-window-up)
+  ("k" evil-window-down)
+  ("l" evil-window-right)
+  ("q" nil "quit" :color blue))
+
 (defhydra +org/nav-hydra
   (:color red :hint nil)
   "
