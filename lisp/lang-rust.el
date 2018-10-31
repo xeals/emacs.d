@@ -57,7 +57,7 @@ If `help-window-select' is non-nil, also select the help window."
   ;; :general
   ;; (:keymap 'racer-mode-map
   ;;          "gd" #'racer-find-definition)
-  :config
+  :init
   (set-doc-fn 'racer-mode #'+racer-describe))
 
 (req-package flycheck-rust

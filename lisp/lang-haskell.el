@@ -80,9 +80,10 @@
   ;;           )
   :hook
   (haskell-mode . ghc-init)
-  :config
+  :init
   (set-doc-fn 'haskell-mode #'hoogle)
   ;; (set-company-backends 'haskell-mode 'company-ghc)
+  :config
   (add-to-list 'company-backends 'company-ghc)
   )
 
@@ -127,9 +128,10 @@
             "il" #'intero-list-buffers
             "ir" #'intero-restart
             "it" #'intero-targets)
+  :init
+  (set-doc-fn 'intero-mode #'intero-info)
   :config
-  (set-company-backends 'haskell-mode 'company-intero)
-  (set-doc-fn 'intero-mode #'intero-info))
+  (set-company-backends 'haskell-mode 'company-intero))
 
 (provide 'lang-haskell)
 ;;; lang-haskell.el ends here

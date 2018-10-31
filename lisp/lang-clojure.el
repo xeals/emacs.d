@@ -160,7 +160,6 @@ the REPL buffer."
             "C-k" #'cider-repl-previous-input)
   :init
   (setq cider-repl-use-clojure-font-lock t)
-  :config
   (set-doc-fn 'cider-mode #'cider-doc))
 
 (provide 'lang-clojure)

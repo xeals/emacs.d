@@ -24,7 +24,7 @@
             "gn" #'crystal-end-of-block
             "gp" #'crystal-beginning-of-block)
   :hook (crystal-mode . eglot)
-  :config
+  :init
   (set-doc-fn 'crystal-mode #'crystal-def-jump))
 
 (req-package slim-mode

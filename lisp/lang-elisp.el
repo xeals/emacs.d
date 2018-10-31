@@ -84,7 +84,7 @@ Requires smartparens because all movement is done using `sp-forward-symbol'."
 ;; Navigation and documentation
 (req-package elisp-slime-nav
   :hook (emacs-lisp-mode . turn-on-elisp-slime-nav-mode)
-  :config
+  :init
   (set-doc-fn 'emacs-lisp-mode #'elisp-slime-nav-describe-elisp-thing-at-point))
 
 (provide 'lang-elisp)
