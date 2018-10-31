@@ -74,7 +74,8 @@
            company-keywords)
           company-dabbrev))
   :config
-  (after! yasnippet (nconc company-backends '(company-yasnippet))))
+  (after! yasnippet (nconc company-backends '(company-yasnippet)))
+  (after! evil (evil-declare-change-repeat 'company-complete)))
 
 (req-package company-statistics
   :hook (company-mode . company-statistics-mode)
