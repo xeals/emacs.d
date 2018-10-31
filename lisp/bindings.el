@@ -73,7 +73,7 @@ search is followed (not cancelled)."
   "" nil
   "SPC" '(counsel-M-x           :wk "M-x")
   "!"   '(shell-command         :wk "shell command")
-  "'"   '(eshell                :wk "terminal")
+  "'"   '(term                  :wk "terminal")
   ";"   '(eval-expression       :wk "eval expression")
   "/"   '(counsel-projectile-rg :wk "rg")
   "TAB" '(alternate-buffer      :wk "last buffer")
@@ -113,8 +113,8 @@ search is followed (not cancelled)."
   "fb" '(bookmark-jump                  :wk "bookmarks")
   "fc" '(copy-file                      :wk "copy")
   "fD" '(+delete-current-buffer-file    :wk "delete current")
+  "fe" '(xeal/dotfile-hydra/body        :wk "configs")
   "ff" '(counsel-find-file              :wk "find file")
-  "fe" '(xeal/find-dotfiles             :wk "open dotfiles folder")
   "fg" '(counsel-rg                     :wk "rg")
   "fR" '(+rename-current-buffer-file    :wk "rename current")
   "fr" '(counsel-recentf                :wk "recent")
@@ -135,6 +135,7 @@ search is followed (not cancelled)."
   "hm" '(describe-mode     :wk "mode")
   "hp" '(describe-package  :wk "packages")
   "hv" '(describe-variable :wk "variables")
+  "hw" #'woman
 
   "i" '(:ignore t :wk "insert")
   "in" #'rectangle-number-lines
