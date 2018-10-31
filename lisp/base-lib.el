@@ -18,9 +18,6 @@
 ;; Add multiple hooks at once
 (req-package add-hooks :force t :demand t)
 
-(req-package pos-tip    :force t) ; inline popups
-(req-package quick-peek :force t) ; inline popups
-
 ;;;
 ;; Setup
 
@@ -38,7 +35,7 @@
   (interactive)
   (if (commandp documentation-function)
       (call-interactively documentation-function)
-    (call-interactively #'source-peek)))
+    (message (format "Documentation function not defined for %s" major-mode))))
 
 (defmacro set-company-backends (mode &rest backends)
   "For MODE add BACKENDS to buffer-local version of `company-backends'."

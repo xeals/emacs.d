@@ -139,11 +139,6 @@
   (require 'smartparens-config)
   (smartparens-global-mode 1))
 
-;; Peek definition (display function source inline)
-(req-package source-peek
-  :el-get t :ensure nil
-  :commands source-peek)
-
 (req-package writeroom-mode
   :commands writeroom-mode
   :init
