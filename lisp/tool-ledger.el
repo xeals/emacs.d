@@ -10,6 +10,11 @@
   (require 'base-lib)
   (require 'base-package))
 
+(defun xeal/open-ledger ()
+  "Opens the ledger file."
+  (interactive)
+  (find-file (concat xeal-sync-dir "/ledger.dat")))
+
 ;;;
 ;; Packages
 

@@ -142,6 +142,7 @@ search is followed (not cancelled)."
   "o" '(:ignore t :wk "open")
   "od" '(xeal/open-docs :wk "documentation")
   "oi" `(,(λ! (+gtd/open-file "inbox")) :wk "inbox")
+  "ol" `(xeal/open-ledger :wk "ledger")
   "on" '(xeal/open-notes :wk "notes")
   "os" `(,(λ! (+gtd/open-file "someday")) :wk "someday")
   "ot" `(,(λ! (+gtd/open-file "gtd")) :wk "todo")
