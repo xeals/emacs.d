@@ -60,7 +60,7 @@
 ;; Features
 
 (require 'feature-evil)
-;(require 'feature-hydra)
+(require 'feature-hydra)
 (require 'feature-snippets)
 (require 'feature-spellcheck)
 (require 'feature-syntax-checker)

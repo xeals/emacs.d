@@ -16,6 +16,10 @@
   (interactive)
   (counsel-find-file (concat user-emacs-directory "lisp/")))
 
+(defun xeal/counsel-open-config (folder)
+  (interactive)
+  (counsel-find-file (concat xdg-config-home "/" folder)))
+
 ;; University
 
 (defun xeal/open-uni (dir)
@@ -38,15 +42,6 @@ The base university folder is given by `xeal/uni-dir'."
   "Opens the Getting Things Done file."
   (interactive)
   (find-file (concat xeal-sync-dir "/gtd/" filename ".org")))
-
-;; (defmacro xeal/open-dir (dir &optional sub)
-;;   "Opens the directory defined by `xeal/DIR-dir'.
-;; If SUB is non-nil, opens that subfolder."
-;;   (interactive)
-;;   `(let* ((var (intern (format "xeal-%s-dir" ,dir))))
-;;      (if ,sub
-;;          (counsel-find-file (expand-file-name ,sub var))
-;;        (counsel-find-file var))))
 
 (provide 'tool-quick-find)
 ;;; tool-quick-find.el ends here
