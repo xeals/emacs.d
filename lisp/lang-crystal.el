@@ -28,5 +28,9 @@
   (set-doc-fn 'crystal-mode #'crystal-def-jump)
   (set-popup-buffer (rx bos "*crystal*" eos)))
 
+(req-package slim-mode
+  :mode "\\.slim$"
+  :mode "\\.slang$")
+
 (provide 'lang-crystal)
 ;;; lang-crystal.el ends here
