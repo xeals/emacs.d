@@ -21,13 +21,14 @@
   :general
   (:keymaps 'company-mode-map
             :states 'insert
-            "C-SPC" #'company-complete-common)
+            "TAB" #'company-complete-common)
   (:keymaps 'company-active-map
             ;; Disable return
             [return]   'nil
             "RET"      'nil
             ;; Abort company instead of insert mode
             ;; [escape]  #'company-abort
+            "C-g"     #'company-abort
             ;; Complete the common part then cycle
             ;; [tab]     #'company-complete-common-or-cycle
             ;; "TAB"     #'company-complete-common-or-cycle
