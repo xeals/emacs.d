@@ -122,7 +122,7 @@
   (setq sp-highlight-pair-overlay nil
         sp-show-pair-delay 0)
   :config
-  (sp-local-pair '(xml-moe nxml-mode) "<!--" "-->"
+  (sp-local-pair '(xml-mode nxml-mode) "<!--" "-->"
                  :post-handlers '(("| " "SPC")))
 
   ;; Auto-close more conservatively
