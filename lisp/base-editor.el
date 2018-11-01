@@ -68,9 +68,11 @@
                           "^/\\.git/.+?" ; git contents
                           "COMMIT_EDITMSG$"
                           "recentf$"
-                          ,(expand-file-name xeal-cache-dir)
-                          ,(expand-file-name user-emacs-directory)
-                          ,(expand-file-name xeal-packages-dir)))
+                          ;; `abbreviate-file-name' because that's how it's transformed
+                          ;; otherwise use `expand-file-name'
+                          ,(abbreviate-file-name xeal-cache-dir)
+                          ,(abbreviate-file-name user-emacs-directory)
+                          ,(abbreviate-file-name xeal-packages-dir)))
   :config
   (quiet! (recentf-mode 1)))
 
