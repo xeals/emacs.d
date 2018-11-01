@@ -68,6 +68,10 @@ Requires smartparens because all movement is done using `sp-forward-symbol'."
             :states '(normal visual operator)
             :prefix xeal-localleader-key
             "'" #'ielm)
+  (:keymaps 'emacs-lisp-mode-map :major-modes t
+            :states '(normal)
+            "<return>"   #'+elisp/eval-current-form-sp
+            "<S-return>" #'eval-defun)
   :config
   (set-prettify-symbols 'emacs-lisp-mode '(("defun"    . ?ƒ)
                                            ("defmacro" . ?μ)
@@ -85,7 +89,8 @@ Requires smartparens because all movement is done using `sp-forward-symbol'."
 (req-package elisp-slime-nav
   :hook (emacs-lisp-mode . turn-on-elisp-slime-nav-mode)
   :init
-  (set-doc-fn 'emacs-lisp-mode #'elisp-slime-nav-describe-elisp-thing-at-point))
+  (set-doc-fn 'emacs-lisp-mode #'elisp-slime-nav-describe-elisp-thing-at-point)
+  (set-doc-fn 'inferior-emacs-lisp-mode #'elisp-slime-nav-describe-elisp-thing-at-point))
 
 (provide 'lang-elisp)
 ;;; lang-elisp.el ends here
