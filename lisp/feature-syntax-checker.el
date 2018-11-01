@@ -30,5 +30,11 @@
   :init
   (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)))
 
+(req-package flycheck-posframe
+  :after flycheck
+  :hook (flycheck-mode . flycheck-posframe-mode)
+  :config
+  (flycheck-posframe-configure-pretty-defaults))
+
 (provide 'feature-syntax-checker)
 ;;; feature-syntax-checker.el ends here

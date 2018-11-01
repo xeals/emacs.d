@@ -93,6 +93,10 @@
         company-quickhelp-color-foreground "#e5e6e6"
         company-quickhelp-color-background "#424242"))
 
+(req-package company-posframe
+  :after company
+  :hook (company-mode . company-posframe-mode))
+
 ;;;
 ;; Autoloads
 
