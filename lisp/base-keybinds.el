@@ -16,6 +16,9 @@
 (defvar xeal-leader-key "SPC"
   "The leader prefix key, for global commands.")
 
+(defvar xeal-non-normal-leader-key "C-SPC"
+  "The leader prefix key, for global commands, outside normal mode.")
+
 (defvar xeal-localleader-key ","
   "The localleader prefix key, for major-mode specific commands.")
 
@@ -24,18 +27,37 @@
 
 (req-package general :force t :demand t)
 
-(general-create-definer
- general-leader
- :states '(normal motion visual motion emacs operator)
- :prefix xeal-leader-key)
+;; https://github.com/noctuid/general.el/issues/126
+
+(general-create-definer xeal--default-leader
+ :states '(normal visual operator)
+ :prefix xeal-leader-key
+ :keymaps 'override)
+
+(general-create-definer xeal-global-leader
+  :states general-non-normal-states
+  :prefix xeal-non-normal-leader-key
+  :keymaps 'override)
+
+(defmacro general-leader (&rest args)
+  "Define for both default leader and global leader."
+  (declare (indent defun))
+  `(progn
+     (xeal--default-leader
+      ,@args)
+     (xeal-global-leader
+      ,@args)))
 
 ;; Remove conflicting leader keys
 (after! evil
   (general-define-key
    :unbind t
    :keymaps '(normal visual motion)
-   "SPC"
-   ","))
+   xeal-leader-key xeal-localleader-key)
+  (general-define-key
+   :unbind t
+   :keymaps general-non-normal-states
+   xeal-non-normal-leader-key))
 
 (req-package which-key :force t
   :commands
