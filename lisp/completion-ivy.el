@@ -54,6 +54,14 @@
            (persp-window-switch . nil)
            (persp-frame-switch  . nil))))
 
+(req-package ivy-posframe
+  :after ivy
+  :commands (ivy-posframe-display-at-frame-center ivy-posframe-enable)
+  :init
+  (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
+  :config
+  (ivy-posframe-enable))
+
 (req-package swiper
   :commands (swiper swiper-multi swiper-all))
 
