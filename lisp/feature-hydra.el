@@ -20,7 +20,7 @@
 
 (defhydra xeal/dotfile-hydra (:color teal)
   "Quick dotfile access."
-  ("E" (find-file (concat user-emacs-directory "init.el")) "emacs")
+  ("E" (find-file (concat user-emacs-directory "init.el")) "init.el")
   ("e" xeal/find-dotfiles "emacs")
   ("h" (xeal/counsel-open-config "herbstluftwm") "hlwm")
   ("z" (xeal/counsel-open-config "zsh") "zsh")
