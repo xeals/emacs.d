@@ -80,7 +80,7 @@
 (defvar xeal-font "IBM Plex Mono"
   "Default typeface to use.")
 
-(defvar xeal-variable-pitch-font "IBM Plex Sans"
+(defvar xeal-variable-pitch-font "IBM Plex Serif"
   "Default variable pitch typeface to use.")
 
 (defvar xeal-font-height 105
