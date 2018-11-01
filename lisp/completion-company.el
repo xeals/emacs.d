@@ -36,12 +36,17 @@
             "TAB"     #'company-complete
             [backtab] #'company-select-previous
             "S-TAB"   #'company-select-previous
+
             ;; Filter
-            "C-s"     #'company-filter-candidates
-            "C-k"     #'company-select-previous
-            "C-p"     #'company-select-previous
-            "C-j"     #'company-select-next
-            "C-n"     #'company-select-next)
+            "C-s" #'company-filter-candidates
+            "C-k" #'company-select-previous
+            "C-p" #'company-select-previous
+            "C-j" #'company-select-next
+            "C-n" #'company-select-next
+
+            ;; Rebind show location
+            "C-w" 'nil
+            "C-l" #'company-show-location)
   (:keymaps 'company-search-map
             "C-n" #'company-search-repeat-forward
             "C-p" #'company-search-repeat-backward)
