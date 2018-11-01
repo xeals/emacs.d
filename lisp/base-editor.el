@@ -64,10 +64,11 @@
         recentf-filename-handlers '(abbreviate-file-name)
         recentf-max-saved-items 100
         recentf-auto-save-timer (run-with-idle-timer 600 t #'recentf-save-list)
-        recentf-exclude `("/tmp/" ; temp files
-                          "^/\\.git/.+?" ; git contents
+        recentf-exclude `("/tmp/"             ; temp files
+                          "^/\\.git/.+?"      ; git contents
                           "COMMIT_EDITMSG$"
                           "recentf$"
+                          "/usr/share/emacs/" ; emacs source
                           ;; `abbreviate-file-name' because that's how it's transformed
                           ;; otherwise use `expand-file-name'
                           ,(abbreviate-file-name xeal-cache-dir)
