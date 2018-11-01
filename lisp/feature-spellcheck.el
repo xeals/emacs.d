@@ -25,7 +25,9 @@
             "]S" 'flyspell-correct-next
             "[S" 'flyspell-correct-previous))
 
+;; Wishlist: flyspell-posframe
 (req-package flyspell-popup
+  :disabled t
   :hook
   (flyspell-mode . flyspell-popup-auto-correct-mode)
   :general
@@ -34,6 +36,11 @@
             "C-=" #'flyspell-popup-correct)
   :init
   (setq flyspell-popup-correct-delay 0.5))
+
+(req-package flyspell-correct-ivy
+  :general
+  (:keymaps 'flyspell-mode-map
+            "C-;" #'flyspell-correct-wrapper))
 
 (req-package writegood-mode
   :commands (writegood-mode
