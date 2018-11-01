@@ -25,7 +25,7 @@
         yas-triggers-in-field t
         yas-snippet-dirs (list (concat (expand-file-name user-emacs-directory) "snippets/")))
   :config
-  (push #'ivy-yas-prompt yas-prompt-functions)
+  (push #'+ivy-yas-prompt yas-prompt-functions)
   (after! evil
     (add-hook 'yas/before-expand-snippet-hook #'evil-insert-state)))
 
@@ -34,6 +34,15 @@
   ;; :general ; bound in bindings.el
   :init
   (setq aya-persist-snipets-dir (concat xeal-data-dir "auto-snippets/")))
+
+(req-package ivy-yasnippet)
+
+;;;
+;; Autoloads
+
+;;;###autoload
+(defun +ivy-yas-prompt (prompt choices &optional display-fn)
+  (yas-completing-prompt prompt choices display-fn #'ivy-completing-read))
 
 (provide 'feature-snippets)
 ;;; feature-snippets.el ends here

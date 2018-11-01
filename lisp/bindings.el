@@ -139,6 +139,12 @@ search is followed (not cancelled)."
 
   "i" '(:ignore t :wk "insert")
   "in" #'rectangle-number-lines
+  "is" #'yas-insert-snippet
+
+  "iS" '(:ignore t :wk "snippets")
+  "iSn" #'yas-new-snippet
+  "iSi" #'yas-insert-snippet
+  "iSv" #'yas-visit-snippet-file
 
   "o" '(:ignore t :wk "open")
   "od" '(xeal/open-docs :wk "documentation")
