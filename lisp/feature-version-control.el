@@ -14,6 +14,13 @@
 
 (req-package magit
   :defer 2
+  :general
+  (:keymaps 'with-editor-mode
+            :definer 'minor-mode
+            :states 'normal
+            :prefix xeal-localleader-key
+            xeal-localleader-key #'with-editor-finish
+            "k" #'with-editor-cancel)
   :config
   (global-magit-file-mode 1))
 
