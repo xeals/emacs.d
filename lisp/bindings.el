@@ -77,6 +77,7 @@ search is followed (not cancelled)."
   ";"   '(eval-expression       :wk "eval expression")
   "/"   '(counsel-projectile-rg :wk "rg")
   "TAB" '(alternate-buffer      :wk "last buffer")
+  "m"   `(,(general-simulate-key "," :state 'normal) :wk "major mode")
   "u"   '(universal-argument    :wk "universal argument")
 
   "a" '(:ignore t :wk "agenda")
