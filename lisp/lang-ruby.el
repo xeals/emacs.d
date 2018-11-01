@@ -29,8 +29,8 @@
   :general
   (:keymaps 'robe-mode-map
             :states '(normal visual operator)
-            :prefix xeal-local-leader-key
-            xeal-local-leader-key #'robe-start)
+            :prefix xeal-localleader-key
+            xeal-localleader-key #'robe-start)
   :init
   ;; (defun +robe/start ()
   ;;   (interactive)
