@@ -58,9 +58,14 @@
   :after ivy
   :commands (ivy-posframe-display-at-frame-center ivy-posframe-enable)
   :init
-  (setq ivy-display-function #'ivy-posframe-display-at-frame-center)
+  (setq ivy-display-function #'ivy-posframe-display-at-frame-center
+        ivy-posframe-width (floor (* (frame-width) 0.7)))
   :config
   (ivy-posframe-enable))
+
+(req-package all-the-icons-ivy
+  :after ivy
+  :hook (ivy-mode . all-the-icons-ivy-setup))
 
 (req-package swiper
   :commands (swiper swiper-multi swiper-all))
@@ -74,6 +79,7 @@
 
 (req-package counsel
   :demand t
+  :after ivy
   :general
   (:keymaps 'ivy-mode-map
             [remap apropos]                   #'counsel-apropos
