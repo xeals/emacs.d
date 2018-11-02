@@ -68,7 +68,7 @@
 (req-package smex
   :commands (smex smex-major-mode-commands)
   :init
-  (setq smex-save-file (concat xeal-cache-dir "/smex"))
+  (setq smex-save-file (x/cache "smex"))
   :config
   (smex-initialize))
 

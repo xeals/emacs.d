@@ -39,8 +39,8 @@
              projectile-vc)
   :init
   (setq projectile-sort-order #'recentf
-        projectile-cache-file (concat xeal-cache-dir "projectile.cache")
-        projectile-known-projects-file (concat xeal-cache-dir "projectile-bookmarks.eld")
+        projectile-cache-file (x/cache "projectile.cache")
+        projectile-known-projects-file (x/cache "projectile-bookmarks.eld")
         projectile-globallyy-ignored-file-suffixes
         '(".elc" ".pyc" ".o" ".hi" ".class" ".cache")
         projectile-ignored-projects (list xeal-data-dir)

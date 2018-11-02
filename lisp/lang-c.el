@@ -48,7 +48,9 @@
   :hook
   (c-mode     . irony-mode)
   (c++-mode   . irony-mode)
-  (irony-mode . irony-cdb-autosetup-compile-options))
+  (irony-mode . irony-cdb-autosetup-compile-options)
+  :init
+  (setq irony-user-dir (x/data "irony/")))
 
 (req-package company-irony
   :requires company

@@ -45,6 +45,15 @@
   (concat xeal-data-dir "packages/")
   "Directory for package.el installation.")
 
+(defun x/cache (file)
+  "Expand filename FILE relative to `xeal-cache-dir'."
+  (expand-file-name (convert-standard-filename file)
+                    xeal-cache-dir))
+(defun x/data (file)
+  "Expand filename FILE relative to `xeal-data-dir'."
+  (expand-file-name (convert-standard-filename file)
+                    xeal-data-dir))
+
 ;;;
 ;; Other file structures
 

@@ -86,7 +86,7 @@
 (req-package company-statistics
   :hook (company-mode . company-statistics-mode)
   :init
-  (setq company-statistics-file (concat xeal-cache-dir "company-stats-cache.el")))
+  (setq company-statistics-file (x/cache "company-stats-cache.el")))
 
 (req-package company-quickhelp
   :hook (company-mode . company-quickhelp-mode)

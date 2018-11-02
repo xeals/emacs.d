@@ -25,6 +25,10 @@
 (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
 (setq-default
+ ;; Set this early because other stuff depends on it
+ backup-directory-alist      (list (cons "." (x/cache "backup/"))))
+
+(setq-default
  ;; mode-line-default-help-echo nil        ; disable mode-line mouseovers
  ;; History and backup
  auto-save-default nil                  ; no autosaving
@@ -36,25 +40,25 @@
  x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)
  x-gtk-use-system-tooltips t            ; use GTK tooltips
  ;; Files
- abbrev-file-name            (concat xeal-data-dir "abbrev.el")
- auto-save-list-file-name    (concat xeal-cache-dir "autosave")
- backup-directory-alist      (list (cons "." (concat xeal-cache-dir "backup/")))
- bookmark-default-file       (concat xeal-data-dir "bookmarks")
- eshell-directory-name       (concat xeal-data-dir "eshell/")
- eshell-history-file-name    (concat xeal-data-dir "eshell-history")
- pcache-directory            (concat xeal-cache-dir "pcache/")
- server-auth-dir             (concat xeal-cache-dir "server/")
- shared-game-score-directory (concat xeal-data-dir "shared-game-score/")
- tramp-auto-save-directory   (concat xeal-cache-dir "tramp/")
+ abbrev-file-name            (x/data "abbrev.el")
+ auto-save-list-file-name    (x/cache "autosave")
+ bookmark-default-file       (x/data "bookmarks")
+ eshell-directory-name       (x/data "eshell/")
+ eshell-history-file-name    (x/data "eshell-history")
+ kkc-init-file-name          (x/data "kkr-init.el")
+ pcache-directory            (x/cache "pcache/")
+ server-auth-dir             (x/cache "server/")
+ shared-game-score-directory (x/data "shared-game-score/")
+ tramp-auto-save-directory   (x/cache "tramp/auto-save/")
  tramp-backup-directory-alist backup-directory-alist
- tramp-persistency-file-name (concat xeal-cache-dir "tramp-persistency.el")
- url-cache-directory         (concat xeal-cache-dir "url/")
- url-configuration-directory (concat xeal-data-dir "url/"))
+ tramp-persistency-file-name (x/cache "tramp/persistency.el")
+ url-cache-directory         (x/cache "url/")
+ url-configuration-directory (x/data "url/"))
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Move custom out of init.el
-(setq-default custom-file (concat xeal-data-dir "custom.el"))
+(setq-default custom-file (x/data "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file nil t))
 

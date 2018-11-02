@@ -7,7 +7,8 @@
 
 (eval-when-compile
   (require 'base-lib)
-  (require 'base-package))
+  (require 'base-package)
+  (require 'base-vars))
 
 ;;;
 ;; Packages
@@ -33,7 +34,7 @@
   :commands (aya-create aya-expand aya-open-line aya-persist snippet)
   ;; :general ; bound in bindings.el
   :init
-  (setq aya-persist-snipets-dir (concat xeal-data-dir "auto-snippets/")))
+  (setq aya-persist-snipets-dir (x/data "auto-snippets/")))
 
 (req-package ivy-yasnippet)
 

@@ -35,6 +35,17 @@
 
 (maybe-push-exec-path (or (getenv "XDG_BIN_HOME") (expand-file-name "~/.local/bin")))
 
+;; From https://github.com/emacscollective/no-littering
+(after! x-win
+  (let ((session-dir (x/cache "emacs-session/")))
+    (progn
+      (make-directory session-dir t)
+      (defun emacs-session-filename (session-id)
+        "Construct a filename to save the session in based on SESSION-ID.
+This function overrides the one on `x-win' to use `no-littering'
+directories."
+        (expand-file-name session-id session-dir)))))
+
 ;;;
 ;; Builtins
 
@@ -59,7 +70,7 @@
   :defer 1
   :hook (find-file . (lambda () (unless recentf-mode (recentf-mode) (recentf-track-opened-file))))
   :init
-  (setq recentf-save-file (concat xeal-cache-dir "recentf")
+  (setq recentf-save-file (x/cache "recentf")
         recentf-auto-cleanup 'never
         recentf-filename-handlers '(abbreviate-file-name)
         recentf-max-saved-items 100
@@ -81,7 +92,7 @@
 (req-package savehist
   :defer 1
   :init
-  (setq savehist-file (concat xeal-cache-dir "savehist")
+  (setq savehist-file (x/cache "savehist")
         enable-recursive-minibuffers t
         history-length 500
         savehist-autosave-interval 60
@@ -96,7 +107,7 @@
 (req-package saveplace
   :demand t
   :init
-  (setq save-place-file (concat xeal-cache-dir "saveplace"))
+  (setq save-place-file (x/cache "saveplace"))
   :config
   (save-place-mode t))
 

@@ -302,7 +302,7 @@ If on a:
   (after! ox-latex
     (setq
      ;; make LaTeX previews a bit larger and more consistent colouring and faces
-     org-preview-latex-image-directory (concat xeal-cache-dir "org-latex/")
+     org-preview-latex-image-directory (x/cache "org-latex/")
      org-format-latex-options (plist-put org-format-latex-options :scale 1.5)
      org-format-latex-options
      (plist-put org-format-latex-options
