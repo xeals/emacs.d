@@ -17,7 +17,8 @@
   :require base16-theme
   :config
   (custom-set-faces
-   '(fringe ((t (:background "#1A1E24"))))))
+   '(fringe ((t (:background "#1A1E24"))))
+   '(ivy-posframe ((t :foreground "#cdd3df" :background "#1a1e24")))))
 
 (req-package pencil-theme
   :el-get t :ensure t
