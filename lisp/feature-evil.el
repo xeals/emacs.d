@@ -31,7 +31,8 @@
         evil-ex-search-vim-style-regexp t
         evil-ex-visual-char-range t
         evil-mode-line-format 'nil
-        shift-select-mode nil)
+        shift-select-mode nil
+        evil-symbol-word-search t)
   :config
   ;; disable selection adding to clipboard
   (fset 'evil-visual-update-x-selection 'ignore)
