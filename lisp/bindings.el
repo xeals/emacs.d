@@ -204,6 +204,7 @@ search is followed (not cancelled)."
   "vJ" '(evil-move-window-very-bottom :wk "move down")
   "vu" '(winner-undo                  :wk "Winner undo")
   "vU" '(winner-redo                  :wk "Winner redo")
+  "vv" '(+evil/nav-hydra/body         :wk "hydra")
   "vw" '(writeroom-mode               :wk "writeroom"))
 
 (after! evil
