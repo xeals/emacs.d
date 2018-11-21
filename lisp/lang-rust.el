@@ -12,23 +12,6 @@
   (require 'base-vars))
 
 ;;;
-;; Functions
-
-(defun +racer-describe ()
-  "Show a *Racer Help* buffer for the function or type at point.
-If `help-window-select' is non-nil, also select the help window."
-  (interactive)
-  (let ((window (racer-describe)))
-    (when help-window-select
-      (select-window window)
-      (help-mode))))
-
-(defun +cargo-open-toml ()
-  "Opens the project's Cargo.toml file."
-  (interactive)
-  (find-file (expand-file-name "Cargo.toml" (projectile-project-root))))
-
-;;;
 ;; Packages
 
 (req-package rust-mode
@@ -45,15 +28,21 @@ If `help-window-select' is non-nil, also select the help window."
                    `("RUSTUP_HOME"    . ,rh)
                    `("RUST_TOOLCHAIN" . ,tc)
                    `("RUST_SRC_PATH"  . ,(concat rh "/toolchains/" tc "/lib/rustlib/src/rust/src"))
-                   `("PATH"           . ,(expand-file-name "bin" ch)))))
-  ;; :config
-  ;; (set-prettify-symbols 'rust-mode '(("fn" . ?ƒ)))
-  )
+                   `("PATH"           . ,(expand-file-name "bin" ch))))))
 
 (req-package racer
   :hook
   (rust-mode . racer-mode)
   (racer-mode . eldoc-mode)
+  :preface
+  (defun +racer-describe ()
+    "Show a *Racer Help* buffer for the function or type at point.
+If `help-window-select' is non-nil, also select the help window."
+    (interactive)
+    (let ((window (racer-describe)))
+      (when help-window-select
+        (select-window window)
+        (help-mode))))
   ;; :general
   ;; (:keymap 'racer-mode-map
   ;;          "gd" #'racer-find-definition)
@@ -69,6 +58,11 @@ If `help-window-select' is non-nil, also select the help window."
 (req-package cargo
   :hook
   (rust-mode . cargo-minor-mode)
+  :preface
+  (defun +cargo-open-toml ()
+    "Opens the project's Cargo.toml file."
+    (interactive)
+    (find-file (expand-file-name "Cargo.toml" (projectile-project-root))))
   :general
   (:keymaps 'cargo-minor-mode-map
             :states '(normal visual operator)
@@ -91,7 +85,8 @@ If `help-window-select' is non-nil, also select the help window."
             ;; TODO replace with emacs-native function
             "g" #'evil-goto-first-line)
   :init
-  (setq cargo-process--command-check  "+nightly check"
+  (setq cargo-process--command-fmt    "+nightly fmt"
+        cargo-process--command-check  "+nightly check"
         cargo-process--command-clippy "+nightly clippy"))
 
 (provide 'lang-rust)
