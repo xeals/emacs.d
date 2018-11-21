@@ -56,12 +56,23 @@
 
 (req-package ivy-posframe
   :after ivy
-  :commands (ivy-posframe-display-at-frame-center ivy-posframe-enable)
+  :commands (ivy-posframe-display
+             ivy-posframe-display-at-window-center
+             ivy-posframe-display-at-frame-center
+             ivy-posframe-display-at-window-bottom-left
+             ivy-posframe-display-at-frame-bottom-left
+             ivy-posframe-display-at-frame-bottom-window-center
+             ivy-posframe-display-at-point
+             ivy-posframe-enable
+             ivy-posframe-setup)
   :init
-  (setq ivy-display-function #'ivy-posframe-display-at-frame-center
-        ivy-posframe-width (floor (* (frame-width) 0.7)))
+  (setq ivy-display-functions-alist
+        '((flyspell-correct-ivy     . ivy-posframe-display-at-point)
+          (counsel-irony            . ivy-display-function-overlay)
+          (ivy-completion-in-region . ivy-display-function-overlay)
+          (t                        . ivy-posframe-display-at-frame-bottom-window-center)))
   :config
-  (ivy-posframe-enable))
+  (ivy-posframe-setup))
 
 (req-package all-the-icons-ivy
   :after ivy
