@@ -1,0 +1,8 @@
+* emacs.d
+
+- theme :: `base16-agila`
+  - font :: IBM Plex Mono / Serif
+- completion :: ivy, company
+- editing :: evil
+- key def :: general
+- syntax checking :: flycheck
