@@ -85,9 +85,9 @@ If `help-window-select' is non-nil, also select the help window."
             ;; TODO replace with emacs-native function
             "g" #'evil-goto-first-line)
   :init
-  (setq cargo-process--command-fmt    "+nightly fmt"
+  (setq cargo-process--command-fmt    "fmt"
         cargo-process--command-check  "+nightly check"
-        cargo-process--command-clippy "+nightly clippy"))
+        cargo-process--command-clippy "clippy"))
 
 (provide 'lang-rust)
 ;;; lang-rust.el ends here

@@ -152,7 +152,7 @@ Uses `+godoc-gogetdoc' to look up documentation."
         godoc-at-point-function #'+godoc-and-godef
         gofmt-command "goimports")
   ;; Initialise paths
-  (let* ((gp (expand-file-name "go" xdg-data-home))
+  (let* ((gp (expand-file-name "go" (getenv "HOME")))
          (gb (expand-file-name "bin" gp)))
     (set-env-unless
      "GOPATH" (list
