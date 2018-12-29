@@ -16,7 +16,13 @@
 
 (req-package rust-mode
   :mode "\\.rs$"
+  :general
+  (:keymaps 'rust-mode-map
+            :states '(normal visual operator)
+            :prefix xeal-localleader-key
+            "'" #'asf-rustdoc-edit)
   :init
+  (autoload 'asf-rustdoc-edit "rustdoc-edit.el")
   ;; Initialise paths
   ;; (let ((tc (replace-regexp-in-string "\n" "" (shell-command-to-string "awk '/toolchain/{gsub(\"\\\"\",\"\",$3); print $3}' $RUSTUP_HOME/settings.toml")))
   (let ((tc "stable-x86_64-unknown-linux-gnu")
@@ -31,6 +37,7 @@
                    `("PATH"           . ,(expand-file-name "bin" ch))))))
 
 (req-package racer
+  :disabled t
   :hook
   (rust-mode . racer-mode)
   (racer-mode . eldoc-mode)
@@ -50,6 +57,7 @@ If `help-window-select' is non-nil, also select the help window."
   (set-doc-fn 'racer-mode #'+racer-describe))
 
 (req-package flycheck-rust
+  :disabled t
   :requires flycheck
   :hook
   (flycheck-mode . flycheck-rust-setup)
