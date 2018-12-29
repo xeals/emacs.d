@@ -16,6 +16,8 @@
 
 (req-package rust-mode
   :mode "\\.rs$"
+  :hook
+  (rust-mode . eglot-ensure)
   :general
   (:keymaps 'rust-mode-map
             :states '(normal visual operator)
@@ -23,6 +25,7 @@
             "'" #'asf-rustdoc-edit)
   :init
   (autoload 'asf-rustdoc-edit "rustdoc-edit.el")
+  (set-doc-fn 'rust-mode #'eglot-help-at-point)
   ;; Initialise paths
   ;; (let ((tc (replace-regexp-in-string "\n" "" (shell-command-to-string "awk '/toolchain/{gsub(\"\\\"\",\"\",$3); print $3}' $RUSTUP_HOME/settings.toml")))
   (let ((tc "stable-x86_64-unknown-linux-gnu")

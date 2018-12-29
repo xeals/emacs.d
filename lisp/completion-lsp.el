@@ -14,8 +14,6 @@
 
 (req-package eglot
   :el-get t :ensure nil
-  :hook
-  (rust-mode . eglot-ensure)
   :general
   (:states '(normal visual operator)
             :prefix xeal-leader-key
@@ -29,9 +27,7 @@
             "cr" #'eglot-rename
             "cR" #'eglot-reconnect)
   :init
-  (add-to-list 'eglot-server-programs '(crystal-mode . ("scry")))
-  (dolist (mode (list 'rust-mode))
-    (set-doc-fn mode #'eglot-help-at-point)))
+  (add-to-list 'eglot-server-programs '(crystal-mode . ("scry"))))
 
 (provide 'completion-lsp)
 ;;; completion-lsp.el ends here
