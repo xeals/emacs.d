@@ -65,11 +65,11 @@
     "......."
     ".......")
   (fringe-helper-define 'git-gutter-fr:modified nil
-    "..X...."
-    ".XXX..."
-    "XX.XX.."
-    ".XXX..."
-    "..X...."))
+    "....XX."
+    "...XX.."
+    "..XX..."
+    ".XX...."
+    "XX....."))
 
 (provide 'feature-version-control)
 ;;; feature-version-control.el ends here
