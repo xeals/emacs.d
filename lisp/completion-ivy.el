@@ -55,6 +55,7 @@
            (persp-frame-switch  . nil))))
 
 (req-package ivy-posframe
+  :disabled t
   :after ivy
   :commands (ivy-posframe-display
              ivy-posframe-display-at-window-center
