@@ -22,7 +22,7 @@
             xeal-localleader-key #'with-editor-finish
             "k" #'with-editor-cancel)
   :config
-  (set-popup-buffer (rx bos "magit" (one-or-more anything) eos))
+  ;; (set-popup-buffer (rx bos "magit" (one-or-more anything) eos))
   (global-magit-file-mode 1))
 
 (req-package gitconfig-mode
