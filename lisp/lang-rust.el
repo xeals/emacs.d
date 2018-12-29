@@ -25,19 +25,7 @@
             "'" #'asf-rustdoc-edit)
   :init
   (autoload 'asf-rustdoc-edit "rustdoc-edit.el")
-  (set-doc-fn 'rust-mode #'eglot-help-at-point)
-  ;; Initialise paths
-  ;; (let ((tc (replace-regexp-in-string "\n" "" (shell-command-to-string "awk '/toolchain/{gsub(\"\\\"\",\"\",$3); print $3}' $RUSTUP_HOME/settings.toml")))
-  (let ((tc "stable-x86_64-unknown-linux-gnu")
-        (rh (expand-file-name "rustup" xdg-data-home))
-        (ch (expand-file-name "cargo" xdg-data-home)))
-    (set-env-unless
-     "CARGO_HOME" (list
-                   `("CARGO_HOME"     . ,ch)
-                   `("RUSTUP_HOME"    . ,rh)
-                   `("RUST_TOOLCHAIN" . ,tc)
-                   `("RUST_SRC_PATH"  . ,(concat rh "/toolchains/" tc "/lib/rustlib/src/rust/src"))
-                   `("PATH"           . ,(expand-file-name "bin" ch))))))
+  (set-doc-fn 'rust-mode #'eglot-help-at-point))
 
 (req-package racer
   :disabled t
@@ -53,9 +41,6 @@ If `help-window-select' is non-nil, also select the help window."
       (when help-window-select
         (select-window window)
         (help-mode))))
-  ;; :general
-  ;; (:keymap 'racer-mode-map
-  ;;          "gd" #'racer-find-definition)
   :init
   (set-doc-fn 'racer-mode #'+racer-describe))
 

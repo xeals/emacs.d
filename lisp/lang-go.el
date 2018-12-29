@@ -151,14 +151,6 @@ Uses `+godoc-gogetdoc' to look up documentation."
   (setq flycheck-go-build-install-deps nil
         godoc-at-point-function #'+godoc-and-godef
         gofmt-command "goimports")
-  ;; Initialise paths
-  (let* ((gp (expand-file-name "go" (getenv "HOME")))
-         (gb (expand-file-name "bin" gp)))
-    (set-env-unless
-     "GOPATH" (list
-               `("GOPATH" . ,gp)
-               `("GOBIN"  . ,gb)
-               `("PATH"   . ,gb))))
   :config
   (set-doc-fn 'go-mode #'+godoc-at-point)
   (set-prettify-symbols 'go-mode

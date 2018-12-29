@@ -23,7 +23,7 @@
 
 ;;;###autoload
 (defmacro set-doc-fn (modes function)
-  "Set MODES documentation FUNCTION using `documentation-function'/"
+  "Set MODES documentation FUNCTION using `documentation-function'."
   `(let* ((modes (if (listp ,modes) ,modes (list ,modes)))
           (fn-name (intern (format "set-doc-fn--%s" (mapconcat #'symbol-name modes "-")))))
      (defalias fn-name
@@ -295,31 +295,6 @@ FILENAME is deleted using `+delete-file' function."
   "Adds PATH to `exec-path', unless it is already present."
   (unless (member-ignore-case path exec-path)
     (setq exec-path (append exec-path (list path)))))
-
-(defun set-env-unless (env vars)
-  "Initialise environment variables and the path if ENV is not
-set. VARS is a list of cons cells of environment variables and
-their values to set. If the cdr is a list, it will expand the
-elements of that list using `expand-file-name'.
-
-The symbol `path' can be used instead of a string environment
-variable name to add a path to `exec-path' if it doesn't exist
-already.
-
-Values are set in sequence, so earlier variables can be
-referenced with `getenv' as normal."
-  (unless (getenv env)
-    (defun rec (-vars)
-      (unless (null -vars)
-        (let* ((var (caar -vars))
-               (val (cdar -vars)))
-               ;; (val (cond ((listp raw) (expand-file-name (car raw) (cadr raw)))
-               ;;            (t raw))))
-          (if (string= var "PATH")
-              (maybe-push-exec-path val)
-            (setenv var val)))
-        (rec (cdr -vars))))
-    (rec vars)))
 
 (provide 'base-lib)
 ;;; base-lib.el ends here
