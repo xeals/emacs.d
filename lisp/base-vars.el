@@ -58,7 +58,7 @@
 ;; Other file structures
 
 (defvar xeal-sync-dir
-  (expand-file-name "~/Sync")
+  (expand-file-name "~/sync")
   "Directory for Syncthing, containing most other stuff.")
 
 (defvar xeal-uni-dir
