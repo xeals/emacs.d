@@ -1,0 +1,5 @@
+(:name flymake-posframe
+       :description "Display Emacs 26 flymake errors using posframe."
+       :type git
+       :url "https://git.owari.cc/xeals/flymake-posframe"
+       :features flymake-posframe)

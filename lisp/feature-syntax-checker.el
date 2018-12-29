@@ -36,5 +36,24 @@
   :config
   (flycheck-posframe-configure-pretty-defaults))
 
+(req-package flymake-diagnostic-at-point
+  :el-get t :ensure nil
+  :after flymake)
+
+(req-package flymake-posframe
+  :el-get t :ensure nil
+  :after flymake
+  :hook
+  (flymake-mode . flymake-posframe-mode)
+  :init
+  (setq flymake-posframe-display-delay 0.5
+        flymake-posframe-warning-prefix "⚠ "
+        flymake-posframe-error-prefix "❌ ")
+  :config
+  (set-face-attribute 'flymake-posframe-warning-face
+                      nil :inherit 'warning)
+  (set-face-attribute 'flymake-posframe-error-face
+                      nil :inherit 'error))
+
 (provide 'feature-syntax-checker)
 ;;; feature-syntax-checker.el ends here
