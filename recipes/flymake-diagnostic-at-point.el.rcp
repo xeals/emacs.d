@@ -1,5 +1,0 @@
-(:name flymake-diagnostic-at-point
-       :description "Minor mode for showing flymake diagnostics at point."
-       :type github
-       :pkgname "meqif/flymake-diagnostic-at-point"
-       :features flymake-diagnostic-at-point)

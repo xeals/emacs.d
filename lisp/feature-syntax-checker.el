@@ -36,12 +36,9 @@
   :config
   (flycheck-posframe-configure-pretty-defaults))
 
-(req-package flymake-diagnostic-at-point
-  :el-get t :ensure nil
-  :after flymake)
-
 (req-package flymake-posframe
   :el-get t :ensure nil
+  :require flymake-diagnostic-at-point
   :after flymake
   :hook
   (flymake-mode . flymake-posframe-mode)
