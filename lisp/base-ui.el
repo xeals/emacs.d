@@ -164,7 +164,8 @@
 (req-package highlight-indent-guides
   :hook (prog-mode . highlight-indent-guides-mode)
   :init
-  (setq highlight-indent-guides-method 'character))
+  (setq highlight-indent-guides-method 'character
+        highlight-indent-guides-character 124))
 
 ;;;
 ;; Autoloads
