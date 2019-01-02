@@ -1,3 +1,6 @@
 # keys
 # TODO move to data
 elpa
+
+# idk how to move lsp lol
+.lsp-session*
