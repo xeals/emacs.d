@@ -138,7 +138,7 @@ If on a:
 (req-package org :pin org
   :ensure org-plus-contrib
   :hook
-  (org-mode . auto-fill-mode)
+  ;; (org-mode . auto-fill-mode)
   (org-mode . org-indent-mode)
   (org-mode . +org-setup-babel)
   (org-mode . +org-setup-templates)
@@ -150,7 +150,13 @@ If on a:
   (:keymaps 'org-mode-map :states 'normal :major-modes t
             "RET" #'+org/dwim-at-point
             "<<"  #'org-metaleft
-            ">>"  #'org-metaright)
+            ">>"  #'org-metaright
+            "j" #'evil-next-visual-line
+            "k" #'evil-previous-visual-line
+            ;; ;; Undo some of org-evil
+            ;; "gj" #'evil-next-visual-line
+            ;; "gk" #'evil-previous-visual-line
+            )
   (:keymaps 'org-mode-map :major-modes t
             :states '(normal visual operator)
             :prefix xeal-localleader-key
@@ -337,14 +343,13 @@ If on a:
   :commands (org-word-count org-wc-count-subtrees org-wc-display org-wc-remove-overlays))
 
 (req-package org-variable-pitch
-  :el-get t :ensure nil
   :hook (org-mode . org-variable-pitch-minor-mode)
-  :config (setq org-variable-pitch-fixed-font xeal-font)
   :general
   (:keymaps 'org-mode-map
             :prefix xeal-localleader-key
             :infix "T"
-            :v #'org-variable-pitch-minor-mode))
+            "v" #'org-variable-pitch-minor-mode)
+  :init (setq org-variable-pitch-fixed-font xeal-font))
 
 (req-package org-kanban
   :el-get t :ensure nil
