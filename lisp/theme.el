@@ -25,11 +25,26 @@
 ;;;
 ;; Typography
 
+;; Host-based overrides
+(let* ((s (shell-command-to-string "hostname"))
+       ;; Taken from s.el :: s-trim-right
+       (host (save-match-data
+         (declare (pure t) (side-effect-free t))
+         (if (string-match "[ \t\n\r]+\\'" s)
+             (replace-match "" t t s)
+           s))))
+  (pcase host
+    ("shagaru"
+     (setq xeal-font "Sarasa Mono J"
+           xeal-variable-pitch-font "Noto Serif"))))
+
 (when (or (display-graphic-p) (daemonp))
   (with-demoted-errors "FONT ERROR: %s"
     (set-face-attribute 'default nil :height xeal-font-height :family xeal-font)
     (when xeal-variable-pitch-font
       (set-face-attribute 'variable-pitch nil :family xeal-variable-pitch-font :height 1.2))))
+
+(require 'feature-ligatures)
 
 (provide 'theme)
 ;;; theme.el ends here
