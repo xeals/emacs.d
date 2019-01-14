@@ -15,7 +15,8 @@
 
 (req-package flyspell
   :hook
-  (prog-mode . flyspell-prog-mode)
+  ;; "<t> is undefined" [20190112]
+  ;; (prog-mode . flyspell-prog-mode)
   (text-mode . flyspell-mode)
   (message-mode . flyspell-mode))
 
