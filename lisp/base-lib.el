@@ -121,7 +121,7 @@ compilation."
   "Kills the active buffer with no safeguards."
   (interactive)
   (let ((inhibit-message t))
-   (kill-buffer (current-buffer))))
+    (kill-buffer (current-buffer))))
 
 ;;;###autoload
 (defun kill-other-buffers ()

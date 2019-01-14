@@ -16,11 +16,11 @@
   :defer 2
   :general
   (:keymaps 'with-editor-mode
-            :definer 'minor-mode
-            :states 'normal
-            :prefix xeal-localleader-key
-            xeal-localleader-key #'with-editor-finish
-            "k" #'with-editor-cancel)
+   :definer 'minor-mode
+   :states 'normal
+   :prefix xeal-localleader-key
+   xeal-localleader-key #'with-editor-finish
+   "k" #'with-editor-cancel)
   :config
   ;; (set-popup-buffer (rx bos "magit" (one-or-more anything) eos))
   (global-magit-file-mode 1))

@@ -146,89 +146,89 @@ If on a:
   :general
   ;; core
   (:keymaps 'org-mode-map :states 'insert :major-modes t
-            "RET" #'evil-org-return)
+   "RET" #'evil-org-return)
   (:keymaps 'org-mode-map :states 'normal :major-modes t
-            "RET" #'+org/dwim-at-point
-            "<<"  #'org-metaleft
-            ">>"  #'org-metaright
-            "j" #'evil-next-visual-line
-            "k" #'evil-previous-visual-line
-            ;; ;; Undo some of org-evil
-            ;; "gj" #'evil-next-visual-line
-            ;; "gk" #'evil-previous-visual-line
-            )
+   "RET" #'+org/dwim-at-point
+   "<<"  #'org-metaleft
+   ">>"  #'org-metaright
+   "j" #'evil-next-visual-line
+   "k" #'evil-previous-visual-line
+   ;; ;; Undo some of org-evil
+   ;; "gj" #'evil-next-visual-line
+   ;; "gk" #'evil-previous-visual-line
+   )
   (:keymaps 'org-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "'" #'org-edit-special
-            "*" #'org-ctrl-c-star
-            "," #'org-ctrl-c-ctrl-c
-            "-" #'org-ctrl-c-minus
-            "e" '(org-export-dispatch :wk "export")
-            "P" `(,(lambda () (interactive) (shell-command (concat "okular " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
-            "w" '(org-wc-display :wk "count words")
-            "v" '(+org/nav-hydra/body :wk "navigate")
-            "=" #'org-align-all-tags
-            "C-t" #'org-babel-tangle
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "'" #'org-edit-special
+   "*" #'org-ctrl-c-star
+   "," #'org-ctrl-c-ctrl-c
+   "-" #'org-ctrl-c-minus
+   "e" '(org-export-dispatch :wk "export")
+   "P" `(,(lambda () (interactive) (shell-command (concat "okular " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
+   "w" '(org-wc-display :wk "count words")
+   "v" '(+org/nav-hydra/body :wk "navigate")
+   "=" #'org-align-all-tags
+   "C-t" #'org-babel-tangle
 
-            "c" '(:ignore t :wk "timekeeping")
-            "cc" #'org-clock-in
-            "cC" #'org-clock-cancel
-            "cd" #'org-clock-display
-            "cg" #'org-clock-goto
-            "ci" #'org-clock-in
-            "co" #'org-clock-out
-            "cR" #'org-clock-report
+   "c" '(:ignore t :wk "timekeeping")
+   "cc" #'org-clock-in
+   "cC" #'org-clock-cancel
+   "cd" #'org-clock-display
+   "cg" #'org-clock-goto
+   "ci" #'org-clock-in
+   "co" #'org-clock-out
+   "cR" #'org-clock-report
 
-            "d" '(:ignore t :wk "clocks")
-            "dd" #'org-deadline
-            "ds" #'org-schedule
-            "dt" #'org-time-stamp
-            "dT" #'org-time-stamp-inactive
+   "d" '(:ignore t :wk "clocks")
+   "dd" #'org-deadline
+   "ds" #'org-schedule
+   "dt" #'org-time-stamp
+   "dT" #'org-time-stamp-inactive
 
-            "i" '(:ignore t :wk "insert")
-            "id" #'org-insert-drawer
-            "if" #'org-footnote-new
-            "ih" #'org-insert-heading
-            "iH" #'org-insert-heading-after-current
-            "il" #'org-insert-link
-            "ip" #'org-set-property
-            "it" #'org-table-create
+   "i" '(:ignore t :wk "insert")
+   "id" #'org-insert-drawer
+   "if" #'org-footnote-new
+   "ih" #'org-insert-heading
+   "iH" #'org-insert-heading-after-current
+   "il" #'org-insert-link
+   "ip" #'org-set-property
+   "it" #'org-table-create
 
-            "t" '(:ignore t :wk "table")
-            "ta" #'org-table-align
-            "tn" #'org-table-create
-            "tr" #'org-table-recalculate
-            "tR" #'org-table-recalculate-buffer-tables
+   "t" '(:ignore t :wk "table")
+   "ta" #'org-table-align
+   "tn" #'org-table-create
+   "tr" #'org-table-recalculate
+   "tR" #'org-table-recalculate-buffer-tables
 
-            "ti" '(:ignore t :wk "insert")
-            "tic" #'org-table-insert-column
-            "tih" #'org-table-insert-hline
-            "tir" #'org-table-insert-row
+   "ti" '(:ignore t :wk "insert")
+   "tic" #'org-table-insert-column
+   "tih" #'org-table-insert-hline
+   "tir" #'org-table-insert-row
 
-            "s" '(:ignore t :wk "trees")
-            "ss" #'org-sort
-            "sa" #'org-archive-subtree
-            "sr" #'org-refile
+   "s" '(:ignore t :wk "trees")
+   "ss" #'org-sort
+   "sa" #'org-archive-subtree
+   "sr" #'org-refile
 
-            "T" '(:ignore t :wk "toggles")
-            "Tl" #'org-toggle-link-display
-            "Tx" #'org-toggle-latex-fragment
-            "Ti" #'org-toggle-inline-images
-            "TT" #'org-todo)
+   "T" '(:ignore t :wk "toggles")
+   "Tl" #'org-toggle-link-display
+   "Tx" #'org-toggle-latex-fragment
+   "Ti" #'org-toggle-inline-images
+   "TT" #'org-todo)
 
   ;; org-agenda
   (:keymaps 'org-agenda-mode-map :states 'emacs
-            "j" #'org-agenda-next-item
-            "k" #'org-agenda-previous-item)
+   "j" #'org-agenda-next-item
+   "k" #'org-agenda-previous-item)
   ;; org-src
   (:keymaps 'org-src-mode :states 'normal :definer 'minor-mode
-            "ZZ" #'org-edit-src-exit)
+   "ZZ" #'org-edit-src-exit)
   (:keymaps 'org-src-mode :definer 'minor-mode
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "," #'org-edit-src-exit
-            "k" #'org-edit-src-abort)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "," #'org-edit-src-exit
+   "k" #'org-edit-src-abort)
   :preface
   (defun +org-setup-babel ()
     (org-babel-do-load-languages
@@ -345,10 +345,10 @@ If on a:
   :hook (org-mode . org-variable-pitch-minor-mode)
   :general
   (:keymaps 'org-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "T"
-            "v" #'org-variable-pitch-minor-mode)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "T"
+   "v" #'org-variable-pitch-minor-mode)
   :init (setq org-variable-pitch-fixed-font xeal-font))
 
 (req-package org-kanban

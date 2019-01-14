@@ -35,12 +35,12 @@
                  '((R . t))))
   :general
   (:keymaps 'ess-mode-map :major-modes t
-            :states 'insert
-            "<S-return>" #'ess-eval-line)
+   :states 'insert
+   "<S-return>" #'ess-eval-line)
   (:keymaps 'ess-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "'" '(+ess/start-repl :wk "start repl"))
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "'" '(+ess/start-repl :wk "start repl"))
   :config
   (after! ess-site
     ;; Follow Hadley Wickham's R style guide

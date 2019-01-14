@@ -21,15 +21,15 @@ the REPL buffer."
       (call-interactively 'cider-switch-to-repl-buffer)
     (user-error
      (call-interactively 'cider-jack-in))))
-  ;; (if (bound-and-true-p cider-mode)
-  ;;     (cider-switch-to-repl-buffer)
-  ;;   (if (projectile-project-p)
-  ;;       (case major-mode
-  ;;         ('clojure-mode (cider-jack-in))
-  ;;         ('clojurescript-mode (cider-jack-in-clojurescript)))
-  ;;     (case major-mode
-  ;;       ('clojure-mode (call-interactively #'cider-connect))
-  ;;       ('clojurescript-mode (call-interactively #'cider-connect-clojurescript))))))
+;; (if (bound-and-true-p cider-mode)
+;;     (cider-switch-to-repl-buffer)
+;;   (if (projectile-project-p)
+;;       (case major-mode
+;;         ('clojure-mode (cider-jack-in))
+;;         ('clojurescript-mode (cider-jack-in-clojurescript)))
+;;     (case major-mode
+;;       ('clojure-mode (call-interactively #'cider-connect))
+;;       ('clojurescript-mode (call-interactively #'cider-connect-clojurescript))))))
 
 (defun +cider//eval-in-repl-no-focus (form)
   "Insert FORM in the REPL buffer and eval it."
@@ -114,50 +114,50 @@ the REPL buffer."
              cider-switch-to-repl-buffer)
   :general
   (:keymaps 'cider-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "'" #'+cider/repl
-            "=" #'cider-format-buffer)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "'" #'+cider/repl
+   "=" #'cider-format-buffer)
   (:keymaps 'cider-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "e"
-            "" '(:ignore t :wk "eval")
-            "b" #'cider-eval-buffer
-            "d" #'cider-eval-defun-at-point
-            "e" #'cider-eval-last-sexp
-            "E" #'cider-eval-last-sexp-and-replace
-            "m" #'cider-macroexpand-1
-            "M" #'cider-macroexpand-all
-            "r" #'cider-eval-region)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "e"
+   "" '(:ignore t :wk "eval")
+   "b" #'cider-eval-buffer
+   "d" #'cider-eval-defun-at-point
+   "e" #'cider-eval-last-sexp
+   "E" #'cider-eval-last-sexp-and-replace
+   "m" #'cider-macroexpand-1
+   "M" #'cider-macroexpand-all
+   "r" #'cider-eval-region)
   (:keymaps 'cider-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "g"
-            "" '(:ignore t :wk "goto")
-            "C" #'cider-classpath
-            "n" #'cider-browse-ns
-            "N" #'cider-browse-ns-all
-            )
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "g"
+   "" '(:ignore t :wk "goto")
+   "C" #'cider-classpath
+   "n" #'cider-browse-ns
+   "N" #'cider-browse-ns-all
+   )
   (:keymaps 'clojure-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "r"
-            "" '(:ignore t :wk "repl")
-            "TAB" #'cider-repl-switch-to-other
-            "b" #'cider-load-buffer
-            "c" #'+cider/send-last-sexp-to-repl
-            "d" #'+cider/send-function-to-repl
-            "i" #'cider-jack-in
-            "I" #'cider-jack-in-clojurescript
-            "n" #'cider-connect
-            "Q" #'cider-quit
-            "r" #'+cider/send-region-to-repl
-            "x" #'cider-refresh)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "r"
+   "" '(:ignore t :wk "repl")
+   "TAB" #'cider-repl-switch-to-other
+   "b" #'cider-load-buffer
+   "c" #'+cider/send-last-sexp-to-repl
+   "d" #'+cider/send-function-to-repl
+   "i" #'cider-jack-in
+   "I" #'cider-jack-in-clojurescript
+   "n" #'cider-connect
+   "Q" #'cider-quit
+   "r" #'+cider/send-region-to-repl
+   "x" #'cider-refresh)
   (:keymaps 'clojure-repl-mode-map
-            :states 'normal
-            "C-j" #'cider-repl-next-input
-            "C-k" #'cider-repl-previous-input)
+   :states 'normal
+   "C-j" #'cider-repl-next-input
+   "C-k" #'cider-repl-previous-input)
   :init
   (setq cider-repl-use-clojure-font-lock t)
   (set-doc-fn 'cider-mode #'cider-doc))

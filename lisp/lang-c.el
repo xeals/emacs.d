@@ -36,13 +36,13 @@
       (clang-format-buffer)))
   :general
   (:keymaps 'c-mode-map
-            :states '(normal operator)
-            :prefix xeal-localleader-key
-            "=" #'+clang-format-buffer-smart)
+   :states '(normal operator)
+   :prefix xeal-localleader-key
+   "=" #'+clang-format-buffer-smart)
   (:keymaps 'c-mode-map
-            :states '(visual)
-            :prefix xeal-localleader-key
-            "=" #'clang-format-region))
+   :states '(visual)
+   :prefix xeal-localleader-key
+   "=" #'clang-format-region))
 
 (req-package irony
   :hook

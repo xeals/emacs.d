@@ -20,13 +20,13 @@
   :commands (flycheck-list-errors flycheck-buffer flycheck-add-next-checker)
   :general
   (:keymaps 'flycheck-error-list-mode-map
-            :states 'normal
-            "C-n" #'flycheck-error-list-next-error
-            "C-p" #'flycheck-error-list-previous-error
-            "j"   #'flycheck-error-list-next-error
-            "k"   #'flycheck-error-list-previous-error
-            "RET" #'flycheck-error-list-goto-error
-            "q"   #'quit-window)
+   :states 'normal
+   "C-n" #'flycheck-error-list-next-error
+   "C-p" #'flycheck-error-list-previous-error
+   "j"   #'flycheck-error-list-next-error
+   "k"   #'flycheck-error-list-previous-error
+   "RET" #'flycheck-error-list-goto-error
+   "q"   #'quit-window)
   :init
   (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)))
 

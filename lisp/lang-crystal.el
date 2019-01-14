@@ -17,13 +17,13 @@
   :hook (crystal-mode . eglot-ensure)
   :general
   (:keymaps 'crystal-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "g" '(:ignore t :wk "goto")
-            "gb" #'crystal-backward-sexp
-            "gf" #'crystal-forward-sexp
-            "gn" #'crystal-end-of-block
-            "gp" #'crystal-beginning-of-block)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "g" '(:ignore t :wk "goto")
+   "gb" #'crystal-backward-sexp
+   "gf" #'crystal-forward-sexp
+   "gn" #'crystal-end-of-block
+   "gp" #'crystal-beginning-of-block)
   :init
   (set-doc-fn 'crystal-mode #'crystal-def-jump))
 

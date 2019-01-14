@@ -140,23 +140,23 @@ Lisp function does not specify a special indentation."
   (emacs-lisp-mode . +elisp/use-indent-function)
   :general
   (:keymaps 'emacs-lisp-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "e"
-            "" '(:ignore t :wk "eval")
-            "b" '(eval-buffer :wk "eval buffer")
-            "c" '(+elisp/eval-current-form-sp :wk "eval form")
-            "d" '(eval-defun :wk "eval defun")
-            "r" '(eval-region :wk "eval region")
-            "s" '(+elisp/eval-current-symbol-sp :wk "eval symbol"))
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "e"
+   "" '(:ignore t :wk "eval")
+   "b" '(eval-buffer :wk "eval buffer")
+   "c" '(+elisp/eval-current-form-sp :wk "eval form")
+   "d" '(eval-defun :wk "eval defun")
+   "r" '(eval-region :wk "eval region")
+   "s" '(+elisp/eval-current-symbol-sp :wk "eval symbol"))
   (:keymaps 'emacs-lisp-mode-map :major-modes t
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "'" #'ielm)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "'" #'ielm)
   (:keymaps 'emacs-lisp-mode-map :major-modes t
-            :states '(normal)
-            "<return>"   #'+elisp/eval-current-form-sp
-            "<S-return>" #'eval-defun)
+   :states '(normal)
+   "<return>"   #'+elisp/eval-current-form-sp
+   "<S-return>" #'eval-defun)
   :config
   (set-prettify-symbols 'emacs-lisp-mode '(("defun"    . ?ƒ)
                                            ("defmacro" . ?μ)

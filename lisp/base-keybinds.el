@@ -44,9 +44,9 @@
   (declare (indent defun))
   `(progn
      (xeal--default-leader
-      ,@args)
+       ,@args)
      (xeal-global-leader
-      ,@args)))
+       ,@args)))
 
 ;; Remove conflicting leader keys
 (after! evil

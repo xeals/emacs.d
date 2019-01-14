@@ -20,36 +20,36 @@
   (after-init . global-company-mode)
   :general
   (:keymaps 'company-mode-map
-            :states 'insert
-            "TAB" #'company-complete-common)
+   :states 'insert
+   "TAB" #'company-complete-common)
   (:keymaps 'company-active-map
-            ;; Disable return
-            [return]   'nil
-            "RET"      'nil
-            ;; Abort company instead of insert mode
-            ;; [escape]  #'company-abort
-            "C-g"     #'company-abort
-            ;; Complete the common part then cycle
-            ;; [tab]     #'company-complete-common-or-cycle
-            ;; "TAB"     #'company-complete-common-or-cycle
-            [tab]     #'company-complete
-            "TAB"     #'company-complete
-            [backtab] #'company-select-previous
-            "S-TAB"   #'company-select-previous
+   ;; Disable return
+   [return]   'nil
+   "RET"      'nil
+   ;; Abort company instead of insert mode
+   ;; [escape]  #'company-abort
+   "C-g"     #'company-abort
+   ;; Complete the common part then cycle
+   ;; [tab]     #'company-complete-common-or-cycle
+   ;; "TAB"     #'company-complete-common-or-cycle
+   [tab]     #'company-complete
+   "TAB"     #'company-complete
+   [backtab] #'company-select-previous
+   "S-TAB"   #'company-select-previous
 
-            ;; Filter
-            "C-s" #'company-filter-candidates
-            "C-k" #'company-select-previous
-            "C-p" #'company-select-previous
-            "C-j" #'company-select-next
-            "C-n" #'company-select-next
+   ;; Filter
+   "C-s" #'company-filter-candidates
+   "C-k" #'company-select-previous
+   "C-p" #'company-select-previous
+   "C-j" #'company-select-next
+   "C-n" #'company-select-next
 
-            ;; Rebind show location
-            "C-w" 'nil
-            "C-l" #'company-show-location)
+   ;; Rebind show location
+   "C-w" 'nil
+   "C-l" #'company-show-location)
   (:keymaps 'company-search-map
-            "C-n" #'company-search-repeat-forward
-            "C-p" #'company-search-repeat-backward)
+   "C-n" #'company-search-repeat-forward
+   "C-p" #'company-search-repeat-backward)
   :init
   (setq company-idle-delay 0.1
         company-tooltip-limit 10
@@ -92,7 +92,7 @@
   :hook (company-mode . company-quickhelp-mode)
   :general
   (:keymaps 'company-active-map
-            "C-h" #'company-quickhelp-manual-begin)
+   "C-h" #'company-quickhelp-manual-begin)
   :init
   (setq company-quickhelp-delay nil
         company-quickhelp-color-foreground "#e5e6e6"

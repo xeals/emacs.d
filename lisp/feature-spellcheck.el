@@ -23,8 +23,8 @@
 (req-package flyspell-correct-ivy
   :general
   (:keymaps 'motion
-            "]S" 'flyspell-correct-next
-            "[S" 'flyspell-correct-previous))
+   "]S" 'flyspell-correct-next
+   "[S" 'flyspell-correct-previous))
 
 ;; Wishlist: flyspell-posframe
 (req-package flyspell-popup
@@ -33,15 +33,15 @@
   (flyspell-mode . flyspell-popup-auto-correct-mode)
   :general
   (:keymaps 'flyspell-mode-map
-            :states 'insert
-            "C-=" #'flyspell-popup-correct)
+   :states 'insert
+   "C-=" #'flyspell-popup-correct)
   :init
   (setq flyspell-popup-correct-delay 0.5))
 
 (req-package flyspell-correct-ivy
   :general
   (:keymaps 'flyspell-mode-map
-            "C-;" #'flyspell-correct-wrapper))
+   "C-;" #'flyspell-correct-wrapper))
 
 (req-package writegood-mode
   :commands (writegood-mode

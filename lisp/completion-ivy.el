@@ -18,14 +18,14 @@
   :hook (after-init . ivy-mode)
   :general
   (:keymaps 'ivy-minibuffer-map
-            [escape] #'keyboard-escape-quit
-            "ESC"    #'keyboard-escape-quit
-            "C-w"    #'ivy-backward-kill-word
-            "C-j"    #'ivy-next-line
-            "C-k"    #'ivy-previous-line)
+   [escape] #'keyboard-escape-quit
+   "ESC"    #'keyboard-escape-quit
+   "C-w"    #'ivy-backward-kill-word
+   "C-j"    #'ivy-next-line
+   "C-k"    #'ivy-previous-line)
   (:keymaps 'ivy-mode-map
-            [remap switch-to-buffer] #'ivy-switch-buffer
-            [remap imenu-anywhere]   #'ivy-imenu-anywhere)
+   [remap switch-to-buffer] #'ivy-switch-buffer
+   [remap imenu-anywhere]   #'ivy-imenu-anywhere)
   :init
   (setq ivy-height 15
         ivy-wrap t
@@ -94,33 +94,33 @@
   :after ivy
   :general
   (:keymaps 'ivy-mode-map
-            [remap apropos]                   #'counsel-apropos
-            [remap bookmark-jump]             #'counsel-bookmark
-            [remap describe-face]             #'counsel-describe-face
-            [remap describe-face]             #'counsel-describe-face
-            [remap describe-function]         #'counsel-describe-function
-            [remap describe-variable]         #'counsel-describe-variable
-            [remap eshell-list-history]       #'counsel-esh-history
-            [remap execute-extended-command]  #'counsel-M-x
-            [remap find-file]                 #'counsel-find-file
-            [remap imenu]                     #'counsel-imenu
-            [remap recentf-open-files]        #'counsel-recentf)
+   [remap apropos]                   #'counsel-apropos
+   [remap bookmark-jump]             #'counsel-bookmark
+   [remap describe-face]             #'counsel-describe-face
+   [remap describe-face]             #'counsel-describe-face
+   [remap describe-function]         #'counsel-describe-function
+   [remap describe-variable]         #'counsel-describe-variable
+   [remap eshell-list-history]       #'counsel-esh-history
+   [remap execute-extended-command]  #'counsel-M-x
+   [remap find-file]                 #'counsel-find-file
+   [remap imenu]                     #'counsel-imenu
+   [remap recentf-open-files]        #'counsel-recentf)
   :init
   (setq counsel-find-file-ignore-regexp
-       "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"
-       counsel-grep-base-command
-       "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
-       counsel-bookmark-avoid-dired t))
+        "\\(?:^[#.]\\)\\|\\(?:[#~]$\\)\\|\\(?:^Icon?\\)"
+        counsel-grep-base-command
+        "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
+        counsel-bookmark-avoid-dired t))
 
 (req-package counsel-projectile
   :demand t
   :after (counsel projectile)
   :general
   (:keymaps 'ivy-mode-map
-            [remap projectile-find-dir]         #'counsel-projectile-find-dir
-            [remap projectile-find-file]        #'counsel-projectile-find-file
-            [remap projectile-switch-project]   #'counsel-projectile-switch-project
-            [remap projectile-switch-to-buffer] #'counsel-projectile-switch-to-buffer))
+   [remap projectile-find-dir]         #'counsel-projectile-find-dir
+   [remap projectile-find-file]        #'counsel-projectile-find-file
+   [remap projectile-switch-project]   #'counsel-projectile-switch-project
+   [remap projectile-switch-to-buffer] #'counsel-projectile-switch-to-buffer))
 
 (provide 'completion-ivy)
 ;;; completion-ivy.el ends here

@@ -17,7 +17,7 @@
   :demand t
   :general
   (:keymaps 'insert
-            "C-g" #'normal-state-or-keyboard-quit)
+   "C-g" #'normal-state-or-keyboard-quit)
   :init
   (setq evil-want-C-d-scroll t
         evil-want-C-i-jump t
@@ -47,9 +47,9 @@
                                 evil-forward-arg evil-backward-arg)
   :general
   (:keymaps 'inner
-            "a" #'evil-inner-arg)
+   "a" #'evil-inner-arg)
   (:keymaps 'outer
-            "a" #'evil-outer-arg))
+   "a" #'evil-outer-arg))
 
 ;; Better lisping
 (req-package evil-cleverparens
@@ -78,8 +78,8 @@
   :commands (evil-lion-left evil-lion-right)
   :general
   (:keymaps 'visual
-            "gl" #'evil-lion-left
-            "gL" #'evil-lion-right)
+   "gl" #'evil-lion-left
+   "gL" #'evil-lion-right)
   :config
   (evil-lion-mode 1))
 
@@ -94,7 +94,7 @@
   :general
   ([remap evil-jump-item] #'evilmi-jump-items)
   (:keymaps '(inner outer)
-            "%" #'evilmi-text-object)
+   "%" #'evilmi-text-object)
   :config
   (global-evil-matchit-mode 1))
 
@@ -119,10 +119,10 @@
              evil-Surround-region)
   :general
   (:keymaps 'visual
-            "s" #'evil-surround-region)
+   "s" #'evil-surround-region)
   (:keymaps 'operator
-            "s" #'evil-surround-edit
-            "S" #'evil-Surround-edit)
+   "s" #'evil-surround-edit
+   "S" #'evil-Surround-edit)
   :config
   (global-evil-surround-mode 1))
 
@@ -134,8 +134,8 @@
              evil-visualstar/begin-search-backward)
   :general
   (:keymaps 'visual
-            "*" #'evil-visualstar/begin-search-forward
-            "#" #'evil-visualstar/begin-search-backward))
+   "*" #'evil-visualstar/begin-search-forward
+   "#" #'evil-visualstar/begin-search-backward))
 
 (defun normal-state-or-keyboard-quit ()
   "If in evil insert state, force normal state; else run `keyboard-quit'."

@@ -32,18 +32,18 @@
 (req-package bibtex
   :general
   (:keymaps 'bibtex-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "/" #'bibtex-search-entry
-            "D" #'bibtex-kill-entry
-            "d" #'bibtex-kill-field
-            "f" #'bibtex-make-field
-            "h" #'org-ref-bibtex-hydra/body
-            "n" #'bibtex-entry
-            "s" #'org-ref-sort-bibtex-entry
-            "S" #'bibtex-sort-buffer
-            "u" #'bibtex-entry-update
-            "w" #'+bibtex/toggle-narrow))
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "/" #'bibtex-search-entry
+   "D" #'bibtex-kill-entry
+   "d" #'bibtex-kill-field
+   "f" #'bibtex-make-field
+   "h" #'org-ref-bibtex-hydra/body
+   "n" #'bibtex-entry
+   "s" #'org-ref-sort-bibtex-entry
+   "S" #'bibtex-sort-buffer
+   "u" #'bibtex-entry-update
+   "w" #'+bibtex/toggle-narrow))
 
 (req-package org-ref
   :preface
@@ -52,10 +52,10 @@
   :hook (org-mode . +org/load-org-ref)
   :general
   (:keymaps 'org-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "i"
-            "c" #'org-ref-helm-insert-cite-link)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "i"
+   "c" #'org-ref-helm-insert-cite-link)
   :init
   (setq reftex-default-bibliography `(,(expand-file-name "references.bib" xeal-uni-dir))))
 

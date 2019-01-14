@@ -16,14 +16,14 @@
   :commands lua-mode
   :general
   (:keymaps 'lua-mode-map
-            :states '(normal visual)
-            :prefix xeal-localleader-key
-            "'" #'lua-show-process-buffer
-            "e" '(:ignore t :wk "eval")
-            "eb" #'lua-send-buffer
-            "ed" #'lua-send-defun
-            "el" #'lua-send-current-line
-            "er" #'lua-send-region)
+   :states '(normal visual)
+   :prefix xeal-localleader-key
+   "'" #'lua-show-process-buffer
+   "e" '(:ignore t :wk "eval")
+   "eb" #'lua-send-buffer
+   "ed" #'lua-send-defun
+   "el" #'lua-send-current-line
+   "er" #'lua-send-region)
   :init
   (set-doc-fn 'lua-mode #'lua-search-documentation)
   (add-to-list 'interpreter-mode-alist '("lua" . lua-mode)))
@@ -33,15 +33,15 @@
   :commands fennel-mode
   :general
   (:keymaps 'fennel-mode-map
-            :states '(normal visual)
-            :prefix xeal-localleader-key
-            "'" #'switch-to-lisp
-            "e" '(:ignore t :wk "eval")
-            "ec" #'lisp-eval-defun
-            "er" #'lisp-eval-region
-            "f" '(:ignore t :wk "fennel")
-            "fr" #'fennel-reload
-            "fc" #'fennel-view-compilation)
+   :states '(normal visual)
+   :prefix xeal-localleader-key
+   "'" #'switch-to-lisp
+   "e" '(:ignore t :wk "eval")
+   "ec" #'lisp-eval-defun
+   "er" #'lisp-eval-region
+   "f" '(:ignore t :wk "fennel")
+   "fr" #'fennel-reload
+   "fc" #'fennel-view-compilation)
   :init
   (set-doc-fn 'fennel-mode #'fennel-find-definition))
 
