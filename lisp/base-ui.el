@@ -167,6 +167,12 @@
   (setq highlight-indent-guides-method 'character
         highlight-indent-guides-character 124))
 
+;; This doesn't fit anywhere else, but it's used as a dep and I
+;; need to customise it.
+(req-package posframe
+  :init
+  (setq posframe-mouse-banish nil))
+
 ;;;
 ;; Autoloads
 
