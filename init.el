@@ -94,6 +94,7 @@
 (require 'lang-ess)
 (require 'lang-go)
 (require 'lang-haskell)
+(require 'lang-lua)
 (require 'lang-markdown)
 (require 'lang-markup)
 (require 'lang-nim)
