@@ -15,17 +15,16 @@
 (req-package eglot
   :el-get t :ensure nil
   :general
-  (:states '(normal visual operator)
-            :prefix xeal-leader-key
-            "x" '(:ignore t :wk "eglot")
-            "cC" #'eglot)
-  (:keymaps 'eglot-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-leader-key
-            "ch" #'eglot-help-at-point
-            "cM" #'eglot-events-buffer
-            "cr" #'eglot-rename
-            "cR" #'eglot-reconnect)
+  (general-leader
+    "cC" '(eglot :wk "connect to lsp"))
+  (general-leader :keymaps 'eglot-mode-map
+    "ce" '(:ignore t :wk "eglot")
+    "ce=" #'eglot-format-buffer
+    "cef" #'eglot-format
+    "ceh" #'eglot-help-at-point
+    "cem" #'eglot-events-buffer
+    "cer" #'eglot-rename
+    "ceR" #'eglot-reconnect)
   :init
   (add-to-list 'eglot-server-programs '(crystal-mode . ("scry"))))
 
