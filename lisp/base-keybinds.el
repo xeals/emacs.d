@@ -30,9 +30,9 @@
 ;; https://github.com/noctuid/general.el/issues/126
 
 (general-create-definer xeal--default-leader
- :states '(normal visual operator)
- :prefix xeal-leader-key
- :keymaps 'override)
+  :states '(normal visual)
+  :prefix xeal-leader-key
+  :keymaps 'override)
 
 (general-create-definer xeal-global-leader
   :states general-non-normal-states
