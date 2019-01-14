@@ -346,6 +346,7 @@ If on a:
   :hook (org-mode . org-variable-pitch-minor-mode)
   :general
   (:keymaps 'org-mode-map
+            :states '(normal visual operator)
             :prefix xeal-localleader-key
             :infix "T"
             "v" #'org-variable-pitch-minor-mode)
