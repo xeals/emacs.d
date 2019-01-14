@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: header
+# key: header
+# --
+;;; `(buffer-name)` --- ${1:description}
+
+;;; Commentary:
+;; ${2:Comments}
+
+;;; Code:
+
+(var `(file-name-sans-extension (buffer-name))` {})
+
+$0
+
+`(file-name-sans-extension (buffer-name))`
+;;; `(buffer-name)` ends here
