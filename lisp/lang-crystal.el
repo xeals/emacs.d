@@ -14,6 +14,7 @@
 
 (req-package crystal-mode
   :mode "\\.cr$"
+  :hook (crystal-mode . eglot-ensure)
   :general
   (:keymaps 'crystal-mode-map
             :states '(normal visual operator)
@@ -23,7 +24,6 @@
             "gf" #'crystal-forward-sexp
             "gn" #'crystal-end-of-block
             "gp" #'crystal-beginning-of-block)
-  :hook (crystal-mode . eglot)
   :init
   (set-doc-fn 'crystal-mode #'crystal-def-jump))
 
