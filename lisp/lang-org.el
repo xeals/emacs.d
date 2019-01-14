@@ -256,13 +256,13 @@ If on a:
                  '("r" "#+BEGIN_SRC R :results graphics file: assets/fig_?.png\n\n#+END_SRC"
                    "<src lang=\"?\">\n\n</src>")))
   :init
-  (setq org-hide-leading-stars t             ; only show last star
+  (setq org-hide-leading-stars nil           ; only show last star
         org-hide-emphasis-markers t          ; pretty links, etc.
         org-hide-block-overlays t
         org-fontify-quote-and-verse-blocks t ; different faces
         org-src-fontify-natively t           ; fancy src blocks
         org-pretty-entities t                ; for latex inserts
-        org-ellipsis " ▼ "                    ; for hidden entries
+        org-ellipsis " ▼ "                   ; for hidden entries
         org-tags-column -80                  ; align to 80 characters
 
         org-fontify-done-headline t
@@ -317,8 +317,7 @@ If on a:
                                     'default)
                                 :background nil t))
      ;; more LaTeX
-     org-latex-pdf-process '("latexmk -f -pdf %f" "latexmk -c %f")
-     )
+     org-latex-pdf-process '("latexmk -f -pdf %f" "latexmk -c %f"))
     (unless (assoc "assignment" org-latex-classes)
       (add-to-list 'org-latex-classes
                    '("assignment" "\\documentclass[11pt]{article}
@@ -337,7 +336,7 @@ If on a:
 
 (req-package org-bullets
   :hook (org-mode . org-bullets-mode)
-  :init (setq org-bullets-bullet-list '(" ")))
+  :init (setq org-bullets-bullet-list '("※")))
 
 (req-package org-wc
   :commands (org-word-count org-wc-count-subtrees org-wc-display org-wc-remove-overlays))
