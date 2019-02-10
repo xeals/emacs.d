@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: require
+# key: req
+# --
+(local ${1:$(+fennel/ident-from-lua yas-text)} (require :${1:lib})) $0
