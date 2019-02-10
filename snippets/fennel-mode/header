@@ -11,6 +11,9 @@
 
 (var `(file-name-sans-extension (buffer-name))` {})
 
+;;;
+;; Functions
+
 $0
 
 `(file-name-sans-extension (buffer-name))`
