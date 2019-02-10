@@ -130,6 +130,15 @@ directories."
 ;; Auto-close delimiters as I type
 (req-package smartparens
   :defer 1
+  :general
+  (:keymaps 'smartparens-mode-map
+   :states '(normal insert)
+   "M-h" #'sp-backward-sexp
+   "M-H" #'sp-forward-barf-sexp
+   "M-k" #'sp-backward-up-sexp
+   "M-j" #'sp-down-sexp
+   "M-l" #'sp-forward-sexp
+   "M-L" #'sp-forward-slurp-sexp)
   :init
   (setq sp-highlight-pair-overlay nil
         sp-show-pair-delay 0)
@@ -137,21 +146,21 @@ directories."
   (sp-local-pair '(xml-mode nxml-mode) "<!--" "-->"
                  :post-handlers '(("| " "SPC")))
 
-  ;; Auto-close more conservatively
-  (let ((unless-list '(sp-point-before-word-p
-                       sp-point-after-word-p
-                       sp-point-before-same-p)))
-    (sp-pair "'"  nil :unless unless-list)
-    (sp-pair "\"" nil :unless unless-list))
-  (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET") ("| " " "))
-           :unless '(sp-point-before-word-p sp-point-before-same-p))
-  (sp-pair "(" nil :post-handlers '(("||\n[i]" "RET") ("| " " "))
-           :unless '(sp-point-before-word-p sp-point-before-same-p))
-  (sp-pair "[" nil :post-handlers '(("| " " "))
-           :unless '(sp-point-before-word-p sp-point-before-same-p))
+  ;; ;; Auto-close more conservatively
+  ;; (let ((unless-list '(sp-point-before-word-p
+  ;;                      sp-point-after-word-p
+  ;;                      sp-point-before-same-p)))
+  ;;   (sp-pair "'"  nil :unless unless-list)
+  ;;   (sp-pair "\"" nil :unless unless-list))
+  ;; (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET") ("| " " "))
+  ;;          :unless '(sp-point-before-word-p sp-point-before-same-p))
+  ;; (sp-pair "(" nil :post-handlers '(("||\n[i]" "RET") ("| " " "))
+  ;;          :unless '(sp-point-before-word-p sp-point-before-same-p))
+  ;; (sp-pair "[" nil :post-handlers '(("| " " "))
+  ;;          :unless '(sp-point-before-word-p sp-point-before-same-p))
 
   (require 'smartparens-config)
-  (smartparens-global-mode 1))
+  (smartparens-global-strict-mode 1))
 
 (req-package writeroom-mode
   :commands writeroom-mode
