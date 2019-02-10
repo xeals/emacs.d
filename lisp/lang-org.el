@@ -261,7 +261,7 @@ If on a:
         org-hide-block-overlays t
         org-fontify-quote-and-verse-blocks t ; different faces
         org-src-fontify-natively t           ; fancy src blocks
-        org-pretty-entities t                ; for latex inserts
+        org-pretty-entities nil              ; for latex inserts
         org-ellipsis " ▼ "                   ; for hidden entries
         org-tags-column -80                  ; align to 80 characters
 
