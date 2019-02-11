@@ -13,7 +13,7 @@
 ;; Packages
 
 (req-package eglot
-  :el-get t :ensure nil
+  :defer 2 ;; FIXME ?
   :general
   (general-leader
     "cC" '(eglot :wk "connect to lsp"))
@@ -25,7 +25,7 @@
     "cem" #'eglot-events-buffer
     "cer" #'eglot-rename
     "ceR" #'eglot-reconnect)
-  :init
+  :config
   (add-to-list 'eglot-server-programs '(crystal-mode . ("scry"))))
 
 (provide 'completion-lsp)
