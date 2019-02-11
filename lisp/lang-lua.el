@@ -9,6 +9,14 @@
   (require 'base-package))
 
 ;;;
+;; Functions
+
+(defun +fennel/ident-from-lua (s)
+  "Transforms a Lua identified to a Fennel-ish require variables.
+Basically exclusively for use in a snippet."
+  (s-replace "_" "-" (car (last (s-split "\\." s)))))
+
+;;;
 ;; Packages
 
 (req-package lua-mode
