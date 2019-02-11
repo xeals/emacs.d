@@ -98,6 +98,7 @@
 (require 'lang-markdown)
 (require 'lang-markup)
 (require 'lang-nim)
+(require 'lang-nix)
 (require 'lang-org)
 (require 'lang-ruby)
 (require 'lang-rust)
