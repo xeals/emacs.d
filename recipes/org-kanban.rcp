@@ -1,5 +1,0 @@
-(:name org-kanban
-       :description "Kanban dynamic block for org-mode"
-       :type github
-       :pkgname "gizmomogwai/org-kanban"
-       :features org-kanban)

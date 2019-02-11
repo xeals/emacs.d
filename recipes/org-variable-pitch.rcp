@@ -1,5 +1,0 @@
-(:name org-variable-pitch
-       :description "Enables `variable-pitch-mode' for normal text in `org-mode'"
-       :type github
-       :pkgname "cadadr/elisp"
-       :features org-variable-pitch)
