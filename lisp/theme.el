@@ -35,7 +35,7 @@
            s))))
   (pcase host
     ("shagaru"
-     (setq xeal-font "Sarasa Mono J"
+     (setq xeal-font "Noto Mono"
            xeal-variable-pitch-font "Noto Serif"))))
 
 (when (or (display-graphic-p) (daemonp))
