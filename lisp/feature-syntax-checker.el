@@ -40,7 +40,6 @@
   :after flymake)
 
 (req-package flymake-posframe
-  :el-get t :ensure nil
   ;; :require flymake-diagnostic-at-point
   :after flymake
   :hook

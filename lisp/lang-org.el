@@ -139,7 +139,7 @@ If on a:
 ;;;
 ;; Packages
 
-(req-package org :pin org
+(req-package org
   :ensure org-plus-contrib
   :hook
   ;; (org-mode . auto-fill-mode)
@@ -357,9 +357,7 @@ If on a:
    "v" #'org-variable-pitch-minor-mode)
   :init (setq org-variable-pitch-fixed-font xeal-font))
 
-(req-package ox-dnd
-  :el-get t :ensure nil)
-
+(req-package ox-dnd)
 (req-package ob-rust)
 (req-package ob-go)
 

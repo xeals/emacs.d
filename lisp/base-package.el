@@ -27,10 +27,7 @@ This will be nil if you have byte-compiled your configuration.")
  package--init-file-ensured t
  package-enable-at-startup nil
  package-user-dir (expand-file-name "elpa" xeal-packages-dir)
- package-archives '(("gnu"          . "https://elpa.gnu.org/packages/")
-                    ("melpa"        . "https://melpa.org/packages/")
-                    ("melpa-stable" . "https://stable.melpa.org/packages/")
-                    ("org"          . "https://orgmode.org/elpa/"))
+ package-archives nil
 
  gnutls-verify-error t
  tls-checktrust gnutls-verify-error

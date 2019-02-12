@@ -62,8 +62,7 @@ directories."
 (req-package eldoc)
 
 ;; Additional help stuff
-(req-package help-fns+
-  :el-get t :ensure nil)
+(req-package help-fns+)
 
 ;; Keep track of recently opened files
 (req-package recentf
