@@ -1,0 +1,4 @@
+(:name agila-theme
+       :description "Syntax highlighting scheme that follows the base16 styling guidelines."
+       :type http
+       :url "https://gist.githubusercontent.com/xeals/23ecee56bdaf14d5298a8dc15a0d8170/raw/01ff114fd6c989c615513c37ba4dd5d989f739f8/agila-theme.el")

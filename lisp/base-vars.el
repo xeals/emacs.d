@@ -83,7 +83,7 @@
 ;;;
 ;; UI
 
-(defvar xeal-theme 'base16-agila
+(defvar xeal-theme 'agila
   "Colour theme to use.")
 
 (defvar xeal-font "IBM Plex Mono"

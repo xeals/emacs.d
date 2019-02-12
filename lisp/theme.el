@@ -12,9 +12,10 @@
 ;;;
 ;; Theme
 
-(req-package base16-agila-theme
+(req-package agila-theme
   :el-get t :ensure nil
-  :require base16-theme
+  :ensure base16-theme
+  :demand t
   :config
   (custom-set-faces
    '(fringe ((t (:background "#1A1E24"))))
