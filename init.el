@@ -79,10 +79,11 @@
 ;; Tools
 
 (require 'tool-dired)
+(require 'tool-direnv)
+(require 'tool-ledger)
+(require 'tool-pairing)
 (require 'tool-quick-find)
 (require 'tool-tramp)
-(require 'tool-pairing)
-(require 'tool-ledger)
 
 ;;;
 ;; Language support
