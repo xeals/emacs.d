@@ -16,8 +16,8 @@
 
 (req-package rust-mode
   :mode "\\.rs$"
-  ;; :hook
-  ;; (rust-mode . eglot-ensure)
+  :hook
+  (rust-mode . eglot-ensure)
   :general
   (:keymaps 'rust-mode-map
    :states '(normal visual operator)
@@ -28,7 +28,7 @@
   (set-doc-fn 'rust-mode #'eglot-help-at-point))
 
 (req-package racer
-  ;; :disabled t
+  :disabled t
   :hook
   (rust-mode . racer-mode)
   (racer-mode . eldoc-mode)
@@ -45,7 +45,7 @@ If `help-window-select' is non-nil, also select the help window."
   (set-doc-fn 'racer-mode #'+racer-describe))
 
 (req-package flycheck-rust
-  ;; :disabled t
+  :disabled t
   :requires flycheck
   :hook
   (flycheck-mode . flycheck-rust-setup)
