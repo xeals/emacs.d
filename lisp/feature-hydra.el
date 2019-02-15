@@ -69,11 +69,10 @@
 
 (defhydra +org/open-notes (:color blue)
   "Notes"
-  ("a" (open-course "3600") "Algorithms")
-  ("c" (open-course "2310") "Concurrent Systems")
-  ("o" (open-course "3300") "OSI")
-  ("s" (open-course "3530") "Systems Engineering")
-  ("t" (open-course "3500") "TechLauncher"))
+  ("c" (open-course "COMP3310") "Computer Networks")
+  ("p" (open-course "COMP1100.2019S1") "Programming as Problem Solving")
+  ("s" (open-course "COMP4130") "Software Quality & Process")
+  ("t" (open-course "COMP4500.2019S1") "TechLauncher"))
 
 ;;;
 ;; Supporting functions
