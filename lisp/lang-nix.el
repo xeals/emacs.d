@@ -19,5 +19,11 @@
   :init
   (set-company-backends 'nix-mode 'company-nixos-options))
 
+(req-package nix-sandbox
+  :init
+  (when (nixos?)
+    (setq haskell-process-wrapper-function
+          (lambda (args) (apply 'nix-shell-command (nix-current-sandbow) args)))))
+
 (provide 'lang-nix)
 ;;; lang-nix.el ends here

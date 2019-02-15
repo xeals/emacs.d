@@ -21,6 +21,10 @@
 ;;;
 ;; Setup
 
+(defun nixos? ()
+  "Returns `t' if the current system should be NixOS."
+  (file-exists-p "/etc/NIXOS"))
+
 ;;;###autoload
 (defmacro set-doc-fn (modes function)
   "Set MODES documentation FUNCTION using `documentation-function'."

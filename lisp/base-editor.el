@@ -175,5 +175,8 @@ directories."
 
 ;; TODO Look into undo-tree
 
+(req-package direnv
+  :demand t)
+
 (provide 'base-editor)
 ;;; base-editor.el ends here
