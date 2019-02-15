@@ -13,7 +13,8 @@
 ;; Packages
 
 (req-package eglot
-  :defer 2 ;; FIXME ?
+  ;; :defer 2 ;; FIXME ?
+  :commands (eglot-ensure)
   :general
   (general-leader
     "cC" '(eglot :wk "connect to lsp"))
