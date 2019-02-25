@@ -253,7 +253,8 @@ If on a:
                  '("p" . "src python :results output"))
     ;; R
     (add-to-list 'org-structure-template-alist
-                 '("r" . "src R :results graphics file: assets/fig_?.png")))
+                 '("r" . "src R :results graphics file: assets/fig_?.png"))
+    (require 'org-tempo))
   :init
   (setq org-hide-leading-stars nil           ; only show last star
         org-hide-emphasis-markers t          ; pretty links, etc.
