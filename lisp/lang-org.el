@@ -250,12 +250,10 @@ If on a:
   (defun +org-setup-templates ()
     ;; python
     (add-to-list 'org-structure-template-alist
-                 '("p" "#+BEGIN_SRC python :results output\n\n#+END_SRC"
-                   "<src lang=\"?\">\n\n</src>"))
+                 '("p" . "src python :results output"))
     ;; R
     (add-to-list 'org-structure-template-alist
-                 '("r" "#+BEGIN_SRC R :results graphics file: assets/fig_?.png\n\n#+END_SRC"
-                   "<src lang=\"?\">\n\n</src>")))
+                 '("r" . "src R :results graphics file: assets/fig_?.png")))
   :init
   (setq org-hide-leading-stars nil           ; only show last star
         org-hide-emphasis-markers t          ; pretty links, etc.
