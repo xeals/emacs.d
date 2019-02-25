@@ -179,6 +179,7 @@ If on a:
    "ci" #'org-clock-in
    "co" #'org-clock-out
    "cR" #'org-clock-report
+   "cu" #'org-clock-update-time-maybe
 
    "d" '(:ignore t :wk "clocks")
    "dd" #'org-deadline
