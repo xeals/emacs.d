@@ -30,6 +30,9 @@
 (pcase (system-name)
   ("shagaru"
    (setq xeal-font "Noto Mono"
+         xeal-variable-pitch-font "Noto Serif"))
+  ("baralyl"
+   (setq xeal-font "Noto Sans Mono"
          xeal-variable-pitch-font "Noto Serif")))
 
 (when (or (display-graphic-p) (daemonp))
