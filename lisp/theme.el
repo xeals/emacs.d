@@ -33,7 +33,8 @@
          xeal-variable-pitch-font "Noto Serif"))
   ("baralyl"
    (setq xeal-font "Noto Sans Mono"
-         xeal-variable-pitch-font "Noto Serif")))
+         xeal-variable-pitch-font "Noto Serif"
+         xeal-font-height 95)))
 
 (when (or (display-graphic-p) (daemonp))
   (with-demoted-errors "FONT ERROR: %s"
