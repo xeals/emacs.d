@@ -257,11 +257,11 @@ If on a:
     (require 'org-tempo))
   :init
   (setq org-hide-leading-stars nil           ; only show last star
-        org-hide-emphasis-markers t          ; pretty links, etc.
+        org-hide-emphasis-markers nil        ; pretty links, etc.
         org-hide-block-overlays t
         org-fontify-quote-and-verse-blocks t ; different faces
         org-src-fontify-natively t           ; fancy src blocks
-        org-pretty-entities nil              ; for latex inserts
+        org-pretty-entities t                ; for latex inserts
         org-ellipsis " ▼ "                   ; for hidden entries
         org-tags-column -80                  ; align to 80 characters
 
