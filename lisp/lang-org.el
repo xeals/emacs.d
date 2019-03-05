@@ -132,6 +132,10 @@ If on a:
       (_ (+org/refresh-inline-images)))
     (set-window-start nil scroll-pt)))
 
+(defun org-toggle-emphasis-markers ()
+  (interactive)
+  (setq org-emphasis-markers (not org-emphasis-markers)))
+
 ;;;
 ;; Packages
 
@@ -213,9 +217,11 @@ If on a:
    "sr" #'org-refile
 
    "T" '(:ignore t :wk "toggles")
-   "Tl" #'org-toggle-link-display
-   "Tx" #'org-toggle-latex-fragment
    "Ti" #'org-toggle-inline-images
+   "Te" #'org-toggle-emphasis-markers
+   "Tl" #'org-toggle-link-display
+   "Tp" #'org-toggle-pretty-entities
+   "Tx" #'org-toggle-latex-fragment
    "TT" #'org-todo)
 
   ;; org-agenda
