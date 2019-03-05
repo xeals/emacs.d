@@ -71,8 +71,7 @@
   "Notes"
   ("c" (open-course "COMP3310") "Computer Networks")
   ("p" (open-course "COMP1100.2019S1") "Programming as Problem Solving")
-  ("s" (open-course "COMP4130") "Software Quality & Process")
-  ("t" (open-course "COMP4500.2019S1") "TechLauncher"))
+  ("r" (find-file (concat xeal-uni-dir "/COMP4540/thesis.org")) "Research"))
 
 ;;;
 ;; Supporting functions
