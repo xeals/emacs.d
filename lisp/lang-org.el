@@ -323,7 +323,7 @@ If on a:
                                     'default)
                                 :background nil t))
      ;; more LaTeX
-     org-latex-pdf-process '("latexmk -f -pdf %f" "latexmk -c %f"))
+     org-latex-pdf-process '("latexmk -shell-escape -bibtex -pdf -f %f"))
     (unless (assoc "assignment" org-latex-classes)
       (add-to-list 'org-latex-classes
                    '("assignment" "\\documentclass[11pt]{article}
