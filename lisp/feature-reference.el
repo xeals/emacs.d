@@ -57,7 +57,11 @@
    :infix "i"
    "c" #'org-ref-helm-insert-cite-link)
   :init
-  (setq reftex-default-bibliography `(,(expand-file-name "references.bib" xeal-uni-dir))))
+  (defun -bib-f (f) (expand-file-name f (concat xeal-uni-dir "/bibliography")))
+  (setq reftex-default-bibliography (-bib-f "references.bib")
+        org-ref-bibliography-notes (-bib-f "notes.org")
+        org-ref-default-bibliography (list (-bib-f "references.bib"))
+        org-ref-pdf-directory (-bib-f "pdfs/")))
 
 
 (provide 'feature-reference)
