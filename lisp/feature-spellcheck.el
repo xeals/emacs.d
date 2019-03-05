@@ -13,6 +13,10 @@
 ;;;
 ;; Packages
 
+(req-package ispell ; built-in
+  :init
+  (setq ispell-dictionary "en_AU"))
+
 (req-package flyspell
   :hook
   ;; "<t> is undefined" [20190112]
