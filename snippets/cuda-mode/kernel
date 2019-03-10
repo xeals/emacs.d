@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: kernel launch
+# key: k
+# --
+${1:kernel} <<< $2 >>> ($3)$0

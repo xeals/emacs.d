@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: shared
+# key: _s
+# --
+__shared__ $0

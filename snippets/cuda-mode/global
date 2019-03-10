@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: global
+# key: _g
+# --
+__global__ $0

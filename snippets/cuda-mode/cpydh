@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: copy device-host
+# key: cpydh
+# --
+cudaMemcpy(${1:to}, ${2:from}, ${3:size}, cudaMemcpyHostToDevice);
+$0
