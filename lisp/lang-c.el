@@ -23,6 +23,25 @@
 ;;                            t))
 
 ;;;
+;; Definitions
+
+(after! flycheck
+  (flycheck-define-checker cuda-nvcc
+    "A CUDA checker."
+    :command ("nvcc"
+              "-I"
+              "."
+              source)
+    :standard-input t
+    :error-patterns
+    ((warning line-start (file-name) "(" line "): warning: " (message) line-end)
+     (error line-start (file-name) "(" line "): error: " (message) line-end)
+     (error line-start (file-name) ":" line ":" column ": error: " (message) line-end)
+     (error line-start (file-name) ":" line ":" column ": fatal error: " (message) line-end))
+    :modes (cuda-mode))
+  (add-to-list 'flycheck-checkers 'cuda-nvcc))
+
+;;;
 ;; Packages
 
 (req-package clang-format
@@ -64,7 +83,22 @@
   (irony-mode . flycheck-mode)
   (flycheck-mode . flycheck-irony-setup))
 
+(req-package company-c-headers
+  :requires company
+  :init
+  (add-to-list 'company-backends 'company-c-headers)
+  :config
+  (add-to-list 'company-c-headers-modes
+               `(cuda-mode . ,(cdr (assoc 'c++-mode company-c-headers-modes))))
+  (add-to-list 'company-c-headers-path-system "/usr/include/c++/8.2.1"))
+
 (req-package cc-mode)
+
+(req-package cuda-mode
+  :mode "\\.cu$"
+  :hook (cuda-mode . flycheck-mode)
+  :init
+  (c-add-language 'cuda-mode 'c++-mode))
 
 (provide 'lang-c)
 ;;; lang-c.el ends here
