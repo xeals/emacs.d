@@ -235,6 +235,14 @@ search is followed (not cancelled)."
 
   (general-define-key
    :keymaps 'insert
+
+   ;; these are actually better than vim's
+   "C-a" #'beginning-of-line
+   "C-e" #'end-of-line
+   "C-n" #'next-line
+   "C-p" #'previous-line
+
+
    "C-;" #'yas-expand
    "C-/" #'aya-expand)
 
