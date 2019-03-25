@@ -160,7 +160,7 @@ directories."
   ;;          :unless '(sp-point-before-word-p sp-point-before-same-p))
 
   (require 'smartparens-config)
-  (smartparens-global-strict-mode 1))
+  (smartparens-global-mode 1))
 
 (req-package writeroom-mode
   :commands writeroom-mode
