@@ -348,7 +348,7 @@ If on a:
   :commands (org-word-count org-wc-count-subtrees org-wc-display org-wc-remove-overlays))
 
 (req-package org-variable-pitch
-  :hook (org-mode . org-variable-pitch-minor-mode)
+  ;; :hook (org-mode . org-variable-pitch-minor-mode)
   :general
   (:keymaps 'org-mode-map
    :states '(normal visual operator)
@@ -356,10 +356,6 @@ If on a:
    :infix "T"
    "v" #'org-variable-pitch-minor-mode)
   :init (setq org-variable-pitch-fixed-font xeal-font))
-
-(req-package org-kanban
-  :el-get t :ensure nil
-  :disabled t)
 
 (req-package ox-dnd
   :el-get t :ensure nil)
