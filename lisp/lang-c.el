@@ -98,7 +98,8 @@
   :mode "\\.cu$"
   :hook (cuda-mode . flycheck-mode)
   :init
-  (c-add-language 'cuda-mode 'c++-mode))
+  (c-add-language 'cuda-mode 'c++-mode)
+  (set-doc-fn 'cuda-mode #'woman))
 
 (provide 'lang-c)
 ;;; lang-c.el ends here
