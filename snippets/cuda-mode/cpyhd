@@ -2,5 +2,5 @@
 # name: copy host-device
 # key: cpyhd
 # --
-cudaMemcpy(${1:to}, ${2:from}, ${3:size}, cudaMemcpyDeviceToHost);
+cudaMemcpy(${1:to}, ${2:from}, ${3:size}, cudaMemcpyHostToDevice);
 $0
