@@ -169,7 +169,7 @@ If on a:
    "," #'org-ctrl-c-ctrl-c
    "-" #'org-ctrl-c-minus
    "e" '(org-export-dispatch :wk "export")
-   "P" `(,(lambda () (interactive) (shell-command (concat "okular " (file-name-base buffer-file-name) ".pdf &"))) :wk "open pdf")
+   "P" `(,(lambda () (interactive) (shell-command (format "%s %s.pdf &" xeal-pdf-program-name (file-name-base buffer-file-name)))) :wk "open pdf")
    "w" '(org-wc-display :wk "count words")
    "v" '(+org/nav-hydra/body :wk "navigate")
    "=" #'org-align-all-tags

@@ -95,5 +95,8 @@
 (defvar xeal-font-height 105
   "Default font height to use.")
 
+(defvar xeal-pdf-program-name "zathura"
+  "Program to open PDFs in. Set nil to use Emacs.")
+
 (provide 'base-vars)
 ;;; base-vars.el ends here
