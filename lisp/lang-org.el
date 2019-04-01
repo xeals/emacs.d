@@ -312,6 +312,7 @@ If on a:
 
   ;; Load LaTeX classes
   (after! ox-latex
+    (require 'ox-beamer)
     (setq
      ;; make LaTeX previews a bit larger and more consistent colouring and faces
      org-preview-latex-image-directory (x/cache "org-latex/")
