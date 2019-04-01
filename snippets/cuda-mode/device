@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: device
+# key: _d
+# --
+__device__

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: host
+# key: _h
+# --
+__host__
