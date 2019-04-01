@@ -73,7 +73,7 @@ search is followed (not cancelled)."
   "" nil
   "SPC" '(counsel-M-x           :wk "M-x")
   "!"   '(shell-command         :wk "shell command")
-  "'"   '(term                  :wk "terminal")
+  "'"   '(ansi-term             :wk "terminal")
   ";"   '(eval-expression       :wk "eval expression")
   "/"   '(counsel-projectile-rg :wk "rg")
   "TAB" '(alternate-buffer      :wk "last buffer")
