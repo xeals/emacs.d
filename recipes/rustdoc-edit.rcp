@@ -1,4 +1,0 @@
-(:name rustdoc-edit
-       :description "Edit rustdoc in indirect buffers."
-       :type http
-       :url "https://gist.githubusercontent.com/antifuchs/aa9fa4c3d1354ea163bc13e63d32db1a/raw/1fca94cb95f9dd199f61cc855fc9d288833e3b07/asf-rustdoc-edit.el")

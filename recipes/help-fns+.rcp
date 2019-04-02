@@ -1,5 +1,0 @@
-(:name help-fns+
-       :description "Extensions to `help-fns.el'"
-       :type github
-       :pkgname "emacsmirror/help-fns-plus"
-       :features help-fns+)

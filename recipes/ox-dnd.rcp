@@ -1,5 +1,0 @@
-(:name ox-dnd
-       :description "D&D creation in org-mode"
-       :type github
-       :pkgname "xeals/emacs-org-dnd"
-       :features ox-dnd)
