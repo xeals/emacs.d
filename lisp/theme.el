@@ -26,9 +26,8 @@
   (custom-set-faces
    '(fringe ((t (:background "#1A1E24"))))
    '(ivy-posframe ((t :foreground "#cdd3df" :background "#1a1e24")))))
-(require 'agila-theme)
 
-;; (load-theme xeal-theme t)
+(load-theme xeal-theme t)
 
 ;;;
 ;; Typography
