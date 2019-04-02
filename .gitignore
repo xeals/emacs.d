@@ -5,4 +5,7 @@ elpa
 # idk how to move lsp lol
 .lsp-session*
 
+# sick of this and idk what it's for
+transient/
+
 straight/
