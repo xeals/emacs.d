@@ -61,8 +61,6 @@ This will be nil if you have byte-compiled your configuration.")
 ;;;
 ;; Macros
 
-(autoload 'use-package "use-package" nil nil 'macro)
-
 (defmacro use-feature (name &rest args)
   "Like `use-package', but with `straight-use-package-by-default' disabled."
   (declare (indent defun))
