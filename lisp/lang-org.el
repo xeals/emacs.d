@@ -142,30 +142,23 @@ If on a:
 (use-feature org
   :ensure org-plus-contrib
   :hook
-  ;; (org-mode . auto-fill-mode)
+  (org-mode . hl-todo-mode)
   (org-mode . org-indent-mode)
+  (org-mode . +line-numbers-disable)
   (org-mode . +org-setup-babel)
   (org-mode . +org-setup-templates)
-  (org-mode . +line-numbers-disable)
-  :preface
-  (defun +org/export-and-open-pdf ()
-    (interactive)
-    (let ((pdf-name (org-latex-export-to-pdf nil)))
-      (call-process-shell-command (format "%s %s &" xeal-pdf-program-name pdf-name) nil 0)))
   :general
   ;; core
   (:keymaps 'org-mode-map :states 'insert :major-modes t
    "RET" #'evil-org-return)
+
   (:keymaps 'org-mode-map :states 'normal :major-modes t
    "RET" #'+org/dwim-at-point
    "<<"  #'org-metaleft
    ">>"  #'org-metaright
    "j" #'evil-next-visual-line
-   "k" #'evil-previous-visual-line
-   ;; ;; Undo some of org-evil
-   ;; "gj" #'evil-next-visual-line
-   ;; "gk" #'evil-previous-visual-line
-   )
+   "k" #'evil-previous-visual-line)
+
   (:keymaps 'org-mode-map :major-modes t
    :states '(normal visual operator)
    :prefix xeal-localleader-key
@@ -233,6 +226,7 @@ If on a:
   (:keymaps 'org-agenda-mode-map :states 'emacs
    "j" #'org-agenda-next-item
    "k" #'org-agenda-previous-item)
+
   ;; org-src
   (:keymaps 'org-src-mode :states 'normal :definer 'minor-mode
    "ZZ" #'org-edit-src-exit)
@@ -241,28 +235,28 @@ If on a:
    :prefix xeal-localleader-key
    "," #'org-edit-src-exit
    "k" #'org-edit-src-abort)
+
   :preface
+  (defun +org/export-and-open-pdf ()
+    (interactive)
+    (let ((pdf-name (org-latex-export-to-pdf nil)))
+      (call-process-shell-command (format "%s %s &" xeal-pdf-program-name pdf-name) nil 0)))
   (defun +org-setup-babel ()
     (org-babel-do-load-languages
      'org-babel-load-languages
-     '(
-       ;; (ada        . t)
-       (C          . t)
+     '((C          . t)
        (emacs-lisp . t)
        (go         . t)
        (python     . t)
        (rust       . t)
-       (shell      . t)
-       )))
+       (shell      . t))))
   (defun +org-is-agenda-file (filename)
     (cl-find (file-truename filename) org-agenda-files
              :key #'file-truename
              :test #'equal))
   (defun +org-setup-templates ()
-    ;; python
     (add-to-list 'org-structure-template-alist
                  '("p" . "src python :results output"))
-    ;; R
     (add-to-list 'org-structure-template-alist
                  '("r" . "src R :results graphics file: assets/fig_?.png"))
     (require 'org-tempo))
@@ -317,7 +311,20 @@ If on a:
 
   ;; Load LaTeX classes
   (after! ox-latex
-    (require 'ox-beamer)
+    (use-feature 'ox-beamer)
+    ;; FIXME This is broken for some reason.
+    ;; (use-package ox-dnd
+    ;;   :straight (ox-dnd
+    ;;              :type git
+    ;;              :host github
+    ;;              :repo "xeals/emacs-org-dnd"))
+    (straight-use-package
+     '(ox-dnd
+       :type git
+       :host github
+       :repo "xeals/emacs-org-dnd"))
+    (require 'ox-dnd)
+
     (setq
      ;; make LaTeX previews a bit larger and more consistent colouring and faces
      org-preview-latex-image-directory (x/cache "org-latex/")
@@ -351,30 +358,20 @@ If on a:
   :init (setq org-bullets-bullet-list '("※")))
 
 (use-package org-wc
-  :commands (org-word-count org-wc-count-subtrees org-wc-display org-wc-remove-overlays))
+  :commands (org-word-count
+             org-wc-count-subtrees
+             org-wc-display
+             org-wc-remove-overlays))
 
 (use-package org-variable-pitch
-  ;; :hook (org-mode . org-variable-pitch-minor-mode)
   :general
   (:keymaps 'org-mode-map
    :states '(normal visual operator)
    :prefix xeal-localleader-key
    :infix "T"
    "v" #'org-variable-pitch-minor-mode)
-  :init (setq org-variable-pitch-fixed-font xeal-font))
-
-;; FIXME This is broken for some reason.
-;; (use-package ox-dnd
-;;   :straight (ox-dnd
-;;              :type git
-;;              :host github
-;;              :repo "xeals/emacs-org-dnd"))
-(straight-use-package
- '(ox-dnd
-   :type git
-   :host github
-   :repo "xeals/emacs-org-dnd"))
-(require 'ox-dnd)
+  :init
+  (setq org-variable-pitch-fixed-font xeal-font))
 
 (use-package ob-rust)
 (use-package ob-go)
