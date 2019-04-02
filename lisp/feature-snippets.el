@@ -13,7 +13,7 @@
 ;;;
 ;; Packages
 
-(req-package yasnippet
+(use-package yasnippet
   :defer 2
   :mode
   ("\\.snippet$" . snippet-mode)
@@ -30,13 +30,13 @@
   (after! evil
     (add-hook 'yas/before-expand-snippet-hook #'evil-insert-state)))
 
-(req-package auto-yasnippet
+(use-package auto-yasnippet
   :commands (aya-create aya-expand aya-open-line aya-persist snippet)
   ;; :general ; bound in bindings.el
   :init
   (setq aya-persist-snipets-dir (x/data "auto-snippets/")))
 
-(req-package ivy-yasnippet)
+(use-package ivy-yasnippet)
 
 ;;;
 ;; Autoloads

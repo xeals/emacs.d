@@ -14,7 +14,7 @@
 ;;;
 ;; Packages
 
-(req-package company
+(use-package company
   :demand t
   :hook
   (after-init . global-company-mode)
@@ -83,12 +83,12 @@
   (after! yasnippet (nconc company-backends '(company-yasnippet)))
   (after! evil (evil-declare-change-repeat 'company-complete)))
 
-(req-package company-statistics
+(use-package company-statistics
   :hook (company-mode . company-statistics-mode)
   :init
   (setq company-statistics-file (x/cache "company-stats-cache.el")))
 
-(req-package company-quickhelp
+(use-package company-quickhelp
   :hook (company-mode . company-quickhelp-mode)
   :general
   (:keymaps 'company-active-map
@@ -98,7 +98,7 @@
         company-quickhelp-color-foreground "#e5e6e6"
         company-quickhelp-color-background "#424242"))
 
-(req-package company-posframe
+(use-package company-posframe
   :after company
   :hook (company-mode . company-posframe-mode))
 

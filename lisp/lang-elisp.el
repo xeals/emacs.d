@@ -132,7 +132,7 @@ Lisp function does not specify a special indentation."
 ;;;
 ;; Packages
 
-(req-package elisp-mode :ensure nil
+(use-feature elisp-mode
   :preface
   (defun +elisp/use-indent-function ()
     (setq-local lisp-indent-function #'+elisp/indent-function))
@@ -162,16 +162,16 @@ Lisp function does not specify a special indentation."
                                            ("defmacro" . ?μ)
                                            ("defvar"   . ?υ))))
 
-(req-package ielm :ensure nil
+(use-package ielm :ensure nil
   :hook (ielm-mode . rainbow-delimiters-mode))
 
 ;; Highlight symbols
-(req-package highlight-quoted
+(use-package highlight-quoted
   :commands highlight-quoted-mode
   :hook (emacs-lisp-mode . highlight-quoted-mode))
 
 ;; Navigation and documentation
-(req-package elisp-slime-nav
+(use-package elisp-slime-nav
   :hook (emacs-lisp-mode . turn-on-elisp-slime-nav-mode)
   :init
   (set-doc-fn 'emacs-lisp-mode #'elisp-slime-nav-describe-elisp-thing-at-point)

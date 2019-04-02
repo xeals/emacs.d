@@ -44,7 +44,7 @@
 ;;;
 ;; Packages
 
-(req-package clang-format
+(use-package clang-format
   :commands (clang-format-region clang-format-buffer)
   :preface
   (defun +clang-format-buffer-smart ()
@@ -63,7 +63,7 @@
    :prefix xeal-localleader-key
    "=" #'clang-format-region))
 
-(req-package irony
+(use-package irony
   :hook
   (c-mode     . irony-mode)
   (c++-mode   . irony-mode)
@@ -71,20 +71,17 @@
   :init
   (setq irony-user-dir (x/data "irony/")))
 
-(req-package company-irony
-  :requires company
+(use-package company-irony
   :commands company-irony
   :init
   (set-company-backends 'c-mode 'company-irony))
 
-(req-package flycheck-irony
-  :requires flycheck
+(use-package flycheck-irony
   :hook
   (irony-mode . flycheck-mode)
   (flycheck-mode . flycheck-irony-setup))
 
-(req-package company-c-headers
-  :requires company
+(use-package company-c-headers
   :init
   (add-to-list 'company-backends 'company-c-headers)
   :config
@@ -92,9 +89,9 @@
                `(cuda-mode . ,(cdr (assoc 'c++-mode company-c-headers-modes))))
   (add-to-list 'company-c-headers-path-system "/usr/include/c++/8.2.1"))
 
-(req-package cc-mode)
+(use-feature cc-mode)
 
-(req-package cuda-mode
+(use-package cuda-mode
   :mode "\\.cu$"
   :hook (cuda-mode . flycheck-mode)
   :init

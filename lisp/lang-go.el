@@ -113,7 +113,7 @@ Uses `+godoc-gogetdoc' to look up documentation."
 ;;;
 ;; Packages
 
-(req-package go-mode
+(use-package go-mode
   :mode "\\.go$"
   :hook
   (go-mode . flycheck-mode)
@@ -160,10 +160,10 @@ Uses `+godoc-gogetdoc' to look up documentation."
   ;; fix up godoc-mode to be consistent with literally every other documentation mode
   (add-hook 'godoc-mode-hook 'help-mode))
 
-(req-package go-eldoc
+(use-package go-eldoc
   :hook (go-mode . go-eldoc-setup))
 
-(req-package go-guru
+(use-package go-guru
   :commands (go-guru-describe go-guru-freevars go-guru-implements go-guru-peers
                               go-guru-referrers go-guru-definition go-guru-pointsto
                               go-guru-callstack go-guru-whicherrs go-guru-callers go-guru-callees
@@ -183,7 +183,7 @@ Uses `+godoc-gogetdoc' to look up documentation."
             "p" #'go-guru-pointsto
             "r" #'go-guru-referrers))
 
-(req-package gorepl-mode
+(use-package gorepl-mode
   :commands (gorepl-run gorepl-run-load-current-file)
   :hook (go-mode . gorepl-mode)
   :general
@@ -201,17 +201,15 @@ Uses `+godoc-gogetdoc' to look up documentation."
             "l" #'gorepl-eval-line
             "r" #'gorepl-eval-region))
 
-(req-package company-go
-  :requires company
+(use-package company-go
   :commands company-go
   :init
   (setq command-go-gocode-command "gocode")
   (when (executable-find command-go-gocode-command)
     (set-company-backends 'go-mode 'company-go)))
 
-(req-package flycheck-gometalinter
+(use-package flycheck-gometalinter
   :disabled t
-  :requires flycheck
   :commands flycheck-gometalinter-setup
   :hook (flycheck-mode . flycheck-gometalinter-setup)
   :init

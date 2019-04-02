@@ -14,7 +14,7 @@
 ;;;
 ;; Packages
 
-(req-package ess
+(use-package ess
   :commands (R stata julia SAS)
   :mode (("/R/.*\\.q$"      . R-mode)
          ("\\.[rR]$"        . R-mode)

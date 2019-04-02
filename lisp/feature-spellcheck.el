@@ -13,25 +13,25 @@
 ;;;
 ;; Packages
 
-(req-package ispell ; built-in
+(use-feature ispell
   :init
   (setq ispell-dictionary "en_AU"))
 
-(req-package flyspell
+(use-package flyspell
   :hook
   ;; "<t> is undefined" [20190112]
   ;; (prog-mode . flyspell-prog-mode)
   (text-mode . flyspell-mode)
   (message-mode . flyspell-mode))
 
-(req-package flyspell-correct-ivy
+(use-package flyspell-correct-ivy
   :general
   (:keymaps 'motion
    "]S" 'flyspell-correct-next
    "[S" 'flyspell-correct-previous))
 
 ;; Wishlist: flyspell-posframe
-(req-package flyspell-popup
+(use-package flyspell-popup
   :disabled t
   :hook
   (flyspell-mode . flyspell-popup-auto-correct-mode)
@@ -42,12 +42,12 @@
   :init
   (setq flyspell-popup-correct-delay 0.5))
 
-(req-package flyspell-correct-ivy
+(use-package flyspell-correct-ivy
   :general
   (:keymaps 'flyspell-mode-map
    "C-;" #'flyspell-correct-wrapper))
 
-(req-package writegood-mode
+(use-package writegood-mode
   :commands (writegood-mode
              writegood-grade-level
              writegood-reading-ease))

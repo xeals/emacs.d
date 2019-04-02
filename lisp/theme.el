@@ -12,16 +12,23 @@
 ;;;
 ;; Theme
 
-(req-package agila-theme
-  :el-get t :ensure nil
-  :ensure base16-theme
-  :demand t
-  :config
+;; FIXME This is broken for some reason.
+;; (use-feature agila
+;;   :config
+;;   (custom-set-faces
+;;    '(fringe ((t (:background "#1A1E24"))))
+;;    '(ivy-posframe ((t :foreground "#cdd3df" :background "#1a1e24")))))
+(straight-use-package
+ '(agila-theme
+   :type git
+   :repo "https://gist.github.com/xeals/23ecee56bdaf14d5298a8dc15a0d8170"))
+(after! agila-theme
   (custom-set-faces
    '(fringe ((t (:background "#1A1E24"))))
    '(ivy-posframe ((t :foreground "#cdd3df" :background "#1a1e24")))))
+(require 'agila-theme)
 
-(load-theme xeal-theme t)
+;; (load-theme xeal-theme t)
 
 ;;;
 ;; Typography

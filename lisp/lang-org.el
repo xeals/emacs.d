@@ -139,7 +139,7 @@ If on a:
 ;;;
 ;; Packages
 
-(req-package org :pin org
+(use-package org :pin org
   :ensure org-plus-contrib
   :hook
   ;; (org-mode . auto-fill-mode)
@@ -341,14 +341,14 @@ If on a:
                      ("\\paragraph{%s}" . "\\paragraph*{%s}")
                      ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))))
 
-(req-package org-bullets
+(use-package org-bullets
   :hook (org-mode . org-bullets-mode)
   :init (setq org-bullets-bullet-list '("※")))
 
-(req-package org-wc
+(use-package org-wc
   :commands (org-word-count org-wc-count-subtrees org-wc-display org-wc-remove-overlays))
 
-(req-package org-variable-pitch
+(use-package org-variable-pitch
   ;; :hook (org-mode . org-variable-pitch-minor-mode)
   :general
   (:keymaps 'org-mode-map
@@ -358,11 +358,21 @@ If on a:
    "v" #'org-variable-pitch-minor-mode)
   :init (setq org-variable-pitch-fixed-font xeal-font))
 
-(req-package ox-dnd
-  :el-get t :ensure nil)
+;; FIXME This is broken for some reason.
+;; (use-package ox-dnd
+;;   :straight (ox-dnd
+;;              :type git
+;;              :host github
+;;              :repo "xeals/emacs-org-dnd"))
+(straight-use-package
+ '(ox-dnd
+   :type git
+   :host github
+   :repo "xeals/emacs-org-dnd"))
+(require 'ox-dnd)
 
-(req-package ob-rust)
-(req-package ob-go)
+(use-package ob-rust)
+(use-package ob-go)
 
 (provide 'lang-org)
 ;;; lang-org.el ends here

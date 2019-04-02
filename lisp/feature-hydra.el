@@ -12,7 +12,8 @@
 ;;;
 ;; Packages
 
-(req-package hydra :demand t)
+(use-package hydra
+  :demand t)
 (autoload 'defhydra "hydra")
 
 ;;;

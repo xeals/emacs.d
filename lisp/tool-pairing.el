@@ -11,7 +11,7 @@
 ;;;
 ;; Packages
 
-(req-package floobits
+(use-package floobits
   :commands (floobits-join-workspace
              floobits-share-dir-private
              floobits-share-dir-public

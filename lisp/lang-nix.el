@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-(req-package nix-mode
+(use-package nix-mode
   :mode "\\.nix$"
   :general
   (:keymaps 'nix-mode-map
@@ -13,7 +13,7 @@
    :leader xeal-localleader-key
    "'" #'nix-repl))
 
-(req-package company-nixos-options
+(use-package company-nixos-options
   :hook
   (nix-mode . company-mode)
   :init

@@ -14,7 +14,7 @@
 ;;;
 ;; Packages
 
-(req-package rust-mode
+(use-package rust-mode
   :mode "\\.rs$"
   :hook
   (rust-mode . eglot-ensure)
@@ -27,7 +27,7 @@
   (autoload 'asf-rustdoc-edit "rustdoc-edit.el")
   (set-doc-fn 'rust-mode #'eglot-help-at-point))
 
-(req-package racer
+(use-package racer
   :disabled t
   :hook
   (rust-mode . racer-mode)
@@ -44,14 +44,13 @@ If `help-window-select' is non-nil, also select the help window."
   :init
   (set-doc-fn 'racer-mode #'+racer-describe))
 
-(req-package flycheck-rust
+(use-package flycheck-rust
   :disabled t
-  :requires flycheck
   :hook
   (flycheck-mode . flycheck-rust-setup)
   (rust-mode . flycheck-mode))
 
-(req-package cargo
+(use-package cargo
   :hook
   (rust-mode . cargo-minor-mode)
   :preface

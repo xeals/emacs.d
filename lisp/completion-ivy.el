@@ -14,7 +14,7 @@
 ;;;
 ;; Packages
 
-(req-package ivy
+(use-package ivy
   :hook (after-init . ivy-mode)
   :general
   (:keymaps 'ivy-minibuffer-map
@@ -54,7 +54,7 @@
            (persp-window-switch . nil)
            (persp-frame-switch  . nil))))
 
-(req-package ivy-posframe
+(use-package ivy-posframe
   :disabled t
   :after ivy
   :commands (ivy-posframe-display
@@ -75,21 +75,21 @@
   :config
   (ivy-posframe-setup))
 
-(req-package all-the-icons-ivy
+(use-package all-the-icons-ivy
   :after ivy
   :hook (ivy-mode . all-the-icons-ivy-setup))
 
-(req-package swiper
+(use-package swiper
   :commands (swiper swiper-multi swiper-all))
 
-(req-package smex
+(use-package smex
   :commands (smex smex-major-mode-commands)
   :init
   (setq smex-save-file (x/cache "smex"))
   :config
   (smex-initialize))
 
-(req-package counsel
+(use-package counsel
   :demand t
   :after ivy
   :general
@@ -112,7 +112,7 @@
         "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
         counsel-bookmark-avoid-dired t))
 
-(req-package counsel-projectile
+(use-package counsel-projectile
   :demand t
   :after (counsel projectile)
   :general

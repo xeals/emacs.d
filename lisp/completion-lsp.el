@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package eglot
+(use-package eglot
   ;; :defer 2 ;; FIXME ?
   :commands (eglot-ensure)
   :general

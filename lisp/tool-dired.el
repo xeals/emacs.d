@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package dired :ensure nil
+(use-feature dired
   :hook
   (dired-mode . hl-line-mode)
   :general
@@ -22,7 +22,7 @@
             "DEL" #'dired-up-directory
             "r"   #'dired-do-redisplay))
 
-(req-package all-the-icons-dired
+(use-package all-the-icons-dired
   :disabled t
   :commands all-the-icons-dired-mode
   :init

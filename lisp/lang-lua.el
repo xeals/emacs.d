@@ -19,7 +19,7 @@ Basically exclusively for use in a snippet."
 ;;;
 ;; Packages
 
-(req-package lua-mode
+(use-package lua-mode
   :mode "\\.lua$"
   :commands lua-mode
   :general
@@ -36,7 +36,7 @@ Basically exclusively for use in a snippet."
   (set-doc-fn 'lua-mode #'lua-search-documentation)
   (add-to-list 'interpreter-mode-alist '("lua" . lua-mode)))
 
-(req-package fennel-mode
+(use-package fennel-mode
   :mode "\\.fnl$"
   :commands fennel-mode
   :general

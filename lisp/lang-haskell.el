@@ -13,7 +13,7 @@
 ;;;
 ;; Packages
 
-(req-package haskell-mode
+(use-package haskell-mode
   :mode
   "\\.[gh]s$"
   "\\.hsc$"
@@ -70,9 +70,9 @@
    haskell-font-lock-symbols t
    haskell-process-type 'cabal-repl))
 
-(req-package ghc)
+(use-package ghc)
 
-(req-package company-ghc
+(use-package company-ghc
   ;; :general
   ;; (:keymaps haskell-ghc-mode-map
   ;;           :states '(normal visual operator)
@@ -87,12 +87,12 @@
   (add-to-list 'company-backends 'company-ghc)
   )
 
-(req-package company-cabal
+(use-package company-cabal
   :hook (haskell-cabal-mode . company-mode)
   :config
   (set-company-backends 'haskell-cabal-mode 'company-cabal))
 
-(req-package company-ghci
+(use-package company-ghci
   :disabled t
   :config
   (set-company-backends 'haskell-mode 'company-ghci)
@@ -101,7 +101,7 @@
   ;;              '(company-ghci company-dabbrev-code company-yasnippet))
   )
 
-(req-package dante
+(use-package dante
   :disabled t
   :hook
   (haskell-mode . dante-mode)
@@ -111,7 +111,7 @@
     (flycheck-add-next-checker 'haskell-dante
                                '(warning . haskell-hlint))))
 
-(req-package intero
+(use-package intero
   :disabled t
   :hook
   (haskell-mode . intero-mode)

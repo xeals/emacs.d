@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package ruby-mode
+(use-feature ruby-mode
   :hook
   (ruby-mode . eglot-ensure)
   :init

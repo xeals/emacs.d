@@ -12,10 +12,10 @@
 ;;;
 ;; Settings
 
-(req-package all-the-icons
+(use-package all-the-icons
   :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-material))
 
-(req-package doom-modeline
+(use-package doom-modeline
   :demand t
   :hook (after-init . doom-modeline-init)
   :init

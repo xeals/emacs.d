@@ -13,7 +13,7 @@
 ;;;
 ;; Packages
 
-(req-package evil
+(use-package evil
   :demand t
   :general
   (:keymaps 'insert
@@ -42,7 +42,7 @@
   (evil-mode 1))
 
 ;; Additional objects
-(req-package evil-args
+(use-package evil-args
   :commands (evil-jump-out-args evil-inner-arg evil-outer-arg
                                 evil-forward-arg evil-backward-arg)
   :general
@@ -52,13 +52,13 @@
    "a" #'evil-outer-arg))
 
 ;; Better lisping
-(req-package evil-cleverparens
+(use-package evil-cleverparens
   :disabled t
   :hook
   ((lisp-mode emacs-lisp-mode) . evil-cleverparens-mode))
 
 ;; Better escaping
-(req-package evil-escape
+(use-package evil-escape
   :commands evil-escape-mode
   :hook
   (after-init . evil-escape-mode)
@@ -67,14 +67,14 @@
                 evil-escape-delay 0.1))
 
 ;; Visual feedback
-(req-package evil-goggles
+(use-package evil-goggles
   :commands evil-goggles-mode
   :config
   (evil-goggles-mode)
   (evil-goggles-use-magit-faces))
 
 ;; Align all the things
-(req-package evil-lion
+(use-package evil-lion
   :commands (evil-lion-left evil-lion-right)
   :general
   (:keymaps 'visual
@@ -84,12 +84,12 @@
   (evil-lion-mode 1))
 
 ;; Magit integration
-(req-package evil-magit
+(use-package evil-magit
   :demand t
   :after (evil magit))
 
 ;; Improved % matching
-(req-package evil-matchit
+(use-package evil-matchit
   :commands (evilmi-jump-items evilmi-text-object global-evil-matchit-mode)
   :general
   ([remap evil-jump-item] #'evilmi-jump-items)
@@ -99,11 +99,11 @@
   (global-evil-matchit-mode 1))
 
 ;; Commenting keys
-(req-package evil-nerd-commenter
+(use-package evil-nerd-commenter
   :commands (evilnc-comment-operator evilnc-comment-or-uncomment-lines))
 
 ;; Org integration
-(req-package evil-org
+(use-package evil-org
   :commands (evil-org-mode evil-org-recalculate-clocs)
   :after (org evil)
   :hook
@@ -111,7 +111,7 @@
   (evil-org-mode . evil-org-set-key-theme))
 
 ;; Easily add surrounding delimiters
-(req-package evil-surround
+(use-package evil-surround
   :commands (global-evil-surround-mode
              evil-surround-edit
              evil-Surround-edit
@@ -127,7 +127,7 @@
   (global-evil-surround-mode 1))
 
 ;; Allow visual selections to be searched
-(req-package evil-visualstar
+(use-package evil-visualstar
   :commands (global-evil-visualstar-mode
              evil-visualstar/begin-search
              evil-visualstar/begin-search-forward

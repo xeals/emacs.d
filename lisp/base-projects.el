@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package projectile
+(use-package projectile
   :demand t
   :commands (projectile-ack
              projectile-ag

@@ -39,33 +39,33 @@
 ;; Packages
 
 ;; Centred window
-(req-package centered-window
+(use-package centered-window
   :commands centered-window-mode
   :init
   (setq cwm-centered-window-width 80))
 
 ;; Highlight the current line
-(req-package hl-line
+(use-package hl-line
   :commands (hl-line-mode global-hl-line-mode)
   ;;:hook (after-init . global-hl-line-mode)
   )
 
 ;; Colour the cursor based on the foreground
-(req-package smart-cursor-color
+(use-package smart-cursor-color
   :commands (smart-cursor-color-mode)
   :hook (after-init . smart-cursor-color-mode))
 
 ;; Highlight the current line number
-(req-package hlinum
+(use-package hlinum
   :commands (hlinum-activate hlinum-deactivate))
 
 ;; Use line numbers
-(req-package nlinum
+(use-package nlinum
   :disabled t
   :commands (nlinum-mode global-nlinum-mode))
 
 ;; Use line numbers
-(req-package linum
+(use-feature linum
   :commands (linum-mode global-linum-mode)
   :hook
   (prog-mode . +line-numbers-enable)
@@ -74,14 +74,14 @@
   )
 
 ;; Highlight hex colours
-(req-package rainbow-mode
+(use-package rainbow-mode
   :mode "-theme\\.el$"
   :commands rainbow-mode
   :init
   (setq rainbow-html-colors nil))
 
 ;; Highlight variables dynamically
-(req-package color-identifiers-mode
+(use-package color-identifiers-mode
   :commands (color-identifiers-mode
              global-color-identifiers-mode
              color-identifiers:refresh)
@@ -90,7 +90,7 @@
   :hook ((lisp-mode emacs-lisp-mode) . color-identifiers-mode))
 
 ;; Highlight functions dynamically
-(req-package rainbow-identifiers
+(use-package rainbow-identifiers
   :diminish rainbow-identifiers-mode
   :commands rainbow-identifiers-mode
   :functions rainbow-identifiers-cie-l*a*b*-choose-face
@@ -100,7 +100,7 @@
         rainbow-identifiers-cie-l*a*b*-lightness 45))
 
 ;; Highlight TODO inside comments and strings
-(req-package hl-todo
+(use-package hl-todo
   :hook (prog-mode . hl-todo-mode)
   :general
   (:keymaps 'motion
@@ -136,11 +136,11 @@
               ("FAIL"   . ,hl-b))))))
 
 ;; Colour matching delimiters
-(req-package rainbow-delimiters
+(use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
 ;; Highlight matching delimiters
-(req-package paren
+(use-package paren
   :defer 2
   :init
   (setq show-paren-delay 0.1
@@ -150,8 +150,7 @@
   (show-paren-mode 1))
 
 ;; Major mode for editing source code
-(req-package prog-mode
-  :ensure nil
+(use-feature prog-mode
   :config
   (set-prettify-symbols 'prog-mode
                         '(("lambda" . ?λ)
@@ -161,7 +160,7 @@
                           ("<=" . ?≤)))
   (global-prettify-symbols-mode 1))
 
-(req-package highlight-indent-guides
+(use-package highlight-indent-guides
   :hook (prog-mode . highlight-indent-guides-mode)
   :init
   (setq highlight-indent-guides-method 'character
@@ -169,7 +168,7 @@
 
 ;; This doesn't fit anywhere else, but it's used as a dep and I
 ;; need to customise it.
-(req-package posframe
+(use-package posframe
   :init
   (setq posframe-mouse-banish nil))
 

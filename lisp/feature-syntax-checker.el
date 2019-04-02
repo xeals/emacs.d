@@ -15,7 +15,7 @@
 ;;;
 ;; Packages
 
-(req-package flycheck
+(use-package flycheck
   :demand t
   :commands (flycheck-list-errors flycheck-buffer flycheck-add-next-checker)
   :general
@@ -30,19 +30,18 @@
   :init
   (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)))
 
-(req-package flycheck-posframe
+(use-package flycheck-posframe
   :after flycheck
   :hook (flycheck-mode . flycheck-posframe-mode)
   :config
   (flycheck-posframe-configure-pretty-defaults))
 
-(req-package flymake-diagnostic-at-point
+(use-package flymake-diagnostic-at-point
   :after flymake)
 
-(req-package flymake-posframe
-  :el-get t :ensure nil
-  ;; :require flymake-diagnostic-at-point
-  :after flymake
+(use-package flymake-posframe
+  :straight (:type git
+             :repo "https://git.owari.cc/xeals/flymake-posframe")
   :hook
   (flymake-mode . flymake-posframe-mode)
   :init

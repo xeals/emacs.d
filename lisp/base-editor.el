@@ -50,7 +50,7 @@ directories."
 ;; Builtins
 
 ;; Revert buffers on external change
-(req-package autorevert
+(use-feature autorevert
   :defer 2
   :init
   (setq auto-revert-verbose nil
@@ -59,14 +59,14 @@ directories."
   (global-auto-revert-mode 1))
 
 ;; Documentation lines
-(req-package eldoc)
+(use-feature eldoc)
 
 ;; Additional help stuff
-(req-package help-fns+
-  :el-get t :ensure nil)
+;; straight.el loads from emacsmirror!
+(use-package help-fns+)
 
 ;; Keep track of recently opened files
-(req-package recentf
+(use-feature recentf
   :defer 1
   :hook (find-file . (lambda () (unless recentf-mode (recentf-mode) (recentf-track-opened-file))))
   :init
@@ -89,7 +89,7 @@ directories."
   (quiet! (recentf-mode 1)))
 
 ;; Persistent minibuffer history
-(req-package savehist
+(use-feature savehist
   :defer 1
   :init
   (setq savehist-file (x/cache "savehist")
@@ -104,7 +104,7 @@ directories."
   (savehist-mode t))
 
 ;; Persistent point place
-(req-package saveplace
+(use-feature saveplace
   :demand t
   :init
   (setq save-place-file (x/cache "saveplace"))
@@ -112,14 +112,14 @@ directories."
   (save-place-mode t))
 
 ;; Code folding
-(req-package hideshow
+(use-feature hideshow
   :hook (prog-mode . hs-minor-mode))
 
 ;;;
 ;; Packages
 
 ;; Handles editor-agnostic indentation settings
-(req-package editorconfig
+(use-package editorconfig
   :mode ("\\.?editorconfig$" . editorconfig-conf-mode)
   :demand t
   :init
@@ -128,7 +128,7 @@ directories."
   (editorconfig-mode 1))
 
 ;; Auto-close delimiters as I type
-(req-package smartparens
+(use-package smartparens
   :defer 1
   :general
   (:keymaps 'smartparens-mode-map
@@ -162,13 +162,13 @@ directories."
   (require 'smartparens-config)
   (smartparens-global-mode 1))
 
-(req-package writeroom-mode
+(use-package writeroom-mode
   :commands writeroom-mode
   :init
   (setq writeroom-mode-line nil
         writeroom-width 100))
 
-(req-package focus
+(use-package focus
   :commands focus-mode
   :hook (writeroom-mode . focus-mode)
   :init

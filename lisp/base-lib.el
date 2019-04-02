@@ -16,7 +16,8 @@
 ;; Packages
 
 ;; Add multiple hooks at once
-(req-package add-hooks :force t :demand t)
+(use-package add-hooks
+  :demand t)
 
 ;;;
 ;; Setup

@@ -25,7 +25,8 @@
 ;;;
 ;; Packages
 
-(req-package general :force t :demand t)
+(use-package general
+  :demand t)
 
 ;; https://github.com/noctuid/general.el/issues/126
 
@@ -59,7 +60,7 @@
    :keymaps general-non-normal-states
    xeal-non-normal-leader-key))
 
-(req-package which-key :force t
+(use-package which-key
   :commands
   (which-key-mode
    which-key-key-order-alpha)

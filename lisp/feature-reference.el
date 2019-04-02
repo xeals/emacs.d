@@ -29,7 +29,7 @@
 ;;;
 ;; Packages
 
-(req-package bibtex
+(use-package bibtex
   :general
   (:keymaps 'bibtex-mode-map
    :states '(normal visual operator)
@@ -45,7 +45,7 @@
    "u" #'bibtex-entry-update
    "w" #'+bibtex/toggle-narrow))
 
-(req-package org-ref
+(use-package org-ref
   :preface
   (defun +org/load-org-ref ()
     (require 'org-ref))

@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package markdown-mode
+(use-package markdown-mode
   :mode (("README\\.md$" . gfm-mode)
          ("\\.md$"       . markdown-mode)
          ("\\.markdown$" . markdown-mode))

@@ -107,6 +107,4 @@
   (require 'bindings)
   (require 'theme))
 
-(req-package-finish)
-
 ;;; init.el ends here

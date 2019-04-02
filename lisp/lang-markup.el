@@ -11,10 +11,10 @@
 ;;;
 ;; Packages
 
-(req-package yaml-mode
+(use-package yaml-mode
   :mode "\\.ya?ml$")
 
-(req-package toml-mode
+(use-package toml-mode
   :mode "\\.toml$")
 
 (provide 'lang-markup)

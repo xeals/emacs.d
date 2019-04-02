@@ -18,7 +18,7 @@
 ;;;
 ;; Packages
 
-(req-package ledger-mode
+(use-package ledger-mode
   :demand t
   :mode "\\.ledger$"
   :general
@@ -27,7 +27,7 @@
             "<C-tab>" '(λ! (insert "\\t"))))
 
 (if (version< emacs-version "26.0")
-  (req-package flycheck-ledger
+  (use-package flycheck-ledger
     :hook (ledger-mode . flycheck-mode))
   (add-hook 'ledger-mode-hook 'flymake-mode))
 

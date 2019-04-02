@@ -61,7 +61,7 @@ the REPL buffer."
 ;;;
 ;; Packages
 
-(req-package clojure-mode
+(use-package clojure-mode
   :mode (("\\.clj$"        . clojure-mode)
          ("\\.cljs$"       . clojurescript-mode)
          ("\\.cljc$"       . clojurec-mode)
@@ -101,7 +101,7 @@ the REPL buffer."
   ;; (+clojure/fancify-symbols m))
   )
 
-(req-package cider
+(use-package cider
   :hook
   (clojure-mode    . cider-mode)
   (cider-mode      . eldoc-mode)

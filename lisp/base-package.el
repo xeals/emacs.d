@@ -49,6 +49,10 @@ This will be nil if you have byte-compiled your configuration.")
  el-get-status-file (expand-file-name ".status.el" xeal-el-get-dir)
  el-get-autoload-file (expand-file-name ".loaddefs.el" xeal-el-get-dir)
 
+ ;; use-package
+ straight-use-package-by-default t
+
+ ;; req-package
  req-package-log-level (if (and (not noninteractive) xeal-debug-mode)
                            'debug
                          'info)
@@ -69,10 +73,34 @@ This will be nil if you have byte-compiled your configuration.")
 ;; Macros
 
 (autoload 'use-package "use-package" nil nil 'macro)
-(autoload 'req-package "req-package" nil nil 'macro)
+;; (autoload 'req-package "req-package" nil nil 'macro)
+
+(defmacro use-feature (name &rest args)
+  "Like `use-package', but with `straight-use-package-by-default' disabled."
+  (declare (indent defun))
+  `(use-package ,name
+     :straight nil
+     ,@args))
 
 ;;;
 ;; Functions
+
+(defun +straight//bootstrap ()
+  "Bootstrap `straight.el'."
+  ;; FIXME Make this use some package-dir [1].
+  ;; [1]: https://github.com/raxod502/straight.el/pull/300
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage)))
 
 (defun +packages-initialise-load-path ()
   "Initialise load path used by packages."
@@ -96,14 +124,16 @@ When base.el is compiled ,this function will be avoided to speed up startup."
         (make-directory dir t)))
 
     (package-initialize t)
-    (+packages-initialise-load-path)
+    ;; (+packages-initialise-load-path)
     (unless package-archive-contents
       (package-refresh-contents))
 
-    (dolist (package '(use-package el-get req-package))
-      (unless (package-installed-p package)
-        (package-install package))
-      (load (symbol-name package) nil t))
+    ;; Bootstrap
+    ;; (unless (package-installed-p 'use-package)
+    ;;   (package-install package))
+    ;; (load 'use-package nil t)
+    (+straight//bootstrap)
+    (straight-use-package 'use-package)
 
     (setq xeal-packages-init-p t)))
 

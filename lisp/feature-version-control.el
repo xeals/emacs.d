@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package magit
+(use-package magit
   :defer 2
   :general
   (:keymaps 'with-editor-mode
@@ -25,14 +25,14 @@
   ;; (set-popup-buffer (rx bos "magit" (one-or-more anything) eos))
   (global-magit-file-mode 1))
 
-(req-package gitconfig-mode
+(use-package gitconfig-mode
   :mode "/\\.?git/?config$"
   :mode "/\\.gitmodules$")
 
-(req-package gitignore-mode
+(use-package gitignore-mode
   :mode "/\\.gitignore$")
 
-(req-package git-gutter-fringe
+(use-package git-gutter-fringe
   :commands git-gutter-mode
   :preface
   (defun +version-control/git-gutter-maybe ()

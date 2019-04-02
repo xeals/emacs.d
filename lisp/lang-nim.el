@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package nim-mode
+(use-package nim-mode
   :hook
   (nim-mode . nimsuggest-mode)
   (nimsuggest-mode . company-mode)

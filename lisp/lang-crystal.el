@@ -12,7 +12,7 @@
 ;;;
 ;; Packages
 
-(req-package crystal-mode
+(use-package crystal-mode
   :mode "\\.cr$"
   :hook (crystal-mode . eglot-ensure)
   :general
@@ -27,7 +27,7 @@
   :init
   (set-doc-fn 'crystal-mode #'crystal-def-jump))
 
-(req-package slim-mode
+(use-package slim-mode
   :mode "\\.slim$"
   :mode "\\.slang$")
 
