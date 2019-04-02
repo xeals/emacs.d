@@ -85,6 +85,47 @@ This will be nil if you have byte-compiled your configuration.")
 ;;;
 ;; Functions
 
+(defun +straight//force-load-org ()
+  "Forces loading straight.el's org-mode before the built-in one.
+
+See https://github.com/raxod502/radian/blob/b32ab33c8b60f9b2f8f7f56b02ebe1cb5b45dd80/emacs/radian.el#L358"
+  (use-package git)
+
+  (defun org-git-version()
+    "The Git version of org-mode.
+Inserted by installing org-mode or when a release is made."
+    (require 'git)
+    (let ((git-repo (expand-file-name
+                     "straight/repos/org/" user-emacs-directory)))
+      (string-trim
+       (git-run "describe"
+                "--match=release\*"
+                "--abbrev=6"
+                "HEAD"))))
+
+  (defun org-release ()
+    "The release version of org-mode.
+Inserted by installing Org mode or when a release is made."
+    (require 'git)
+    (let ((git-repo (expand-file-name
+                     "straight/repos/org/" user-emacs-directory)))
+      (string-trim
+       (string-remove-prefix
+        "release_"
+        (git-run "describe"
+                 "--match=release\*"
+                 "--abbrev=0"
+                 "HEAD")))))
+
+  (provide 'org-version)
+
+  ;; Our real configuration for Org comes much later. Doing this now
+  ;; means that if any packages that are installed in the meantime
+  ;; depend on Org, they will not accidentally cause the Emacs-provided
+  ;; (outdated and duplicated) version of Org to be loaded before the
+  ;; real one is registered.
+  (straight-use-package 'org))
+
 (defun +straight//bootstrap ()
   "Bootstrap `straight.el'."
   ;; FIXME Make this use some package-dir [1].
@@ -102,15 +143,6 @@ This will be nil if you have byte-compiled your configuration.")
         (eval-print-last-sexp)))
     (load bootstrap-file nil 'nomessage)))
 
-(defun +packages-initialise-load-path ()
-  "Initialise load path used by packages."
-  (dolist (dir (list package-user-dir xeal-el-get-dir))
-    (setq load-path (append load-path (directory-files dir t "^[^.]" t))
-          custom-theme-load-path (append custom-theme-load-path (directory-files dir t "theme" t)))
-    ;; Ensure ELPA org is above built-in org
-    (require 'cl)
-    (setq load-path (remove-if (lambda (x) (string-match-p "org$" x)) load-path))))
-
 (defun +packages-initialise (&optional force-p)
   "Initialise installed packages and ensure they are installed.
 When FORCE-P is provided it will run no matter the preconditions.
@@ -124,16 +156,13 @@ When base.el is compiled ,this function will be avoided to speed up startup."
         (make-directory dir t)))
 
     (package-initialize t)
-    ;; (+packages-initialise-load-path)
     (unless package-archive-contents
       (package-refresh-contents))
 
     ;; Bootstrap
-    ;; (unless (package-installed-p 'use-package)
-    ;;   (package-install package))
-    ;; (load 'use-package nil t)
     (+straight//bootstrap)
     (straight-use-package 'use-package)
+    (+straight//force-load-org)
 
     (setq xeal-packages-init-p t)))
 

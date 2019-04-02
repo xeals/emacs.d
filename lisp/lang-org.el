@@ -139,7 +139,7 @@ If on a:
 ;;;
 ;; Packages
 
-(use-package org :pin org
+(use-feature org
   :ensure org-plus-contrib
   :hook
   ;; (org-mode . auto-fill-mode)
