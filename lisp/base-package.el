@@ -43,19 +43,8 @@ This will be nil if you have byte-compiled your configuration.")
  use-package-minimum-reported-time (if xeal-debug-mode 0 0.1)
  use-package-verbose xeal-debug-mode
 
- ;; el-get
- el-get-dir xeal-el-get-dir
- el-get-recipe-path `(,xeal-el-get-recipes)
- el-get-status-file (expand-file-name ".status.el" xeal-el-get-dir)
- el-get-autoload-file (expand-file-name ".loaddefs.el" xeal-el-get-dir)
-
- ;; use-package
+ ;; straight.el
  straight-use-package-by-default t
-
- ;; req-package
- req-package-log-level (if (and (not noninteractive) xeal-debug-mode)
-                           'debug
-                         'info)
 
  byte-compile-dynamic nil
  byte-compile-verbose xeal-debug-mode
@@ -73,7 +62,6 @@ This will be nil if you have byte-compiled your configuration.")
 ;; Macros
 
 (autoload 'use-package "use-package" nil nil 'macro)
-;; (autoload 'req-package "req-package" nil nil 'macro)
 
 (defmacro use-feature (name &rest args)
   "Like `use-package', but with `straight-use-package-by-default' disabled."
