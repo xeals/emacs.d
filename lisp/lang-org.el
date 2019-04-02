@@ -311,7 +311,7 @@ If on a:
 
   ;; Load LaTeX classes
   (after! ox-latex
-    (use-feature 'ox-beamer)
+    (use-feature ox-beamer)
     ;; FIXME This is broken for some reason.
     ;; (use-package ox-dnd
     ;;   :straight (ox-dnd
