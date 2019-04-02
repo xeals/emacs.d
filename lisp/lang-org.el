@@ -147,6 +147,11 @@ If on a:
   (org-mode . +org-setup-babel)
   (org-mode . +org-setup-templates)
   (org-mode . +line-numbers-disable)
+  :preface
+  (defun +org/export-and-open-pdf ()
+    (interactive)
+    (let ((pdf-name (org-latex-export-to-pdf nil)))
+      (call-process-shell-command (format "%s %s &" xeal-pdf-program-name pdf-name) nil 0)))
   :general
   ;; core
   (:keymaps 'org-mode-map :states 'insert :major-modes t
@@ -169,7 +174,7 @@ If on a:
    "," #'org-ctrl-c-ctrl-c
    "-" #'org-ctrl-c-minus
    "e" '(org-export-dispatch :wk "export")
-   "P" `(,(lambda () (interactive) (shell-command (format "%s %s.pdf &" xeal-pdf-program-name (file-name-base buffer-file-name)))) :wk "open pdf")
+   "P" `(+org/export-and-open-pdf :wk "open pdf")
    "w" '(org-wc-display :wk "count words")
    "v" '(+org/nav-hydra/body :wk "navigate")
    "=" #'org-align-all-tags
