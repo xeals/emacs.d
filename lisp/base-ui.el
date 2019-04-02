@@ -104,8 +104,8 @@
   :hook (prog-mode . hl-todo-mode)
   :general
   (:keymaps 'motion
-            "]t" #'hl-todo-next
-            "[t" #'hl-todo-previous)
+   "]t" #'hl-todo-next
+   "[t" #'hl-todo-previous)
   :init
   ;; pencil-theme
   (when (or

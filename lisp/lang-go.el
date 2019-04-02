@@ -123,30 +123,30 @@ Uses `+godoc-gogetdoc' to look up documentation."
     (add-hook 'before-save-hook #'gofmt-before-save nil t))
   :general
   (:keymaps 'go-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "d" #'godef-jump-other-window
-            "h" #'+gogetdoc-at-point)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "d" #'godef-jump-other-window
+   "h" #'+gogetdoc-at-point)
   (:keymaps 'go-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "i"
-            "" '(:ignore t :wk "imports")
-            "g" #'go-goto-imports
-            "a" #'go-import-add
-            "r" #'go-remove-unused-imports)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "i"
+   "" '(:ignore t :wk "imports")
+   "g" #'go-goto-imports
+   "a" #'go-import-add
+   "r" #'go-remove-unused-imports)
   (:keymaps 'go-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "g"
-            "" '(:ignore t :wk "goto")
-            "a" #'go-goto-arguments
-            "d" #'go-goto-docstring
-            "f" #'go-goto-function
-            "i" #'go-goto-imports
-            "n" #'go-goto-function-name
-            "r" #'go-goto-return-values
-            "m" #'go-goto-method-receiver)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "g"
+   "" '(:ignore t :wk "goto")
+   "a" #'go-goto-arguments
+   "d" #'go-goto-docstring
+   "f" #'go-goto-function
+   "i" #'go-goto-imports
+   "n" #'go-goto-function-name
+   "r" #'go-goto-return-values
+   "m" #'go-goto-method-receiver)
   :init
   (setq flycheck-go-build-install-deps nil
         godoc-at-point-function #'+godoc-and-godef
@@ -164,42 +164,50 @@ Uses `+godoc-gogetdoc' to look up documentation."
   :hook (go-mode . go-eldoc-setup))
 
 (use-package go-guru
-  :commands (go-guru-describe go-guru-freevars go-guru-implements go-guru-peers
-                              go-guru-referrers go-guru-definition go-guru-pointsto
-                              go-guru-callstack go-guru-whicherrs go-guru-callers go-guru-callees
-                              go-guru-expand-region)
+  :commands (go-guru-describe
+             go-guru-freevars
+             go-guru-implements
+             go-guru-peers
+             go-guru-referrers
+             go-guru-definition
+             go-guru-pointsto
+             go-guru-callstack
+             go-guru-whicherrs
+             go-guru-callers
+             go-guru-callees
+             go-guru-expand-region)
   :general
   (:keymaps 'go-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "g"
-            "" '(:ignore t :wk "guru")
-            "<" #'go-guru-callers
-            ">" #'go-guru-callees
-            "c" #'go-guru-peers
-            "d" #'go-guru-describe
-            "f" #'go-guru-freevars
-            "i" #'go-guru-implements
-            "p" #'go-guru-pointsto
-            "r" #'go-guru-referrers))
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "g"
+   "" '(:ignore t :wk "guru")
+   "<" #'go-guru-callers
+   ">" #'go-guru-callees
+   "c" #'go-guru-peers
+   "d" #'go-guru-describe
+   "f" #'go-guru-freevars
+   "i" #'go-guru-implements
+   "p" #'go-guru-pointsto
+   "r" #'go-guru-referrers))
 
 (use-package gorepl-mode
   :commands (gorepl-run gorepl-run-load-current-file)
   :hook (go-mode . gorepl-mode)
   :general
   (:keymaps 'go-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            "'" #'gorepl-run)
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   "'" #'gorepl-run)
   (:keymaps 'gorepl-mode-map
-            :states '(normal visual operator)
-            :prefix xeal-localleader-key
-            :infix "r"
-            "" '(:ignore t :wk "repl")
-            "f" #'gorepl-run-load-current-file
-            "h" '(gorepl-hydra/body :wk "hydra")
-            "l" #'gorepl-eval-line
-            "r" #'gorepl-eval-region))
+   :states '(normal visual operator)
+   :prefix xeal-localleader-key
+   :infix "r"
+   "" '(:ignore t :wk "repl")
+   "f" #'gorepl-run-load-current-file
+   "h" '(gorepl-hydra/body :wk "hydra")
+   "l" #'gorepl-eval-line
+   "r" #'gorepl-eval-region))
 
 (use-package company-go
   :commands company-go
