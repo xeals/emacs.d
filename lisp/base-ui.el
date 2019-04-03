@@ -42,7 +42,7 @@
 (use-package centered-window
   :commands centered-window-mode
   :init
-  (setq cwm-centered-window-width 80))
+  (setq cwm-centered-window-width 83))
 
 ;; Highlight the current line
 (use-package hl-line
