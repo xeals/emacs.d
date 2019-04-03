@@ -193,7 +193,7 @@ search is followed (not cancelled)."
   "ws" '(split-window-below           :wk "split horizontal")
   "wS" '(split-window-below-and-focus :wk "split horizontal")
   "w=" '(balance-windows-area         :wk "balance windows area")
-  ;; "wc" '(centered-buffer-mode         :wk "center buffer")
+  "wc" `(,(λ! (centered-window-mode-toggle)) :wk "center window")
   "wd" '(delete-window                :wk "delete window")
   "wh" '(evil-window-left             :wk "select left")
   "wl" '(evil-window-right            :wk "select right")
