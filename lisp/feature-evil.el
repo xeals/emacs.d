@@ -45,6 +45,11 @@
 
   (evil-mode 1))
 
+(use-package evil-anzu
+  :config
+  (after! evil
+    (require 'evil-anzu)))
+
 ;; Additional objects
 (use-package evil-args
   :commands (evil-jump-out-args evil-inner-arg evil-outer-arg

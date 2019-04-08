@@ -174,6 +174,9 @@ directories."
   :init
   (setq focus-dimness -50))
 
+(use-package anzu
+  :hook (after-init . global-anzu-mode))
+
 ;; TODO Look into undo-tree
 
 (provide 'base-editor)
