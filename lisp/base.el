@@ -52,6 +52,9 @@
  tramp-auto-save-directory   (x/cache "tramp/auto-save/")
  tramp-backup-directory-alist backup-directory-alist
  tramp-persistency-file-name (x/cache "tramp/persistency.el")
+ transient-history-file      (x/cache "transient/history.el")
+ transient-levels-file       (x/data "transient/levels.el")
+ transient-values-file       (x/data "transient/values.el")
  url-cache-directory         (x/cache "url/")
  url-configuration-directory (x/data "url/"))
 
