@@ -46,7 +46,7 @@
 
 ;; Highlight the current line
 (use-package hl-line
-  :commands (hl-line-mode global-hl-line-mode)
+  ;; :commands (hl-line-mode global-hl-line-mode)
   ;;:hook (after-init . global-hl-line-mode)
   )
 
