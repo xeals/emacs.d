@@ -177,7 +177,29 @@ directories."
 (use-package anzu
   :hook (after-init . global-anzu-mode))
 
-;; TODO Look into undo-tree
+(use-package undo-tree
+  :hook (after-init . global-undo-tree-mode)
+  :init
+  (setq undo-tree-auto-save-history t
+        undo-tree-history-directory-alist (list (cons "." (x/data "undo-tree-hist/"))))
+  :config
+  ;; Hacky method to get the tree to be a bit thinner.
+  ;; Code borrowed from `set-popup-buffer'.
+  (cl-pushnew `(,undo-tree-visualizer-buffer-name
+                (display-buffer-reuse-window
+                 display-buffer-in-side-window)
+                (reusable-frames . visible)
+                (side            . right)
+                (window-height   . 0.3))
+              display-buffer-alist :test 'equal)
+
+  (defun undo-tree-split-side-by-side (f &rest args)
+    "Split undo tree side-by-side instead of above-below."
+    (let ((split-height-threshold nil)
+          (split-width-threshold 0)
+          (split-width))
+      (apply f args)))
+  (advice-add #'undo-tree-visualize :around #'undo-tree-split-side-by-side))
 
 (provide 'base-editor)
 ;;; base-editor.el ends here

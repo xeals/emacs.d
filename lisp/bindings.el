@@ -184,6 +184,7 @@ search is followed (not cancelled)."
   "tr" #'rainbow-mode
   "ts" #'flyspell-mode
   "tt" #'counsel-load-theme
+  "tu" #'undo-tree-visualize
   "tv" #'visual-line-mode
   "tW" #'writegood-mode
 
