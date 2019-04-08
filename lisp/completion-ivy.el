@@ -96,8 +96,7 @@
   (:keymaps 'ivy-mode-map
    [remap apropos]                   #'counsel-apropos
    [remap bookmark-jump]             #'counsel-bookmark
-   [remap describe-face]             #'counsel-describe-face
-   [remap describe-face]             #'counsel-describe-face
+   [remap describe-face]             #'counsel-faces
    [remap describe-function]         #'counsel-describe-function
    [remap describe-variable]         #'counsel-describe-variable
    [remap eshell-list-history]       #'counsel-esh-history
