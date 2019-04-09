@@ -43,8 +43,7 @@
         projectile-known-projects-file (x/cache "projectile-bookmarks.eld")
         projectile-globallyy-ignored-file-suffixes
         '(".elc" ".pyc" ".o" ".hi" ".class" ".cache")
-        projectile-ignored-projects (list xeal-data-dir)
-        )
+        projectile-ignored-projects (list xeal-data-dir (expand-file-name "straight/" user-emacs-directory)))
   :config
   (projectile-mode))
 
