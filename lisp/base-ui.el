@@ -172,6 +172,9 @@
   :init
   (setq posframe-mouse-banish nil))
 
+(use-package solaire-mode
+  :hook (after-init . solaire-global-mode))
+
 ;;;
 ;; Autoloads
 

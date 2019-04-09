@@ -25,7 +25,10 @@
 (after! agila-theme
   (custom-set-faces
    '(fringe ((t (:background "#1A1E24"))))
-   '(ivy-posframe ((t :foreground "#cdd3df" :background "#1a1e24")))))
+   '(ivy-posframe ((t :foreground "#cdd3df" :background "#1a1e24"))))
+   '(solaire-default-face ((t (:inherit default :background "#252b33"))))
+   '(solaire-hl-line-face ((t (:inherit hl-line :background "#1a1e24"))))
+   '(solaire-org-hide-face ((t (:foreground "#252b33")))))
 
 (load-theme xeal-theme t)
 
