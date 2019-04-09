@@ -46,7 +46,7 @@
   (evil-mode 1))
 
 (use-package evil-anzu
-  :config
+  :init
   (after! evil
     (require 'evil-anzu)))
 
