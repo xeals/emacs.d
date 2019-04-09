@@ -181,6 +181,7 @@ search is followed (not cancelled)."
   "t" '(:ignore t :wk "toggles/theme")
   "tl" #'+line-numbers-toggle
   "tL" #'global-hl-line-mode
+  "tn" #'neotree-toggle
   "tr" #'rainbow-mode
   "ts" #'flyspell-mode
   "tt" #'counsel-load-theme

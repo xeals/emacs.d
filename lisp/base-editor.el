@@ -201,5 +201,24 @@ directories."
       (apply f args)))
   (advice-add #'undo-tree-visualize :around #'undo-tree-split-side-by-side))
 
+(use-package neotree
+  :general
+  (:keymaps 'neotree-mode-map
+   :states 'normal
+   "RET" #'neotree-enter
+   "TAB" #'neotree-enter
+   "-" #'neotree-select-up-node
+   "A" #'neotree-stretch-toggle
+   "g" #'neotree-refresh
+   "H" #'neotree-hidden-file-toggle
+   "i" #'neotree-quick-look
+   "n" #'neotree-next-line
+   "p" #'neotree-previous-line
+   "q" #'neotree-hide)
+  :init
+  (setq neo-smart-open t
+        neo-theme (if (display-graphic-p) 'icons 'arrow)
+        projectile-switch-project-action #'neotree-projectile-action))
+
 (provide 'base-editor)
 ;;; base-editor.el ends here
