@@ -247,6 +247,7 @@ If on a:
      '((C          . t)
        (emacs-lisp . t)
        (go         . t)
+       (gnuplot    . t)
        (python     . t)
        (rust       . t)
        (shell      . t))))

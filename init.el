@@ -82,6 +82,7 @@
 (require 'tool-quick-find)
 (require 'tool-tramp)
 (require 'tool-pairing)
+(require 'tool-plot)
 (require 'tool-ledger)
 
 ;;;
