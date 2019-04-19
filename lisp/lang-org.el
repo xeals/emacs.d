@@ -301,7 +301,8 @@ If on a:
   :config
   (defvaralias 'org-directory 'xeal-org-dir)
 
-  (add-to-list 'recentf-exclude #'+org-is-agenda-file)
+  (after! base-editor
+    (add-to-list 'recentf-exclude #'+org-is-agenda-file))
 
   ;; window padding
   (progn
@@ -325,6 +326,10 @@ If on a:
        :host github
        :repo "xeals/emacs-org-dnd"))
     (require 'ox-dnd)
+
+    (setq org-latex-listings t)
+    (add-to-list 'org-latex-packages-alist '("" "listings"))
+    (add-to-list 'org-latex-packages-alist '("" "color"))
 
     (setq
      ;; make LaTeX previews a bit larger and more consistent colouring and faces
