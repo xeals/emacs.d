@@ -13,6 +13,11 @@
 
 (use-package impatient-mode
   :commands impatient-mode
+  :preface
+  (defun +impatient/start ()
+    (httpd-start)
+    (impatient-mode +1))
+  :hook (mhtml-mode . +impatient/start)
   :config
   (defun +imp-markdown-filter (in)
     (let ((out (current-buffer)))
