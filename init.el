@@ -101,6 +101,7 @@
 (require 'lang-nim)
 (require 'lang-nix)
 (require 'lang-org)
+(require 'lang-python)
 (require 'lang-ruby)
 (require 'lang-rust)
 
