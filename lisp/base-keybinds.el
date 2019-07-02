@@ -82,5 +82,44 @@
 
   (which-key-mode 1))
 
+;;;
+;; Universal, non-nuclear escape
+
+;; `keyboard-quit' is too much of a nuclear option. I wanted an ESC/C-g to
+;; do-what-I-mean. It serves four purposes (in order):
+;;
+;; 1. Quit active states; e.g. highlights, searches, snippets, iedit,
+;;    multiple-cursors, recording macros, etc.
+;; 2. Close popup windows remotely (if it is allowed to)
+;; 3. Refresh buffer indicators, like git-gutter and flycheck
+;; 4. Or fall back to `keyboard-quit'
+;;
+;; And it should do these things incrementally, rather than all at once. And it
+;; shouldn't interfere with recording macros or the minibuffer. This may require
+;; you press ESC/C-g two or three times on some occasions to reach
+;; `keyboard-quit', but this is much more intuitive.
+
+;; Borrowed from doom-emacs.
+
+(defvar escape-hook nil
+  "A hook run after C-g or ESC in normal mode is pressed. Both trigger `xeal/escape'.
+
+If any hook returns non-nil, all hooks after it are ignored.")
+
+(defun xeal/escape ()
+  "Run `escape-hook'."
+  (interactive)
+  (cond ((minibuffer-window-active-p (minibuffer-window))
+         ;; quit the minibuffer if open.
+         (abort-recursive-edit))
+        ;; Run all escape hooks. If any returns non-nil, then stop there.
+        ((run-hook-with-args-until-success 'escape-hook))
+        ;; don't abort macros
+        ((or defining-kbd-macro executing-kbd-macro) nil)
+        ;; Fallback
+        ((keyboard-quit))))
+
+(global-set-key [remap keyboard-quit] #'xeal/escape)
+
 (provide 'base-keybinds)
 ;;; base-keybinds.el ends here
