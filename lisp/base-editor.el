@@ -220,5 +220,8 @@ directories."
         neo-theme (if (display-graphic-p) 'icons 'arrow)
         projectile-switch-project-action #'neotree-projectile-action))
 
+(use-package aggressive-indent
+  :hook (after-init . global-aggressive-indent-mode))
+
 (provide 'base-editor)
 ;;; base-editor.el ends here
