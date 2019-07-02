@@ -274,6 +274,9 @@ If on a:
         org-fontify-done-headline t
         org-fontify-whole-heading-line t
 
+        ;;        highlight latex stuff
+        org-highlight-latex-and-related '(native entities)
+
         ;;; Getting Things Done
         ;; set file handlers
         org-agenda-files (list gtd/inbox-file gtd/main-file)
