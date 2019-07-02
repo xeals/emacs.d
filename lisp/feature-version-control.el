@@ -37,6 +37,7 @@
   :preface
   (defun +version-control/git-gutter-maybe ()
     "Enable `git-gutter-mode' in non-remote buffers."
+    (require 'git-gutter-fringe)
     (when (and (buffer-file-name)
                (not (file-remote-p (buffer-file-name))))
       (git-gutter-mode 1)))
@@ -45,31 +46,34 @@
   (prog-mode . +version-control/git-gutter-maybe)
   (conf-mode . +version-control/git-gutter-maybe)
   :init
-  (setq git-gutter-fr:side         #'right-fringe
+  (if (fboundp 'fringe-mode)
+      (fringe-mode '4)
+    (setq-default left-fringe-width 4))
+  (setq-default fringes-outside-margins t)
+  (setq git-gutter-fr:side         #'left-fringe
         git-gutter-fr:window-width 1
-        git-gutter:unchanged-sign  " "
+        git-gutter:unchanged-sign  nil
         git-gutter:modified-sign   "~"
         git-gutter:added-sign      "+"
         git-gutter:deleted-sign    "*")
   :config
-  (fringe-helper-define 'git-gutter-fr:added nil
-    "..X...."
-    "..X...."
-    "XXXXX.."
-    "..X...."
-    "..X....")
-  (fringe-helper-define 'git-gutter-fr:deleted nil
-    "......."
-    "......."
-    "XXXXX.."
-    "......."
-    ".......")
-  (fringe-helper-define 'git-gutter-fr:modified nil
-    "....XX."
-    "...XX.."
-    "..XX..."
-    ".XX...."
-    "XX....."))
+  ;; Borrowed from doom-emacs.
+  (defun +version-control/git-gutter-update (&rest _)
+    "Refresh git-gutter on ESC. Return nil to prevent shadowing
+other `escape-hook' hooks."
+    (when git-gutter-mode
+      (ignore (git-gutter))))
+  (add-hook 'escape-hook #'+version-control/git-gutter-update t)
+  (define-fringe-bitmap 'git-gutter-fr:added [224]
+    nil nil '(center repeated))
+  (define-fringe-bitmap 'git-gutter-fr:modified [224]
+    nil nil '(center repeated))
+  (define-fringe-bitmap 'git-gutter-fr:deleted [128 192 224 240]
+    nil nil 'bottom)
+  (after! flycheck
+    (setq flycheck-indication-mode 'right-fringe)
+    (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+      [16 48 112 240 112 48 16] nil nil 'center)))
 
 (provide 'feature-version-control)
 ;;; feature-version-control.el ends here

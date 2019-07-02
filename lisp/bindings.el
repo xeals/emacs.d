@@ -122,9 +122,10 @@ search is followed (not cancelled)."
   "fy" '(+show-and-copy-buffer-filename :wk "show and copy filename")
 
   "g" '(:ignore t :wk "git")
-  "gs" '(magit-status  :wk "status")
-  "gb" '(magit-blame   :wk "blame")
-  "gl" '(magit-log-all :wk "log")
+  "gb" '(magit-blame           :wk "blame")
+  "gh" '(git-gutter:stage-hunk :wk "stage hunk")
+  "gl" '(magit-log-all         :wk "log")
+  "gs" '(magit-status          :wk "status")
 
   "h" '(:ignore t :wk "help")
   "hb" '(describe-bindings     :wk "bindings")
@@ -179,6 +180,7 @@ search is followed (not cancelled)."
   "qr" '(restart-emacs :wk "restart")
 
   "t" '(:ignore t :wk "toggles/theme")
+  "tg" #'git-gutter-mode
   "tl" #'+line-numbers-toggle
   "tL" #'global-hl-line-mode
   "tn" #'neotree-toggle
