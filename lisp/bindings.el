@@ -149,6 +149,15 @@ search is followed (not cancelled)."
   "iSi" #'yas-insert-snippet
   "iSv" #'yas-visit-snippet-file
 
+  "n" '(:ignore t :wk "narrow")
+  "nb" #'org-narrow-to-block
+  "nd" #'narrow-to-defun
+  "ne" #'org-narrow-to-element
+  "np" #'narrow-to-page
+  "nr" #'narrow-to-region
+  "ns" #'org-narrow-to-subtree
+  "nw" #'widen
+
   "o" '(:ignore t :wk "open")
   "od" '(xeal/open-docs :wk "documentation")
   "oi" `(,(λ! (+gtd/open-file "inbox")) :wk "inbox")
