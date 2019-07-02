@@ -187,6 +187,7 @@ search is followed (not cancelled)."
   "tt" #'counsel-load-theme
   "tu" #'undo-tree-visualize
   "tv" #'visual-line-mode
+  "tV" #'visual-fill-column-mode
   "tW" #'writegood-mode
 
   "w" '(:ignore t :wk "window")

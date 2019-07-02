@@ -38,6 +38,9 @@
 ;;;
 ;; Packages
 
+(use-package visual-fill-column
+  :hook (text-mode . visual-fill-column-mode))
+
 ;; Centred window
 (use-package centered-window
   :commands centered-window-mode
