@@ -88,7 +88,7 @@
 ;;;
 ;; Language support
 
-(require 'lang-c)
+(require 'lang-cc)
 (require 'lang-clojure)
 (require 'lang-crystal)
 (require 'lang-elisp)

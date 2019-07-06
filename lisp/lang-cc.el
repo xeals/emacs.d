@@ -1,4 +1,4 @@
-;;; lang-c.el --- C support -*- lexical-binding: t -*-
+;;; lang-cc.el --- C support -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; Damn.
@@ -91,13 +91,19 @@
 
 (use-feature cc-mode)
 
+(use-feature woman
+  :init
+  (setq woman-cache-filename (x/cache "woman.el")
+        woman-use-topic-at-point t)
+  :config
+  (push "/opt/cuda/doc/man" woman-manpath))
+
 (use-package cuda-mode
   :mode "\\.cu$"
-  :hook (cuda-mode . flycheck-mode)
   :init
   (after! cc-mode
     (c-add-language 'cuda-mode 'c++-mode))
   (set-doc-fn 'cuda-mode #'woman))
 
-(provide 'lang-c)
-;;; lang-c.el ends here
+(provide 'lang-cc)
+;;; lang-cc.el ends here
