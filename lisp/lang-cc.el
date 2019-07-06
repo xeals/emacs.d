@@ -47,17 +47,26 @@
 (use-package clang-format
   :commands (clang-format-region clang-format-buffer)
   :preface
-  (defun +clang-format-buffer-smart ()
+  (defun +clang-format-maybe-format ()
+    "Reformat buffer if .clang-format exists in the projectile root."
+    (when (locate-dominating-file "." ".clang-format")
+      (clang-format-buffer))
+    nil)
+  (defun +clang-format-enable-smart ()
     "Reformat buffer if .clang-format exists in the projectile root."
     (interactive)
     (require 'f)
-    (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
-      (clang-format-buffer)))
+    (+clang-format-maybe-format))
+  (defun +clang-format-enable-on-save ()
+    (add-to-list 'write-file-functions #'+clang-format-maybe-format))
+  :hook
+  (c-mode   . +clang-format-enable-on-save)
+  (c++-mode . +clang-format-enable-on-save)
   :general
   (:keymaps 'c-mode-map
    :states '(normal operator)
    :prefix xeal-localleader-key
-   "=" #'+clang-format-buffer-smart)
+   "=" #'+clang-format-enable-smart)
   (:keymaps 'c-mode-map
    :states '(visual)
    :prefix xeal-localleader-key
@@ -99,10 +108,12 @@
   (push "/opt/cuda/doc/man" woman-manpath))
 
 (use-package cuda-mode
-  :mode "\\.cu$"
+  :straight
+  (el-patch :type git :host github :repo "emacsmirror/cuda-mode"
+            :fork (:host nil :repo "https://git.owari.cc/xeals/cuda-mode.git"))
+  :hook
+  (cuda-mode . +clang-format-enable-on-save)
   :init
-  (after! cc-mode
-    (c-add-language 'cuda-mode 'c++-mode))
   (set-doc-fn 'cuda-mode #'woman))
 
 (provide 'lang-cc)
