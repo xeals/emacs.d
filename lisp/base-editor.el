@@ -215,8 +215,20 @@ directories."
    "n" #'neotree-next-line
    "p" #'neotree-previous-line
    "q" #'neotree-hide)
+  :preface
+  (defun +neotree/open-at-projectile ()
+    "Open NeoTree at the projectile project root, if available."
+    (interactive)
+    (let ((project-dir (projectile-project-root))
+          (file-name (buffer-name)))
+      (neotree-toggle)
+      (when (and project-dir
+                 (neo-global--window-exists-p))
+        (neotree-dir project-dir)
+        (neotree-find file-name))))
   :init
-  (setq neo-smart-open t
+  (setq neo-smart-open nil
+        neo-autorefresh nil
         neo-theme (if (display-graphic-p) 'icons 'arrow)
         projectile-switch-project-action #'neotree-projectile-action))
 

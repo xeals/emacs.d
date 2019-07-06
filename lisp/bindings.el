@@ -192,7 +192,7 @@ search is followed (not cancelled)."
   "tg" #'git-gutter-mode
   "tl" #'+line-numbers-toggle
   "tL" #'global-hl-line-mode
-  "tn" #'neotree-toggle
+  "tn" '(+neotree/open-at-projectile :wk "neotree-toggle")
   "tr" #'rainbow-mode
   "ts" #'flyspell-mode
   "tt" #'counsel-load-theme
