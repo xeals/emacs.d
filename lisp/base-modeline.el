@@ -20,7 +20,7 @@
   :hook (after-init . doom-modeline-mode)
   :init
   (setq doom-modeline-height 25
-        doom-modeline-bar-width 3
+        doom-modeline-bar-width 4
         doom-modeline-buffer-file-name-style 'relative-from-project
         doom-modeline-icon t
         doom-modeline-major-mode-icon nil
