@@ -47,7 +47,7 @@
   :config
   (set-doc-fn 'go-mode #'godoc-at-point)
   (set-prettify-symbols 'go-mode
-                        '(;;("func" . ?ƒ) ; WHY DOES THIS CAUSE A SEGFAULT
+                        '(("func" . ?ƒ)
                           (":="   . ?←)))
 
   ;; fix up godoc-mode to be consistent with literally every other documentation mode
