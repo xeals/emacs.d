@@ -33,7 +33,7 @@
    ;; FIXME
    '(doom-modeline-buffer-modified ((t (:inherit font-lock-variable-name-face))))
    '(doom-modeline-panel ((t (:inherit match))))
-   )
+   '(doom-modeline-inactive-bar ((t (:inherit doom-modeline-panel)))))
   :config
   (doom-modeline-def-modeline '+doom/x/modeline
     '(bar modals matches buffer-info buffer-position selection-info)
