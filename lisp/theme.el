@@ -32,10 +32,14 @@
 (custom-theme-set-faces
  'metropolis
  '(vertical-border ((t (:foreground "#0E1F2C" :background "#0E1F2C"))))          ;; base00
- '(doom-modeline-bar ((t (:background "#55C3B7"))))                              ;; base0C
  '(line-number ((t (:foreground "#373E35" :background "#0E1F2C"))))              ;; base03, base00
  '(line-number-current-line ((t (:foreground "#CFD2D4" :background "#12293A")))) ;; base05, base01
- )
+ '(doom-modeline-bar ((t (:background "#55C3B7"))))                              ;; base0C
+ '(doom-modeline-buffer-file ((t (:foreground "#55C3B7" :slant italic))))        ;; base0C
+ '(doom-modeline-buffer-path ((t (:foreground "#F4BC47" :slant italic))))        ;; base0A
+ '(doom-modeline-evil-normal-state ((t (:foreground "#55C3B7" :inherit bold))))  ;; base0C
+ '(doom-modeline-evil-insert-state ((t (:foreground "#F4BC47" :inherit bold))))  ;; base0A
+ '(doom-modeline-evil-visual-state ((t (:foreground "#9A77CF" :inherit bold))))) ;; base0E
 
 ;;;
 ;; Typography
