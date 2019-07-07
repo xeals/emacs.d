@@ -12,12 +12,6 @@
 ;;;
 ;; Theme
 
-;; FIXME This is broken for some reason.
-;; (use-feature agila
-;;   :config
-;;   (custom-set-faces
-;;    '(fringe ((t (:background "#1A1E24"))))
-;;    '(ivy-posframe ((t :foreground "#cdd3df" :background "#1a1e24")))))
 (straight-use-package
  '(agila-theme
    :type git
