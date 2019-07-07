@@ -37,7 +37,7 @@
   :config
   (doom-modeline-def-modeline '+doom/x/modeline
     '(bar modals matches buffer-info buffer-position selection-info)
-    '(input-method lsp major-mode vcs checker bar))
+    '(input-method lsp major-mode vcs checker))
   (defun +doom/setup-modeline ()
     (doom-modeline-set-modeline '+doom/x/modeline 'default))
   (add-hook 'doom-modeline-mode-hook '+doom/setup-modeline)
