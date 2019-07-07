@@ -12,105 +12,6 @@
   (require 'base-vars))
 
 ;;;
-;; Functions
-
-;; Replaces `go--godoc'
-(defun +go//godoc (query command)
-  (+go//godoc-help-buf (+go//godoc-string query command)))
-
-;; Partially replaces `go--godoc'
-(defun +go//godoc-string (query command)
-  (unless (string= query "")
-    (shell-command-to-string (concat command " " query))))
-
-;; Borrowed from `racer--help-buf'
-(defun +go//godoc-help-buf (contents)
-  (let ((buf (get-buffer-create "*godoc*"))
-        ;; If the buffer already existed, we need to be able to
-        ;; override `buffer-read-only'
-        (inhibit-read-only t))
-    (with-current-buffer buf
-      (erase-buffer)
-      (insert contents)
-      (setq buffer-read-only t)
-      (goto-char (point-min))
-      (godoc-mode))
-    buf))
-
-(defun +godoc-and-godef (point)
-  "Use a combination of godef and godoc to guess the documentation at POINT.
-
-Due to a limitation in godoc, it is not possible to differentiate
-between functions and methods, which may cause `godoc-at-point'
-to display more documentation than desired.  Furthermore, it
-doesn't work on package names or variables.
-
-Consider using ‘godoc-gogetdoc’ instead for more accurate results.
-
-Creates and focuses a temporary buffer."
-  (condition-case nil
-      (let* ((output (godef--call point))
-             (file (car output))
-             (name-parts (split-string (cadr output) " "))
-             (first (car name-parts)))
-        (if (not (godef--successful-p file))
-            (message "%s" (godef--error file))
-          (let ((buf (+go//godoc (format "%s %s"
-                                         (file-name-directory file)
-                                         (if (or (string= first "type") (string= first "const"))
-                                             (cadr name-parts)
-                                           (car name-parts)))
-                                 godoc-and-godef-command)))
-            (temp-buffer-window-show buf)
-            (switch-to-buffer-other-frame buf)))))
-  (file-error (message "Could not run godef binary")))
-
-(defun +godoc-gogetdoc (point)
-  "Use the gogetdoc tool to find the documentation for an identifier at POINT.
-
-You can install gogetdoc with 'go get -u github.com/zmb3/gogetdoc'.
-
-Creates and focuses a temporary buffer."
-  (if (not (buffer-file-name (go--coverage-origin-buffer)))
-      ;; TODO: gogetdoc supports unsaved files, but not introducing
-      ;; new artifical files, so this limitation will stay for now.
-      (error "Cannot use gogetdoc on a buffer without a file name"))
-  (let ((posn (format "%s:#%d" (shell-quote-argument (file-truename buffer-file-name)) (1- (position-bytes point))))
-        (out (godoc--get-buffer "<at point>")))
-    (with-current-buffer (get-buffer-create "*go-gogetdoc-input*")
-      (setq buffer-read-only nil)
-      (erase-buffer)
-      (go--insert-modified-files)
-      (call-process-region (point-min) (point-max) "gogetdoc" nil out nil
-                           "-modified"
-                           (format "-pos=%s" posn)))
-    (with-current-buffer out
-      (goto-char (point-min))
-      (godoc-mode)
-      (temp-buffer-window-show out)
-      (switch-to-buffer-other-frame out))))
-
-(defun +godoc-at-point (point)
-  "Show Go documentation for the identifier at POINT.
-
-It uses `godoc-at-point-function' to look up the documentation."
-  (interactive "d")
-  (funcall godoc-at-point-function point))
-
-(defun +gogetdoc-at-point (point)
-  "Show Go documentation for the identifier at POINT.
-
-Uses `+godoc-gogetdoc' to look up documentation."
-  (interactive "d")
-  (+godoc-gogetdoc point))
-
-(defun +go/local-import-dir ()
-  "Finds the import path of the current working buffer."
-  (replace-regexp-in-string (concat (getenv "GOPATH") "/src/")
-                            ""
-                            (projectile-project-root)))
-
-;;;
 ;; Packages
 
 (use-package go-mode
@@ -126,33 +27,25 @@ Uses `+godoc-gogetdoc' to look up documentation."
    :states '(normal visual operator)
    :prefix xeal-localleader-key
    "d" #'godef-jump-other-window
-   "h" #'+gogetdoc-at-point)
-  (:keymaps 'go-mode-map
-   :states '(normal visual operator)
-   :prefix xeal-localleader-key
-   :infix "i"
-   "" '(:ignore t :wk "imports")
-   "g" #'go-goto-imports
-   "a" #'go-import-add
-   "r" #'go-remove-unused-imports)
-  (:keymaps 'go-mode-map
-   :states '(normal visual operator)
-   :prefix xeal-localleader-key
-   :infix "g"
-   "" '(:ignore t :wk "goto")
-   "a" #'go-goto-arguments
-   "d" #'go-goto-docstring
-   "f" #'go-goto-function
-   "i" #'go-goto-imports
-   "n" #'go-goto-function-name
-   "r" #'go-goto-return-values
-   "m" #'go-goto-method-receiver)
+   "g" '(:ignore t :wk "goto")
+   "ga" #'go-goto-arguments
+   "gd" #'go-goto-docstring
+   "gf" #'go-goto-function
+   "gi" #'go-goto-imports
+   "gm" #'go-goto-method-receiver
+   "gn" #'go-goto-function-name
+   "gr" #'go-goto-return-values
+   "i" '(:ignore t :wk "imports")
+   "ia" #'go-import-add
+   "ig" #'go-goto-imports
+   "ir" #'go-remove-unused-imports)
   :init
   (setq flycheck-go-build-install-deps nil
-        godoc-at-point-function #'+godoc-and-godef
+        godoc-at-point-function #'godoc-gogetdoc
+        godoc-and-godef-command "go doc"
         gofmt-command "goimports")
   :config
-  (set-doc-fn 'go-mode #'+godoc-at-point)
+  (set-doc-fn 'go-mode #'godoc-at-point)
   (set-prettify-symbols 'go-mode
                         '(;;("func" . ?ƒ) ; WHY DOES THIS CAUSE A SEGFAULT
                           (":="   . ?←)))
