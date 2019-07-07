@@ -49,9 +49,7 @@
 
 ;; Highlight the current line
 (use-package hl-line
-  ;; :commands (hl-line-mode global-hl-line-mode)
-  ;;:hook (after-init . global-hl-line-mode)
-  )
+  :hook (after-init . global-hl-line-mode))
 
 ;; Colour the cursor based on the foreground
 (use-package smart-cursor-color
@@ -73,8 +71,7 @@
   :hook
   (prog-mode . +line-numbers-enable)
   (text-mode . +line-numbers-enable)
-  (conf-mode . +line-numbers-enable)
-  )
+  (conf-mode . +line-numbers-enable))
 
 ;; Highlight hex colours
 (use-package rainbow-mode
