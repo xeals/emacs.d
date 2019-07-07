@@ -61,11 +61,6 @@
   :commands (hlinum-activate hlinum-deactivate))
 
 ;; Use line numbers
-(use-package nlinum
-  :disabled t
-  :commands (nlinum-mode global-nlinum-mode))
-
-;; Use line numbers
 (use-feature linum
   :commands (linum-mode global-linum-mode)
   :hook
@@ -195,7 +190,7 @@ Toggle using `+line-numbers-toggle'.")
 
 ;;;###autoload
 (defun +line-numbers-enable ()
-  "Enables the display of line numbers using `display-line-numbers'(in Emacs 26+) or `nlinum-mode'."
+  "Enables the display of line numbers using `display-line-numbers'(in Emacs 26+) or `linum-mode'."
   (if (boundp 'display-line-numbers)
       (setq display-line-numbers t)
     (hlinum-activate)
