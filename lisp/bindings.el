@@ -123,6 +123,7 @@ search is followed (not cancelled)."
 
   "g" '(:ignore t :wk "git")
   "gb" '(magit-blame           :wk "blame")
+  "gc" '(magit-commit          :wk "commit")
   "gh" '(git-gutter:stage-hunk :wk "stage hunk")
   "gl" '(magit-log-all         :wk "log")
   "gs" '(magit-status          :wk "status")
