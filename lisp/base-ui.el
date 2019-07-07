@@ -201,8 +201,8 @@ Toggle using `+line-numbers-toggle'.")
   "Enables the display of line numbers using `display-line-numbers'(in Emacs 26+) or `nlinum-mode'."
   (if (boundp 'display-line-numbers)
       (setq display-line-numbers t)
+    (hlinum-activate)
     (linum-mode 1))
-  (hlinum-activate)
   (setq +line-numbers-toggle t))
 
 ;;;###autoload
@@ -210,8 +210,8 @@ Toggle using `+line-numbers-toggle'.")
   "Disable the display of line numbers."
   (if (boundp 'display-line-numbers)
       (setq display-line-numbers nil)
+    (hlinum-deactivate)
     (linum-mode -1))
-  (hlinum-deactivate)
   (setq +line-numbers-toggle nil))
 
 ;;;###autoload
