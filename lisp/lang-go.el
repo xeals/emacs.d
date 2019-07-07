@@ -192,6 +192,7 @@ Uses `+godoc-gogetdoc' to look up documentation."
    "r" #'go-guru-referrers))
 
 (use-package gorepl-mode
+  :if (executable-find "gore")
   :commands (gorepl-run gorepl-run-load-current-file)
   :hook (go-mode . gorepl-mode)
   :general
@@ -217,7 +218,7 @@ Uses `+godoc-gogetdoc' to look up documentation."
     (set-company-backends 'go-mode 'company-go)))
 
 (use-package flycheck-gometalinter
-  :disabled t
+  :if (executable-find "gometalinter")
   :commands flycheck-gometalinter-setup
   :hook (flycheck-mode . flycheck-gometalinter-setup)
   :init
