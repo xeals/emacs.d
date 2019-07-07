@@ -33,15 +33,16 @@
     :base0B "#BBC832"
     :base0C "#55C3B7"
     :base0D "#6D99BD"
-    :base0E "#9A77CF")
-    ; :base0E "#D34728"
-    ; :base0A "#E4913A"
-    ; :base09 "#F4BC47"
-    ; :base0B "#BBC832"
-    ; :base0C "#55C3B7"
-    ; :base0D "#6D99BD"
-    ; :base08 "#9A77CF"
-    ; :base0F "#A49688")
+    :base0E "#9A77CF"
+    :base0F "#A49688")
+  ;; :base0E "#D34728"
+  ;; :base0A "#E4913A"
+  ;; :base09 "#F4BC47"
+  ;; :base0B "#BBC832"
+  ;; :base0C "#55C3B7"
+  ;; :base0D "#6D99BD"
+  ;; :base08 "#9A77CF"
+  ;; :base0F "#A49688")
   "Colours for GMK Metropolis.")
 
 (deftheme metropolis)
