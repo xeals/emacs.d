@@ -152,7 +152,13 @@
                           ("/=" . ?≠)
                           ("!=" . ?≠)
                           (">=" . ?≥)
-                          ("<=" . ?≤)))
+                          ("<=" . ?≤)
+                          ("==" . ?≡)
+                          ;; Greek
+                          ("pi" . ?π)
+                          ("alpha" . ?α)
+                          ("beta" . ?β)
+                          ("delta" . ?Δ)))
   (global-prettify-symbols-mode 1))
 
 (use-package highlight-indent-guides
