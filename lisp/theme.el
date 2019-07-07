@@ -31,6 +31,8 @@
 (load-theme 'metropolis)
 (custom-theme-set-faces
  'metropolis
+ '(vertical-border ((t (:foreground "#0E1F2C" :background "#0E1F2C"))))          ;; base00
+ '(doom-modeline-bar ((t (:background "#55C3B7"))))                              ;; base0C
  '(line-number ((t (:foreground "#373E35" :background "#0E1F2C"))))              ;; base03, base00
  '(line-number-current-line ((t (:foreground "#CFD2D4" :background "#12293A")))) ;; base05, base01
  )
