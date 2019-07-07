@@ -212,8 +212,8 @@ Uses `+godoc-gogetdoc' to look up documentation."
 (use-package company-go
   :commands company-go
   :init
-  (setq command-go-gocode-command "gocode")
-  (when (executable-find command-go-gocode-command)
+  (setq company-go-gocode-command "gocode")
+  (when (executable-find company-go-gocode-command)
     (set-company-backends 'go-mode 'company-go)))
 
 (use-package flycheck-gometalinter
