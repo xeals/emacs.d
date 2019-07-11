@@ -29,17 +29,46 @@
 
 (require 'metropolis-theme)
 (load-theme 'metropolis)
-(custom-theme-set-faces
- 'metropolis
- '(vertical-border ((t (:foreground "#0E1F2C" :background "#0E1F2C"))))          ;; base00
- '(line-number ((t (:foreground "#373E35" :background "#0E1F2C"))))              ;; base03, base00
- '(line-number-current-line ((t (:foreground "#CFD2D4" :background "#12293A")))) ;; base05, base01
- '(doom-modeline-bar ((t (:background "#55C3B7"))))                              ;; base0C
- '(doom-modeline-buffer-file ((t (:foreground "#55C3B7" :slant italic))))        ;; base0C
- '(doom-modeline-buffer-path ((t (:foreground "#F4BC47" :slant italic))))        ;; base0A
- '(doom-modeline-evil-normal-state ((t (:foreground "#55C3B7" :inherit bold))))  ;; base0C
- '(doom-modeline-evil-insert-state ((t (:foreground "#F4BC47" :inherit bold))))  ;; base0A
- '(doom-modeline-evil-visual-state ((t (:foreground "#9A77CF" :inherit bold))))) ;; base0E
+(let ((base00 (plist-get metropolis-colors :base00))
+      (base01 (plist-get metropolis-colors :base01))
+      (base03 (plist-get metropolis-colors :base03))
+      (base05 (plist-get metropolis-colors :base05))
+      (base0A (plist-get metropolis-colors :base0A))
+      (base0C (plist-get metropolis-colors :base0C))
+      (base0E (plist-get metropolis-colors :base0E)))
+  (custom-theme-set-faces
+   'metropolis
+   `(warning ((t :foreground ,base0A)))
+   `(font-lock-keyword-face ((t :foreground ,base0C)))
+   `(vertical-border ((t (:foreground ,base00 :background ,base00))))
+   `(line-number ((t (:foreground ,base03 :background ,base00))))
+   `(line-number-current-line ((t (:foreground ,base05 :background ,base00))))
+   `(doom-modeline-bar ((t (:background ,base0C))))
+   `(doom-modeline-buffer-file ((t (:foreground ,base0C :slant italic))))
+   `(doom-modeline-buffer-path ((t (:foreground ,base0A :slant italic))))
+   `(doom-modeline-evil-normal-state ((t (:foreground ,base0C :inherit bold))))
+   `(doom-modeline-evil-insert-state ((t (:foreground ,base0A :inherit bold))))
+   `(doom-modeline-evil-visual-state ((t (:foreground ,base0E :inherit bold))))))
+
+;; Relatively adaptable theming. Maybe move this to hl-todo's init
+(let ((hl-warn (face-attribute 'warning :foreground))
+      (hl-error (face-attribute 'error :foreground))
+      (hl-info (face-attribute 'font-lock-function-name-face :foreground))
+      (hl-success (face-attribute 'success :foreground)))
+  (setq hl-todo-keyword-faces
+        `(("HACK"       . ,hl-warn)
+          ("HOLD"       . ,hl-warn)
+          ("KLUDGE"     . ,hl-warn)
+          ("TEMP"       . ,hl-warn)
+          ("OKAY"       . ,hl-info)
+          ("NOTE"       . ,hl-info)
+          ("FAIL"       . ,hl-error)
+          ("FIXME"      . ,hl-error)
+          ("XXX+"       . ,hl-error)
+          ("\\?\\?\\?+" . ,hl-error)
+          ("TODO"       . ,hl-error)
+          ("NEXT"       . ,hl-error)
+          ("DONE"       . ,hl-success))))
 
 ;;;
 ;; Typography
