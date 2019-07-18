@@ -119,6 +119,7 @@ search is followed (not cancelled)."
   "fg" '(counsel-rg                     :wk "rg")
   "fR" '(+rename-current-buffer-file    :wk "rename current")
   "fr" '(counsel-recentf                :wk "recent")
+  "fv" '(revert-buffer                  :wk "revert")
   "fy" '(+show-and-copy-buffer-filename :wk "show and copy filename")
 
   "g" '(:ignore t :wk "git")
