@@ -170,10 +170,8 @@ search is followed (not cancelled)."
   "ow" `(,(λ! (counsel-find-file xeal-wb-dir)) :wk "worldbuilding")
 
   "ou" '(:ignore t :wk "university")
-  "oua" `(,(λ! (xeal/open-uni "assignments")) :wk "assignments")
+  "oud" `(+uni/open-dir/body :wk "directory")
   "oun" '(+org/open-notes/body :wk "notes")
-  "oul" `(,(λ! (xeal/open-uni "labs")) :wk "labs")
-  "out" `(,(λ! (xeal/open-uni "tutoring")) :wk "tutoring")
 
   "p" '(:ignore t :wk "project")
   "p SPC" '(counsel-projectile-find-file :wk "find file in project")

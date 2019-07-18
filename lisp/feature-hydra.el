@@ -70,9 +70,15 @@
 
 (defhydra +org/open-notes (:color blue)
   "Notes"
-  ("c" (open-course "COMP3310") "Computer Networks")
-  ("p" (open-course "COMP1100.2019S1") "Programming as Problem Solving")
+  ("a" (open-course "COMP3600") "Algorithms")
+  ("e" (open-course "ENGN3230") "Engineering Innovations")
   ("r" (find-file (concat xeal-uni-dir "/COMP4540/thesis.org")) "Research"))
+
+(defhydra +uni/open-dir (:color blue)
+  "Uni folders"
+  ("a" (xeal/open-uni "COMP3600") "Algorithms")
+  ("e" (xeal/open-uni "ENGN3230") "Engineering Innovations")
+  ("r" (xeal/open-uni "COMP4540") "Research"))
 
 ;;;
 ;; Supporting functions
