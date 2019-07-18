@@ -13,8 +13,12 @@
 ;; Packages
 
 (use-package nim-mode
+  :preface
+  (defun aggressive-indent-mode-off ()
+    (aggressive-indent-mode -1))
   :hook
   (nim-mode . nimsuggest-mode)
+  (nim-mode . aggressive-indent-mode-off)
   (nimsuggest-mode . company-mode)
   (nimsuggest-mode . flymake-mode)
   :init
