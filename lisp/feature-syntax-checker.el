@@ -37,7 +37,8 @@
   (flycheck-posframe-configure-pretty-defaults))
 
 (use-package flymake-diagnostic-at-point
-  :after flymake)
+  :after flymake
+  :hook (flymake-mode . flymake-diagnostic-at-point-mode))
 
 (use-package flymake-posframe
   :disabled t
