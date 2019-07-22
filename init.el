@@ -84,6 +84,7 @@
 (require 'tool-pairing)
 (require 'tool-plot)
 (require 'tool-ledger)
+(require 'tool-term)
 
 ;;;
 ;; Language support

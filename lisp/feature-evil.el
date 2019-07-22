@@ -39,10 +39,6 @@
 
   (evil-select-search-module 'evil-search-module 'evil-search)
 
-  (dolist (mode (list 'eshell-mode 'term-mode))
-    (setq evil-insert-state-modes (delete mode evil-insert-state-modes))
-    (push mode evil-emacs-state-modes))
-
   (evil-mode 1))
 
 (use-package evil-anzu
