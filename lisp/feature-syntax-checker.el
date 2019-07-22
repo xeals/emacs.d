@@ -40,6 +40,7 @@
   :after flymake)
 
 (use-package flymake-posframe
+  :disabled t
   :straight (:type git
              :repo "https://git.owari.cc/xeals/flymake-posframe")
   :hook

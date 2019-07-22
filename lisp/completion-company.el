@@ -99,6 +99,7 @@
         company-quickhelp-color-background "#424242"))
 
 (use-package company-posframe
+  :disabled t
   :after company
   :hook (company-mode . company-posframe-mode))
 
