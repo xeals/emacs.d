@@ -78,6 +78,7 @@ directories."
         recentf-exclude `("/tmp/"             ; temp files
                           "^/\\.git/.+?"      ; git contents
                           "COMMIT_EDITMSG$"
+                          "TAGS"
                           "recentf$"
                           "/usr/share/emacs/" ; emacs source
                           ;; `abbreviate-file-name' because that's how it's transformed
