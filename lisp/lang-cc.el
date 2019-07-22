@@ -98,7 +98,9 @@
                `(cuda-mode . ,(cdr (assoc 'c++-mode company-c-headers-modes))))
   (add-to-list 'company-c-headers-path-system "/usr/include/c++/8.2.1"))
 
-(use-feature cc-mode)
+(use-feature cc-mode
+  :init
+  (setq-default c-basic-offset 4))
 
 (use-feature woman
   :init
@@ -115,6 +117,8 @@
   (cuda-mode . +clang-format-enable-on-save)
   :init
   (set-doc-fn 'cuda-mode #'woman))
+
+(use-package cmake-mode)
 
 (provide 'lang-cc)
 ;;; lang-cc.el ends here
