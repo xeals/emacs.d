@@ -155,10 +155,15 @@
                           ("<=" . ?≤)
                           ("==" . ?≡)
                           ;; Greek
-                          ("pi" . ?π)
-                          ("alpha" . ?α)
-                          ("beta" . ?β)
-                          ("delta" . ?Δ)))
+                          ("pi"      . ?π)
+                          ("alpha"   . ?α)
+                          ("beta"    . ?β)
+                          ("delta"   . ?Δ)
+                          ("epsilon" . ?ε)
+                          ("omega"   . ?ω)
+                          ("sigma"   . ?σ)
+                          ("tau"     . ?τ)
+                          ("theta"   . ?θ)))
   (global-prettify-symbols-mode 1))
 
 (use-package highlight-indent-guides
