@@ -170,6 +170,7 @@ directories."
         writeroom-width 100))
 
 (use-package focus
+  :disabled t
   :commands focus-mode
   :hook (writeroom-mode . focus-mode)
   :init
