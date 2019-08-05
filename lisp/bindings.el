@@ -190,6 +190,7 @@ search is followed (not cancelled)."
 
   "t" '(:ignore t :wk "toggles/theme")
   "tg" #'git-gutter-mode
+  "ti" #'aggressive-indent-mode
   "tl" #'+line-numbers-toggle
   "tL" #'global-hl-line-mode
   "tn" '(+neotree/open-at-projectile :wk "neotree-toggle")
