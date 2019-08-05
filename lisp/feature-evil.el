@@ -115,6 +115,11 @@
   (org-mode . evil-org-mode)
   (evil-org-mode . evil-org-set-key-theme))
 
+(use-package evil-string-inflection
+  :general
+  (:states '(normal visual)
+   "g~" #'evil-operator-string-inflection))
+
 ;; Easily add surrounding delimiters
 (use-package evil-surround
   :commands (global-evil-surround-mode

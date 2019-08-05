@@ -236,5 +236,18 @@ directories."
 (use-package aggressive-indent
   :hook (after-init . global-aggressive-indent-mode))
 
+(use-package string-inflection
+  :general
+  (:states '(normal visual)
+   "gs" '(:ignore t :wk "string-inflection")
+   "gs-" #'string-inflection-kebab-case
+   "gs=" #'string-inflection-capital-underscore
+   "gs_" #'string-inflection-underscore
+   "gsc" #'string-inflection-lower-camelcase
+   "gsC" #'string-inflection-camelcase
+   "gsk" #'string-inflection-kebab-case
+   "gsu" #'string-inflection-underscore
+   "gsU" #'string-inflection-capital-underscore))
+
 (provide 'base-editor)
 ;;; base-editor.el ends here
