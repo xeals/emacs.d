@@ -121,7 +121,7 @@ If on a:
        (org-babel-execute-src-block))
 
       ((or `latex-fragment `latex-environment)
-       (org-toggle-latex-fragment))
+       (org-latex-preview))
 
       (`link
        (let ((path (org-element-property :path (org-element-lineage context '(link) t))))
@@ -219,7 +219,8 @@ If on a:
    "Te" #'org-toggle-emphasis-markers
    "Tl" #'org-toggle-link-display
    "Tp" #'org-toggle-pretty-entities
-   "Tx" #'org-toggle-latex-fragment
+   "Tx" #'org-latex-preview
+   "TX" #'org-clear-latex-preview
    "TT" #'org-todo)
 
   ;; org-agenda
