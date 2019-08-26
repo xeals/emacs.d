@@ -63,8 +63,8 @@
   ("j" org-next-visible-heading)
   ("k" org-previous-visible-heading)
   ("l" org-forward-heading-same-level)
-  (">" org-promote-subtree)
-  ("<" org-demote-subtree)
+  ("<" org-promote-subtree)
+  (">" org-demote-subtree)
   ("<tab>" +org/toggle-fold "toggle-fold")
   ("q" nil "quit" :color blue))
 
