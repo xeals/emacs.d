@@ -109,7 +109,7 @@
 
 ;; Org integration
 (use-package evil-org
-  :commands (evil-org-mode evil-org-recalculate-clocs)
+  :commands (evil-org-mode evil-org-recalculate-clocs evil-org-return)
   :after (org evil)
   :hook
   (org-mode . evil-org-mode)
