@@ -270,8 +270,8 @@ If on a:
         org-fontify-quote-and-verse-blocks t ; different faces
         org-src-fontify-natively t           ; fancy src blocks
         org-pretty-entities t                ; for latex inserts
-        org-ellipsis " ▼ "                   ; for hidden entries
-        org-tags-column -77                  ; align to 80 characters
+        org-ellipsis " › "                   ; for hidden entries
+        org-tags-column -75                  ; align to 80 characters
 
         org-fontify-done-headline t
         org-fontify-whole-heading-line t
