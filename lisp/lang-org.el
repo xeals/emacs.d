@@ -256,11 +256,13 @@ If on a:
              :key #'file-truename
              :test #'equal))
   (defun +org-setup-templates ()
-    (add-to-list 'org-structure-template-alist
-                 '("p" . "src python :results output"))
-    (add-to-list 'org-structure-template-alist
-                 '("r" . "src R :results graphics file: assets/fig_?.png"))
-    (require 'org-tempo))
+    ;; Structure of this changed in 26.2 with org-mode templating changes.
+    (when (version<= "26.2" emacs-version)
+      (add-to-list 'org-structure-template-alist
+                   '("p" . "src python :results output"))
+      (add-to-list 'org-structure-template-alist
+                   '("r" . "src R :results graphics file: assets/fig_?.png"))
+      (require 'org-tempo)))
   :init
   (setq org-hide-leading-stars nil           ; only show last star
         org-hide-emphasis-markers nil        ; pretty links, etc.
