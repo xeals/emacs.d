@@ -304,7 +304,8 @@ If on a:
         org-log-done 'time
         org-log-done-with-time t)
   :config
-  (defvaralias 'org-directory 'xeal-org-dir)
+  ;; FIXME was (defvaralias 'org-directory 'xeal-org-dir)
+  (setq org-directory xeal-org-dir)
 
   (after! base-editor
     (add-to-list 'recentf-exclude #'+org-is-agenda-file))
