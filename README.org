@@ -1,8 +1,11 @@
 * emacs.d
 
-- theme :: `base16-agila`
-  - font :: IBM Plex Mono / Serif
-- completion :: ivy, company
+[[file:./home.png]]
+
+- theme :: based on [[https://web.archive.org/web/20190923122056/https://dailyclack.com/products/gmk-metropolis][GMK Metropolis]]
+  - font :: Noto Mono
 - editing :: evil
-- key def :: general
+- primary languages :: rust, go, org
+- key definitions :: general
+- completion :: ivy, company
 - syntax checking :: flycheck
