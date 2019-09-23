@@ -1,4 +1,4 @@
-;;; lang-markup.el --- Common markup language support -*- lexical-binding: t -*-
+;;; lang-other.el --- Common other language support -*- lexical-binding: t -*-
 
 ;;; Commentary:
 ;; Stuff that doesn't justify an individual file because it's a two-liner.
@@ -20,5 +20,5 @@
 (use-package fish-mode
   :mode "\\.fish$")
 
-(provide 'lang-markup)
-;;; lang-markup.el ends here
+(provide 'lang-other)
+;;; lang-other.el ends here
