@@ -53,5 +53,11 @@ Basically exclusively for use in a snippet."
   :init
   (set-doc-fn 'fennel-mode #'fennel-find-definition))
 
+(use-package moonscript
+  :straight (moonscript-mode
+             :host github
+             :repo "k2052/moonscript-mode")
+  :mode ("\\.moon$" . moonscript-mode))
+
 (provide 'lang-lua)
 ;;; lang-lua.el ends here
