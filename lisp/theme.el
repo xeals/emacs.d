@@ -32,12 +32,15 @@
 (let ((base00 (plist-get metropolis-colors :base00))
       (base01 (plist-get metropolis-colors :base01))
       (base03 (plist-get metropolis-colors :base03))
+      (base04 (plist-get metropolis-colors :base04))
       (base05 (plist-get metropolis-colors :base05))
       (base0A (plist-get metropolis-colors :base0A))
       (base0C (plist-get metropolis-colors :base0C))
       (base0E (plist-get metropolis-colors :base0E)))
   (custom-theme-set-faces
    'metropolis
+   ;; according to base16 spec, it should be this.
+   `(mode-line ((t :foregournd ,base04 :background ,base01)))
    `(warning ((t :foreground ,base0A)))
    `(font-lock-keyword-face ((t :foreground ,base0C)))
    `(vertical-border ((t (:foreground ,base00 :background ,base00))))
