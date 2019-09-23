@@ -20,13 +20,13 @@
 
 (defvar metropolis-colors
   '(:base00 "#0E1F2C"
-    :base01 "#112636"
-    :base02 "#12293A"
-    :base03 "#373E45"
-    :base04 "#4A4D4F"
+    :base01 "#162A3A"
+    :base02 "#1F3648"
+    :base03 "#365064"
+    :base04 "#9FAEB8"
     :base05 "#CFD2D4"
-    :base06 "#E4E7EA"
-    :base07 "#F7FAFD"
+    :base06 "#E1E9E0"
+    :base07 "#FFF6F0"
     :base08 "#D34728"
     :base09 "#E4913A"
     :base0A "#F4BC47"
@@ -35,14 +35,6 @@
     :base0D "#6D99BD"
     :base0E "#9A77CF"
     :base0F "#A49688")
-  ;; :base0E "#D34728"
-  ;; :base0A "#E4913A"
-  ;; :base09 "#F4BC47"
-  ;; :base0B "#BBC832"
-  ;; :base0C "#55C3B7"
-  ;; :base0D "#6D99BD"
-  ;; :base08 "#9A77CF"
-  ;; :base0F "#A49688")
   "Colours for GMK Metropolis.")
 
 (deftheme metropolis)
