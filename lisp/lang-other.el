@@ -17,5 +17,8 @@
 (use-package toml-mode
   :mode "\\.toml$")
 
+(use-package fish-mode
+  :mode "\\.fish$")
+
 (provide 'lang-markup)
 ;;; lang-markup.el ends here
