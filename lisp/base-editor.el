@@ -29,6 +29,8 @@
  tab-width 4                            ; personal preferences
  delete-trailing-lines t                ; trailing lines trigger me
  require-final-newline t                ; but one is fine
+
+ confirm-kill-processes nil             ; stop asking me if you want to die
  )
 
 (add-hook 'before-save-hook #'delete-trailing-whitespace)
