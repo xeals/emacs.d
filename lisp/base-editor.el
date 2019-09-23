@@ -144,22 +144,6 @@ directories."
   (setq sp-highlight-pair-overlay nil
         sp-show-pair-delay 0)
   :config
-  (sp-local-pair '(xml-mode nxml-mode) "<!--" "-->"
-                 :post-handlers '(("| " "SPC")))
-
-  ;; ;; Auto-close more conservatively
-  ;; (let ((unless-list '(sp-point-before-word-p
-  ;;                      sp-point-after-word-p
-  ;;                      sp-point-before-same-p)))
-  ;;   (sp-pair "'"  nil :unless unless-list)
-  ;;   (sp-pair "\"" nil :unless unless-list))
-  ;; (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET") ("| " " "))
-  ;;          :unless '(sp-point-before-word-p sp-point-before-same-p))
-  ;; (sp-pair "(" nil :post-handlers '(("||\n[i]" "RET") ("| " " "))
-  ;;          :unless '(sp-point-before-word-p sp-point-before-same-p))
-  ;; (sp-pair "[" nil :post-handlers '(("| " " "))
-  ;;          :unless '(sp-point-before-word-p sp-point-before-same-p))
-
   (require 'smartparens-config)
   (smartparens-global-mode 1))
 
