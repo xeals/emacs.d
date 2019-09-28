@@ -135,6 +135,7 @@ search is followed (not cancelled)."
   "hd" '(evil-ex-show-digraphs :wk "digraphs")
   "hf" '(describe-function     :wk "functions")
   "hF" '(describe-face         :wk "faces")
+  "hi" #'info
   "hk" '(describe-key          :wk "key")
   "hK" '(describe-keymap       :wk "keymap")
   "hm" '(describe-mode         :wk "mode")
