@@ -2,10 +2,12 @@
 # TODO move to data
 elpa
 
-# idk how to move lsp lol
+# idk how to move these lol
 .lsp-session*
+.python-environments
 
 # sick of this and idk what it's for
 transient/
 
+# https://github.com/raxod502/straight.el/issues/274
 straight/
